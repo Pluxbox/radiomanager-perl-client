@@ -1,0 +1,22 @@
+# RadioManagerClient::Object::Block
+
+## Load the model package
+```perl
+use RadioManagerClient::Object::Block;
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** | ID of the current Block. | 
+**broadcast_id** | **int** | Currently assigned Broadcast connected to the current Block, identified by the Broadcast ID. | 
+**start** | **DateTime** | Start of the Block (formatted as a DateTime object), saved with an TimeZone. | 
+**stop** | **DateTime** | End of the Block (formatted as a DateTime object), saved with an TimeZone. | 
+**created_at** | **DateTime** | Time of the creation of the Block (formatted as a DateTime object), saved with an TimeZone. | 
+**updated_at** | **DateTime** | Time of the last update of the Block (formatted as a DateTime object), saved with an TimeZone. | 
+**deleted_at** | **DateTime** | Moment when the Block got deleted (formatted as a DateTime object), saved with an TimeZone. | 
+**_external_station_id** | **int** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

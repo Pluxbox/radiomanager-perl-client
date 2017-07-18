@@ -52,55 +52,6 @@ sub new {
 
 
 #
-# download_visual_slide
-#
-# Get Visual Slide Image as JPEG
-# 
-{
-    my $params = {
-    };
-    __PACKAGE__->method_documentation->{ 'download_visual_slide' } = { 
-    	summary => 'Get Visual Slide Image as JPEG',
-        params => $params,
-        returns => 'VisualImageResult',
-        };
-}
-# @return VisualImageResult
-#
-sub download_visual_slide {
-    my ($self, %args) = @_;
-
-    # parse inputs
-    my $_resource_path = '/visual/image';
-
-    my $_method = 'GET';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
-
-    my $_body_data;
-    # authentication setting, if any
-    my $auth_settings = [qw(API Key )];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('VisualImageResult', $response);
-    return $_response_object;
-}
-
-#
 # get_visual_slide
 #
 # Get Visual Slide Image as Base64

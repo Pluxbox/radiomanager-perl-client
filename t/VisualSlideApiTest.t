@@ -30,13 +30,6 @@ my $api = RadioManagerClient::VisualSlideApi->new();
 isa_ok($api, 'RadioManagerClient::VisualSlideApi');
 
 #
-# download_visual_slide test
-#
-{
-    my $result = $api->download_visual_slide();
-}
-
-#
 # get_visual_slide test
 #
 {

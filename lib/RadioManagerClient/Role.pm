@@ -1,8 +1,8 @@
 =begin comment
 
-Pluxbox Radiomanager Client
+RadioManager
 
-Pluxbox RadioManager gives you the power, flexibility and speed you always wanted in a lightweight and easy-to-use web-based radio solution. With Pluxbox RadioManager you can organise your radio workflow and automate your omnichannel communication with your listeners. We offer wide range specialised services for the radio and connections like Hybrid Radio, Visual Radio, your website and social media without losing focus on your broadcast. For more information visit https://pluxbox.com
+RadioManager
 
 OpenAPI spec version: 2.0
 Contact: support@pluxbox.com
@@ -54,7 +54,7 @@ has _cfg => ( is => 'ro',
 has version_info => ( is => 'ro',
                       isa => 'HashRef',
                       default => sub { {
-                          app_name => 'Pluxbox Radiomanager Client',
+                          app_name => 'RadioManager',
                           app_version => '2.0',
                           generator_class => 'io.swagger.codegen.languages.PerlClientCodegen',
                       } },
@@ -111,9 +111,9 @@ sub _build_af {
 
 =head1 NAME
 
-RadioManagerClient::Role - a Moose role for the Pluxbox Radiomanager Client
+RadioManagerClient::Role - a Moose role for the RadioManager
 
-=head2 Pluxbox Radiomanager Client version: 2.0
+=head2 RadioManager version: 2.0
 
 =head1 VERSION
 

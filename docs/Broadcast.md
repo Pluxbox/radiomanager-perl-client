@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **recommended** | **boolean** |  | [optional] 
 **language** | **string** |  | [optional] 
 **published** | **boolean** |  | [optional] 
-**repetition_uid** | [**UUID**](UUID.md) |  | [optional] 
+**repetition_uid** | **string** |  | [optional] 
 **repetition_type** | **string** |  | [optional] 
 **repetition_end** | **DateTime** |  | [optional] 
 **repetition_start** | **DateTime** |  | [optional] 

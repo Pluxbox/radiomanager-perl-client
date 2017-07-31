@@ -651,7 +651,7 @@ sub list_broadcasts {
 
     # query params
     if ( exists $args{'start_max'}) {
-        $query_params->{'start_max'} = $self->{api_client}->to_query_value($args{'start_max'});
+        $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
     }
 
     # query params

@@ -39,24 +39,21 @@ use Module::Runtime qw(use_module);
 
 use RadioManagerClient::Configuration;
 
+use base 'Class::Singleton';
 
-sub new {
+sub _new_instance
+{
     my $class = shift;
-
-    my $config;
-    if ( $_[0] && ref $_[0] && ref $_[0] eq 'RadioManagerClient::Configuration' ) {
-        $config = $_[0];
-    } else {
-        $config = RadioManagerClient::Configuration->new(@_);
-    }
-
     my (%args) = (
         'ua' => LWP::UserAgent->new,
-        'config' => $config,
+        'base_url' => 'https://staging.radiomanager.pluxbox.com/api/v2',
+        @_
     );
   
     return bless \%args, $class;
 }
+
+sub _cfg {'RadioManagerClient::Configuration'}
 
 # Set the user agent of the API client
 #
@@ -94,7 +91,7 @@ sub call_api {
     $self->update_params_for_auth($header_params, $query_params, $auth_settings); 
   
   
-    my $_url = $self->{config}{base_url} . $resource_path;
+    my $_url = $self->{base_url} . $resource_path;
   
     # build query 
     if (%$query_params) {
@@ -141,8 +138,8 @@ sub call_api {
     else {
     }
    
-    $self->{ua}->timeout($self->{http_timeout} || $self->{config}{http_timeout});
-    $self->{ua}->agent($self->{http_user_agent} || $self->{config}{http_user_agent});
+    $self->{ua}->timeout($self->{http_timeout} || $RadioManagerClient::Configuration::http_timeout); 
+    $self->{ua}->agent($self->{http_user_agent} || $RadioManagerClient::Configuration::http_user_agent);
     
     $log->debugf("REQUEST: %s", $_request->as_string);
     my $_response = $self->{ua}->request($_request);
@@ -316,11 +313,11 @@ sub get_api_key_with_prefix
 {
 	my ($self, $key_name) = @_;
 
-	my $api_key = $self->{config}{api_key}{$key_name};
+	my $api_key = $RadioManagerClient::Configuration::api_key->{$key_name};
 	
 	return unless $api_key;
 	
-	my $prefix = $self->{config}{api_key_prefix}{$key_name};
+	my $prefix = $RadioManagerClient::Configuration::api_key_prefix->{$key_name};
 	return $prefix ? "$prefix $api_key" : $api_key;
 }	
 
@@ -361,7 +358,7 @@ sub update_params_for_auth {
 sub _global_auth_setup {
 	my ($self, $header_params, $query_params) = @_; 
 	
-	my $tokens = $self->{config}->get_tokens;
+	my $tokens = $self->_cfg->get_tokens;
 	return unless keys %$tokens;
 	
 	# basic

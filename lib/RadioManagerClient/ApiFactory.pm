@@ -62,28 +62,19 @@ my %_apis = map { $_ =~ /^RadioManagerClient::(.*)$/; $1 => $_ }
 			grep {$_ =~ /Api$/} 
 			usesub 'RadioManagerClient';
 
-=head1 new($api_client)
+=head1 new()
 	
-	create a new RadioManagerClient::ApiFactory instance with the given RadioManagerClient::ApiClient instance.
-
-=head1 new(%paramters)
-
-	Any parameters are optional, and are passed to and stored on the api_client object.
+	Any parameters are optional, and are passed to and stored on the api_client object. 
 	
-	See L<RadioManagerClient::ApiClient> and L<RadioManagerClient::Configuration> for valid paramters
-
+	base_url: (optional)
+		supply this to change the default base URL taken from the Swagger definition.
+	
 =cut	
 
 sub new {
-    my ($class) = shift;
-
-    my $api_client;
-    if ($_[0] && ref $_[0] && ref $_[0] eq 'RadioManagerClient::ApiClient' ) {
-        $api_client = $_[0];
-    } else {
-        $api_client = RadioManagerClient::ApiClient->new(@_);
-    }
-    bless { api_client => $api_client }, $class;
+    my ($class, %p) = (shift, @_);
+	$p{api_client} = RadioManagerClient::ApiClient->instance(%p);			
+	return bless \%p, $class;
 }
 
 =head1 get_api($which)
@@ -100,7 +91,7 @@ sub get_api {
 	my ($self, $which) = @_;
 	croak "API not specified" unless $which;
 	my $api_class = $_apis{"${which}Api"} || croak "No known API for '$which'";
-	return $api_class->new($self->api_client); 
+	return $api_class->new(api_client => $self->api_client); 
 }
 
 =head1 api_client()

@@ -25,15 +25,15 @@ Remove user from station by Id
 ### Example 
 ```perl
 use Data::Dumper;
+use RadioManagerClient::Configuration;
 use RadioManagerClient::UserApi;
-my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
-    api_key => {'api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'api-key' => 'Bearer'},
-);
+# Configure API key authorization: API Key
+$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
+my $api_instance = RadioManagerClient::UserApi->new();
 my $id = 789; # int | id of User
 
 eval { 
@@ -76,15 +76,15 @@ Get user by id
 ### Example 
 ```perl
 use Data::Dumper;
+use RadioManagerClient::Configuration;
 use RadioManagerClient::UserApi;
-my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
-    api_key => {'api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'api-key' => 'Bearer'},
-);
+# Configure API key authorization: API Key
+$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
+my $api_instance = RadioManagerClient::UserApi->new();
 my $id = 789; # int | id of User
 
 eval { 
@@ -127,15 +127,15 @@ Invite user by mail
 ### Example 
 ```perl
 use Data::Dumper;
+use RadioManagerClient::Configuration;
 use RadioManagerClient::UserApi;
-my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
-    api_key => {'api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'api-key' => 'Bearer'},
-);
+# Configure API key authorization: API Key
+$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
+my $api_instance = RadioManagerClient::UserApi->new();
 my $data = RadioManagerClient::Object::InviteUserData->new(); # InviteUserData | Data **(Required)**
 
 eval { 
@@ -178,15 +178,15 @@ List all users.
 ### Example 
 ```perl
 use Data::Dumper;
+use RadioManagerClient::Configuration;
 use RadioManagerClient::UserApi;
-my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
-    api_key => {'api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'api-key' => 'Bearer'},
-);
+# Configure API key authorization: API Key
+$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
+my $api_instance = RadioManagerClient::UserApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $role_id = 789; # int | Search on Role ID *(Optional)*
 

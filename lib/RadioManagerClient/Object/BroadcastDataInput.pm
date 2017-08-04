@@ -283,7 +283,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'repetition_days' => {
-    	datatype => 'ARRAY[boolean]',
+    	datatype => 'string',
     	base_name => 'repetition_days',
     	description => '',
     	format => '',
@@ -333,7 +333,7 @@ __PACKAGE__->swagger_types( {
     'repetition_type' => 'string',
     'repetition_end' => 'DateTime',
     'repetition_start' => 'DateTime',
-    'repetition_days' => 'ARRAY[boolean]',
+    'repetition_days' => 'string',
     'pty_code_id' => 'int',
     'tags' => 'ARRAY[int]',
     'presenters' => 'ARRAY[int]'

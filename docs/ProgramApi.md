@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ProgramApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *http://radiomanager.pb/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,15 +26,15 @@ Create program.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ProgramApi;
+my $api_instance = RadioManagerClient::ProgramApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ProgramApi->new();
 my $data = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data **(Required)**
 
 eval { 
@@ -77,15 +77,15 @@ Delete program by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ProgramApi;
+my $api_instance = RadioManagerClient::ProgramApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ProgramApi->new();
 my $id = 789; # int | ID of program **(Required)**
 
 eval { 
@@ -128,15 +128,15 @@ Get program by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ProgramApi;
+my $api_instance = RadioManagerClient::ProgramApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ProgramApi->new();
 my $id = 789; # int | ID of Program **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
@@ -181,15 +181,15 @@ List all programs.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ProgramApi;
+my $api_instance = RadioManagerClient::ProgramApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ProgramApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $genre_id = 789; # int | Search on Genre ID *(Optional)*
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)*
@@ -248,15 +248,15 @@ Update program by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ProgramApi;
+my $api_instance = RadioManagerClient::ProgramApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ProgramApi->new();
 my $id = 789; # int | ID of Program **(Required)**
 my $data = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data *(Optional)*
 

@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ItemApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *http://radiomanager.pb/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,15 +30,15 @@ Create item.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $data = RadioManagerClient::Object::ItemDataInput->new(); # ItemDataInput | Data *(Optional)*
 
 eval { 
@@ -81,15 +81,15 @@ Post a current playing item, keep structure
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $data = RadioManagerClient::Object::ImportItem->new(); # ImportItem | Data *(Optional)*
 
 eval { 
@@ -132,15 +132,15 @@ Post a current playing item
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $data = RadioManagerClient::Object::ImportItem->new(); # ImportItem | Data *(Optional)*
 
 eval { 
@@ -183,15 +183,15 @@ Delete item by id.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $id = 789; # int | ID of Item **(Required)**
 
 eval { 
@@ -234,15 +234,15 @@ Read item by id.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $id = 789; # int | ID of Item **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
@@ -287,15 +287,15 @@ Get a list of all the items currently in your station. This feature supports pag
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
 my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
@@ -374,15 +374,15 @@ Post a playlist, keep current structure
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $data = RadioManagerClient::Object::Data1->new(); # Data1 | Data *(Optional)*
 
 eval { 
@@ -425,15 +425,15 @@ Post a playlist
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $data = RadioManagerClient::Object::Data->new(); # Data | Data *(Optional)*
 
 eval { 
@@ -476,15 +476,15 @@ Update item by id.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::ItemApi;
+my $api_instance = RadioManagerClient::ItemApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::ItemApi->new();
 my $id = 789; # int | ID of Item **(Required)**
 my $data = RadioManagerClient::Object::Item->new(); # Item | Data *(Optional)*
 

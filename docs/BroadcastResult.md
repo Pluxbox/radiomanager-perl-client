@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **repetition_type** | **string** |  | [optional] 
 **repetition_end** | **DateTime** |  | [optional] 
 **repetition_start** | **DateTime** |  | [optional] 
-**repetition_days** | **ARRAY[boolean]** |  | [optional] 
+**repetition_days** | **string** |  | [optional] 
 **pty_code_id** | **int** |  | [optional] 
 **items** | [**BroadcastRelationsItems**](BroadcastRelationsItems.md) |  | [optional] 
 **blocks** | [**BroadcastRelationsBlocks**](BroadcastRelationsBlocks.md) |  | [optional] 

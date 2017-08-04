@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **repetition_type** | **string** |  | [optional] 
 **repetition_end** | **DateTime** |  | [optional] 
 **repetition_start** | **DateTime** |  | [optional] 
-**repetition_days** | **ARRAY[boolean]** |  | [optional] 
+**repetition_days** | **string** |  | [optional] 
 **pty_code_id** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

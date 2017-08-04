@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **repetition_type** | **string** |  | [optional] 
 **repetition_end** | **DateTime** |  | [optional] 
 **repetition_start** | **DateTime** |  | [optional] 
-**repetition_days** | **ARRAY[boolean]** |  | [optional] 
+**repetition_days** | **string** |  | [optional] 
 **pty_code_id** | **int** |  | [optional] 
 **tags** | **ARRAY[int]** |  | [optional] 
 **presenters** | **ARRAY[int]** |  | [optional] 

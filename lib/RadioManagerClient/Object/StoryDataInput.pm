@@ -177,13 +177,6 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'tags' => {
-    	datatype => 'ARRAY[int]',
-    	base_name => 'tags',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -191,8 +184,7 @@ __PACKAGE__->swagger_types( {
     'recommended' => 'boolean',
     'field_values' => 'object',
     'name' => 'string',
-    'description' => 'string',
-    'tags' => 'ARRAY[int]'
+    'description' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -200,8 +192,7 @@ __PACKAGE__->attribute_map( {
     'recommended' => 'recommended',
     'field_values' => 'field_values',
     'name' => 'name',
-    'description' => 'description',
-    'tags' => 'tags'
+    'description' => 'description'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

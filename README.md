@@ -342,7 +342,6 @@ use RadioManagerClient::Object::ProgramResults;
 use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::Story;
-use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
 use RadioManagerClient::Object::StoryRelations;
 use RadioManagerClient::Object::StoryRelationsItems;
@@ -512,7 +511,6 @@ use RadioManagerClient::Object::ProgramResults;
 use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::Story;
-use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
 use RadioManagerClient::Object::StoryRelations;
 use RadioManagerClient::Object::StoryRelationsItems;
@@ -753,7 +751,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ReadOnly](docs/ReadOnly.md)
  - [RadioManagerClient::Object::RelationsPlaceholder](docs/RelationsPlaceholder.md)
  - [RadioManagerClient::Object::Story](docs/Story.md)
- - [RadioManagerClient::Object::StoryInputOnly](docs/StoryInputOnly.md)
  - [RadioManagerClient::Object::StoryOutputOnly](docs/StoryOutputOnly.md)
  - [RadioManagerClient::Object::StoryRelations](docs/StoryRelations.md)
  - [RadioManagerClient::Object::StoryRelationsItems](docs/StoryRelationsItems.md)

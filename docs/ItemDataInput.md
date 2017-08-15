@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **user_draft_id** | **int** |  | [optional] 
 **static_start** | **boolean** |  | [optional] 
 **details** | **string** |  | [optional] 
-**previous_id** | **int** |  | [optional] 
+**_previous_id** | **int** |  | [optional] 
 **contacts** | **ARRAY[int]** |  | [optional] 
 **tags** | **ARRAY[int]** |  | [optional] 
 

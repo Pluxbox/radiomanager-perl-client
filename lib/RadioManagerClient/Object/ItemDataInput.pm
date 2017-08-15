@@ -254,9 +254,9 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'previous_id' => {
+    '_previous_id' => {
     	datatype => 'int',
-    	base_name => 'previous_id',
+    	base_name => '_previous_id',
     	description => '',
     	format => '',
     	read_only => '',
@@ -294,7 +294,7 @@ __PACKAGE__->swagger_types( {
     'user_draft_id' => 'int',
     'static_start' => 'boolean',
     'details' => 'string',
-    'previous_id' => 'int',
+    '_previous_id' => 'int',
     'contacts' => 'ARRAY[int]',
     'tags' => 'ARRAY[int]'
 } );
@@ -316,7 +316,7 @@ __PACKAGE__->attribute_map( {
     'user_draft_id' => 'user_draft_id',
     'static_start' => 'static_start',
     'details' => 'details',
-    'previous_id' => 'previous_id',
+    '_previous_id' => '_previous_id',
     'contacts' => 'contacts',
     'tags' => 'tags'
 } );

@@ -142,9 +142,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'previous_id' => {
+    '_previous_id' => {
     	datatype => 'int',
-    	base_name => 'previous_id',
+    	base_name => '_previous_id',
     	description => '',
     	format => '',
     	read_only => '',
@@ -166,13 +166,13 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->swagger_types( {
-    'previous_id' => 'int',
+    '_previous_id' => 'int',
     'contacts' => 'ARRAY[int]',
     'tags' => 'ARRAY[int]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'previous_id' => 'previous_id',
+    '_previous_id' => '_previous_id',
     'contacts' => 'contacts',
     'tags' => 'tags'
 } );

@@ -150,7 +150,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'external_id' => {
-    	datatype => 'int',
+    	datatype => 'string',
     	base_name => 'external_id',
     	description => '',
     	format => '',
@@ -223,7 +223,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'model_type_id' => 'int',
-    'external_id' => 'int',
+    'external_id' => 'string',
     'field_values' => 'ImportItemFieldValues',
     'title' => 'string',
     'duration' => 'int',

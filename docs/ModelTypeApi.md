@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ModelTypeApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *http://staging.radiomanager.pluxbox.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

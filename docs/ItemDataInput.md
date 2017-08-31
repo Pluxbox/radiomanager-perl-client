@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
 **block_id** | **int** |  | [optional] 
-**external_id** | **int** |  | 
+**external_id** | **string** |  | [optional] 
 **field_values** | [**ImportItemFieldValues**](ImportItemFieldValues.md) |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 

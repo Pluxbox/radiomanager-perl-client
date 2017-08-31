@@ -9,7 +9,7 @@ use RadioManagerClient::Object::ImportItem;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**external_id** | **int** |  | 
+**external_id** | **string** |  | 
 **field_values** | [**ImportItemFieldValues**](ImportItemFieldValues.md) |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 

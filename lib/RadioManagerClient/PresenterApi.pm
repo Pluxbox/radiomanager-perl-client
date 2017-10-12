@@ -267,20 +267,18 @@ sub get_presenter_by_id {
 # Get all presenters.
 # 
 # @param int $page Current page *(Optional)* (optional)
-# @param int $model_type_id Search on ModelType ID (Optional) (optional)
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID (Optional) (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
     'page' => {
         data_type => 'int',
         description => 'Current page *(Optional)*',
-        required => '0',
-    },
-    'model_type_id' => {
-        data_type => 'int',
-        description => 'Search on ModelType ID (Optional)',
         required => '0',
     },
     'program_id' => {
@@ -291,6 +289,26 @@ sub get_presenter_by_id {
     'broadcast_id' => {
         data_type => 'int',
         description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'model_type_id' => {
+        data_type => 'int',
+        description => 'Search on ModelType ID (Optional)',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -331,11 +349,6 @@ sub list_presenters {
     }
 
     # query params
-    if ( exists $args{'model_type_id'}) {
-        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
-    }
-
-    # query params
     if ( exists $args{'program_id'}) {
         $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
@@ -343,6 +356,26 @@ sub list_presenters {
     # query params
     if ( exists $args{'broadcast_id'}) {
         $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
+    }
+
+    # query params
+    if ( exists $args{'model_type_id'}) {
+        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

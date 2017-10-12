@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::GenreApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://radiomanager.pb/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_genres**
-> GenreResults list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, _external_station_id => $_external_station_id)
+> GenreResults list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 List all genres.
 
@@ -89,10 +89,13 @@ my $page = 789; # int | Current page *(Optional)*
 my $parent_id = 789; # int | Search on Parent ID of Genre *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -108,6 +111,9 @@ Name | Type | Description  | Notes
  **parent_id** | **int**| Search on Parent ID of Genre *(Optional)* | [optional] 
  **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type

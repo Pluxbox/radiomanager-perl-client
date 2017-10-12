@@ -267,13 +267,16 @@ sub get_program_by_id {
 # Get all programs.
 # 
 # @param int $page Current page *(Optional)* (optional)
-# @param int $genre_id Search on Genre ID *(Optional)* (optional)
-# @param int $model_type_id Search on ModelType ID *(Optional)* (optional)
-# @param int $presenter_id Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $presenter_id Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $genre_id Search on Genre ID *(Optional)* (optional)
 # @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -282,19 +285,14 @@ sub get_program_by_id {
         description => 'Current page *(Optional)*',
         required => '0',
     },
-    'genre_id' => {
+    'broadcast_id' => {
         data_type => 'int',
-        description => 'Search on Genre ID *(Optional)*',
+        description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'model_type_id' => {
         data_type => 'int',
-        description => 'Search on ModelType ID *(Optional)*',
-        required => '0',
-    },
-    'presenter_id' => {
-        data_type => 'int',
-        description => 'Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'tag_id' => {
@@ -302,9 +300,19 @@ sub get_program_by_id {
         description => 'Search on Tag ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'broadcast_id' => {
+    'presenter_id' => {
         data_type => 'int',
-        description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'genre_id' => {
+        data_type => 'int',
+        description => 'Search on Genre ID *(Optional)*',
+        required => '0',
+    },
+    'block_id' => {
+        data_type => 'int',
+        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'item_id' => {
@@ -312,9 +320,19 @@ sub get_program_by_id {
         description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'block_id' => {
+    'limit' => {
         data_type => 'int',
-        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -355,8 +373,8 @@ sub list_programs {
     }
 
     # query params
-    if ( exists $args{'genre_id'}) {
-        $query_params->{'genre_id'} = $self->{api_client}->to_query_value($args{'genre_id'});
+    if ( exists $args{'broadcast_id'}) {
+        $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
     }
 
     # query params
@@ -365,18 +383,23 @@ sub list_programs {
     }
 
     # query params
-    if ( exists $args{'presenter_id'}) {
-        $query_params->{'presenter_id'} = $self->{api_client}->to_query_value($args{'presenter_id'});
-    }
-
-    # query params
     if ( exists $args{'tag_id'}) {
         $query_params->{'tag_id'} = $self->{api_client}->to_query_value($args{'tag_id'});
     }
 
     # query params
-    if ( exists $args{'broadcast_id'}) {
-        $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
+    if ( exists $args{'presenter_id'}) {
+        $query_params->{'presenter_id'} = $self->{api_client}->to_query_value($args{'presenter_id'});
+    }
+
+    # query params
+    if ( exists $args{'genre_id'}) {
+        $query_params->{'genre_id'} = $self->{api_client}->to_query_value($args{'genre_id'});
+    }
+
+    # query params
+    if ( exists $args{'block_id'}) {
+        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
     }
 
     # query params
@@ -385,8 +408,18 @@ sub list_programs {
     }
 
     # query params
-    if ( exists $args{'block_id'}) {
-        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

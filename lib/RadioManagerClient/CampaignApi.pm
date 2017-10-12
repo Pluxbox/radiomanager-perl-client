@@ -267,10 +267,13 @@ sub get_campaign_by_id {
 # Get all campaigns.
 # 
 # @param int $page Current page *(Optional)* (optional)
-# @param int $model_type_id Search on ModelType ID *(Optional)* (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param DateTime $start_min Minimum start date *(Optional)* (optional)
 # @param DateTime $start_max Maximum start date *(Optional)* (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -279,14 +282,14 @@ sub get_campaign_by_id {
         description => 'Current page *(Optional)*',
         required => '0',
     },
-    'model_type_id' => {
-        data_type => 'int',
-        description => 'Search on ModelType ID *(Optional)*',
-        required => '0',
-    },
     'item_id' => {
         data_type => 'int',
         description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'model_type_id' => {
+        data_type => 'int',
+        description => 'Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'start_min' => {
@@ -297,6 +300,21 @@ sub get_campaign_by_id {
     'start_max' => {
         data_type => 'DateTime',
         description => 'Maximum start date *(Optional)*',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -337,13 +355,13 @@ sub list_campaigns {
     }
 
     # query params
-    if ( exists $args{'model_type_id'}) {
-        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
+    if ( exists $args{'item_id'}) {
+        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
     }
 
     # query params
-    if ( exists $args{'item_id'}) {
-        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    if ( exists $args{'model_type_id'}) {
+        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
     }
 
     # query params
@@ -354,6 +372,21 @@ sub list_campaigns {
     # query params
     if ( exists $args{'start_max'}) {
         $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

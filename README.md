@@ -233,6 +233,7 @@ use RadioManagerClient::ItemApi;
 use RadioManagerClient::ModelTypeApi;
 use RadioManagerClient::PresenterApi;
 use RadioManagerClient::ProgramApi;
+use RadioManagerClient::StationApi;
 use RadioManagerClient::StoryApi;
 use RadioManagerClient::StringApi;
 use RadioManagerClient::TagApi;
@@ -341,7 +342,10 @@ use RadioManagerClient::Object::ProgramRelationsTags;
 use RadioManagerClient::Object::ProgramResults;
 use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
+use RadioManagerClient::Object::StationResult;
+use RadioManagerClient::Object::StationResultStation;
 use RadioManagerClient::Object::Story;
+use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
 use RadioManagerClient::Object::StoryRelations;
 use RadioManagerClient::Object::StoryRelationsItems;
@@ -405,6 +409,7 @@ use RadioManagerClient::ItemApi;
 use RadioManagerClient::ModelTypeApi;
 use RadioManagerClient::PresenterApi;
 use RadioManagerClient::ProgramApi;
+use RadioManagerClient::StationApi;
 use RadioManagerClient::StoryApi;
 use RadioManagerClient::StringApi;
 use RadioManagerClient::TagApi;
@@ -510,7 +515,10 @@ use RadioManagerClient::Object::ProgramRelationsTags;
 use RadioManagerClient::Object::ProgramResults;
 use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
+use RadioManagerClient::Object::StationResult;
+use RadioManagerClient::Object::StationResultStation;
 use RadioManagerClient::Object::Story;
+use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
 use RadioManagerClient::Object::StoryRelations;
 use RadioManagerClient::Object::StoryRelationsItems;
@@ -580,7 +588,7 @@ if ($@) {
 
 # DOCUMENTATION FOR API ENDPOINTS
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://radiomanager.pb/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -633,6 +641,7 @@ Class | Method | HTTP request | Description
 *ProgramApi* | [**get_program_by_id**](docs/ProgramApi.md#get_program_by_id) | **GET** /programs/{id} | Get program by id
 *ProgramApi* | [**list_programs**](docs/ProgramApi.md#list_programs) | **GET** /programs | Get all programs.
 *ProgramApi* | [**update_program_by_id**](docs/ProgramApi.md#update_program_by_id) | **PATCH** /programs/{id} | Update program by id
+*StationApi* | [**get_station**](docs/StationApi.md#get_station) | **GET** /station | Get own station only
 *StoryApi* | [**create_story**](docs/StoryApi.md#create_story) | **POST** /stories | Create story.
 *StoryApi* | [**delete_story_by_id**](docs/StoryApi.md#delete_story_by_id) | **DELETE** /stories/{id} | Delete story by id
 *StoryApi* | [**get_story_by_id**](docs/StoryApi.md#get_story_by_id) | **GET** /stories/{id} | Get story by id
@@ -750,7 +759,10 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ProgramResults](docs/ProgramResults.md)
  - [RadioManagerClient::Object::ReadOnly](docs/ReadOnly.md)
  - [RadioManagerClient::Object::RelationsPlaceholder](docs/RelationsPlaceholder.md)
+ - [RadioManagerClient::Object::StationResult](docs/StationResult.md)
+ - [RadioManagerClient::Object::StationResultStation](docs/StationResultStation.md)
  - [RadioManagerClient::Object::Story](docs/Story.md)
+ - [RadioManagerClient::Object::StoryInputOnly](docs/StoryInputOnly.md)
  - [RadioManagerClient::Object::StoryOutputOnly](docs/StoryOutputOnly.md)
  - [RadioManagerClient::Object::StoryRelations](docs/StoryRelations.md)
  - [RadioManagerClient::Object::StoryRelationsItems](docs/StoryRelationsItems.md)

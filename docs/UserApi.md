@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::UserApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://radiomanager.pb/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> UserResults list_users(page => $page, role_id => $role_id)
+> UserResults list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction)
 
 Get all users.
 
@@ -189,9 +189,12 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 my $api_instance = RadioManagerClient::UserApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $role_id = 789; # int | Search on Role ID *(Optional)*
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_users(page => $page, role_id => $role_id);
+    my $result = $api_instance->list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction);
     print Dumper($result);
 };
 if ($@) {
@@ -205,6 +208,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **role_id** | **int**| Search on Role ID *(Optional)* | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
 
 ### Return type
 

@@ -59,12 +59,15 @@ isa_ok($api, 'RadioManagerClient::CampaignApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
     my $item_id = undef; # replace NULL with a proper value
+    my $model_type_id = undef; # replace NULL with a proper value
     my $start_min = undef; # replace NULL with a proper value
     my $start_max = undef; # replace NULL with a proper value
+    my $limit = undef; # replace NULL with a proper value
+    my $order_by = undef; # replace NULL with a proper value
+    my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_campaigns(page => $page, model_type_id => $model_type_id, item_id => $item_id, start_min => $start_min, start_max => $start_max, _external_station_id => $_external_station_id);
+    my $result = $api->list_campaigns(page => $page, item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
 }
 
 #

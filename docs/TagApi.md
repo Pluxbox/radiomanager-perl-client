@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::TagApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tags**
-> TagResults list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, _external_station_id => $_external_station_id)
+> TagResults list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get a list of all the tags currently in your station.
 
@@ -195,10 +195,13 @@ my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
 my $contact_id = 789; # int | Search on Contact ID *(Optional)* `(Relation)`
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -215,6 +218,9 @@ Name | Type | Description  | Notes
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **contact_id** | **int**| Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type

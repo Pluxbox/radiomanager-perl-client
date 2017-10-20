@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::BroadcastApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -225,7 +225,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_daily_epg**
-> EPGBroadcast get_daily_epg(date => $date)
+> EPGResults get_daily_epg(date => $date, withunpublished => $withunpublished)
 
 Get daily EPG
 
@@ -244,9 +244,10 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
+my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
-    my $result = $api_instance->get_daily_epg(date => $date);
+    my $result = $api_instance->get_daily_epg(date => $date, withunpublished => $withunpublished);
     print Dumper($result);
 };
 if ($@) {
@@ -259,10 +260,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **date** | **DateTime**| Date *(Optional)* | [optional] 
+ **withunpublished** | **boolean**| Show Unpublished *(Optional)* | [optional] 
 
 ### Return type
 
-[**EPGBroadcast**](EPGBroadcast.md)
+[**EPGResults**](EPGResults.md)
 
 ### Authorization
 
@@ -276,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_epg_by_date**
-> EPGBroadcast get_epg_by_date(date => $date)
+> EPGResults get_epg_by_date(date => $date, withunpublished => $withunpublished)
 
 Get EPG by date
 
@@ -295,9 +297,10 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
+my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
-    my $result = $api_instance->get_epg_by_date(date => $date);
+    my $result = $api_instance->get_epg_by_date(date => $date, withunpublished => $withunpublished);
     print Dumper($result);
 };
 if ($@) {
@@ -310,10 +313,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **date** | **DateTime**| Date *(Optional)* | [optional] 
+ **withunpublished** | **boolean**| Show Unpublished *(Optional)* | [optional] 
 
 ### Return type
 
-[**EPGBroadcast**](EPGBroadcast.md)
+[**EPGResults**](EPGResults.md)
 
 ### Authorization
 
@@ -374,7 +378,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_weekly_epg**
-> EPGBroadcast get_weekly_epg(date => $date)
+> EPGResults get_weekly_epg(date => $date, withunpublished => $withunpublished)
 
 Get weekly EPG
 
@@ -393,9 +397,10 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = 'date_example'; # string | Date *(Optional)*
+my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
-    my $result = $api_instance->get_weekly_epg(date => $date);
+    my $result = $api_instance->get_weekly_epg(date => $date, withunpublished => $withunpublished);
     print Dumper($result);
 };
 if ($@) {
@@ -408,10 +413,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **date** | **string**| Date *(Optional)* | [optional] 
+ **withunpublished** | **boolean**| Show Unpublished *(Optional)* | [optional] 
 
 ### Return type
 
-[**EPGBroadcast**](EPGBroadcast.md)
+[**EPGResults**](EPGResults.md)
 
 ### Authorization
 
@@ -425,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_broadcasts**
-> BroadcastResults list_broadcasts(page => $page, start_min => $start_min, start_max => $start_max, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, item_id => $item_id, block_id => $block_id, genre_id => $genre_id, program_id => $program_id, _external_station_id => $_external_station_id)
+> BroadcastResults list_broadcasts(page => $page, program_id => $program_id, block_id => $block_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, item_id => $item_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all broadcasts.
 
@@ -444,19 +450,22 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $page = 789; # int | Current page *(Optional)*
-my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
-my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
-my $model_type_id = 789; # int | Search on ModelType ID *(Optional)*
+my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
+my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
+my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
 my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
 my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
-my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
-my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
 my $genre_id = 789; # int | Search on Genre ID *(Optional)* `(Relation)`
-my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
+my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
+my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
+my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_broadcasts(page => $page, start_min => $start_min, start_max => $start_max, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, item_id => $item_id, block_id => $block_id, genre_id => $genre_id, program_id => $program_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_broadcasts(page => $page, program_id => $program_id, block_id => $block_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, item_id => $item_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -469,15 +478,18 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
- **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
- **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
- **model_type_id** | **int**| Search on ModelType ID *(Optional)* | [optional] 
+ **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **presenter_id** | **int**| Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **genre_id** | **int**| Search on Genre ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
+ **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -496,7 +508,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **print_broadcast_by_id**
-> EPGBroadcast print_broadcast_by_id(id => $id, program_id => $program_id, presenter_id => $presenter_id, tag_id => $tag_id)
+> EPGResults print_broadcast_by_id(id => $id, program_id => $program_id, presenter_id => $presenter_id, tag_id => $tag_id)
 
 Print Broadcast by id
 
@@ -539,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EPGBroadcast**](EPGBroadcast.md)
+[**EPGResults**](EPGResults.md)
 
 ### Authorization
 

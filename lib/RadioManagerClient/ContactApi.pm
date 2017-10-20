@@ -267,9 +267,12 @@ sub get_contact_by_id {
 # Get all contacts.
 # 
 # @param int $page Current page *(Optional)* (optional, default to 1)
-# @param int $model_type_id Search on ModelType ID *(Optional)* (optional)
-# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -278,9 +281,14 @@ sub get_contact_by_id {
         description => 'Current page *(Optional)*',
         required => '0',
     },
+    'item_id' => {
+        data_type => 'int',
+        description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
     'model_type_id' => {
         data_type => 'int',
-        description => 'Search on ModelType ID *(Optional)*',
+        description => 'Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'tag_id' => {
@@ -288,9 +296,19 @@ sub get_contact_by_id {
         description => 'Search on Tag ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'item_id' => {
+    'limit' => {
         data_type => 'int',
-        description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -331,6 +349,11 @@ sub list_contacts {
     }
 
     # query params
+    if ( exists $args{'item_id'}) {
+        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    }
+
+    # query params
     if ( exists $args{'model_type_id'}) {
         $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
     }
@@ -341,8 +364,18 @@ sub list_contacts {
     }
 
     # query params
-    if ( exists $args{'item_id'}) {
-        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

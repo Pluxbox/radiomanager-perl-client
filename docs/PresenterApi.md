@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::PresenterApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_presenters**
-> PresenterResults list_presenters(page => $page, model_type_id => $model_type_id, program_id => $program_id, broadcast_id => $broadcast_id, _external_station_id => $_external_station_id)
+> PresenterResults list_presenters(page => $page, program_id => $program_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all presenters.
 
@@ -191,13 +191,16 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::PresenterApi->new();
 my $page = 789; # int | Current page *(Optional)*
-my $model_type_id = 789; # int | Search on ModelType ID (Optional)
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
+my $model_type_id = 789; # int | Search on ModelType ID (Optional)
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_presenters(page => $page, model_type_id => $model_type_id, program_id => $program_id, broadcast_id => $broadcast_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_presenters(page => $page, program_id => $program_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -210,9 +213,12 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Current page *(Optional)* | [optional] 
- **model_type_id** | **int**| Search on ModelType ID (Optional) | [optional] 
  **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **model_type_id** | **int**| Search on ModelType ID (Optional) | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type

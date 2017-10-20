@@ -1,43 +1,43 @@
-# RadioManagerClient::VisualSlideApi
+# RadioManagerClient::StationApi
 
 ## Load the API package
 ```perl
-use RadioManagerClient::Object::VisualSlideApi;
+use RadioManagerClient::Object::StationApi;
 ```
 
 All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_visual_slide**](VisualSlideApi.md#get_visual_slide) | **GET** /visual | Get Visual Slide Image as Base64
+[**get_station**](StationApi.md#get_station) | **GET** /station | Get own station only
 
 
-# **get_visual_slide**
-> VisualResult get_visual_slide()
+# **get_station**
+> StationResult get_station()
 
-Get Visual Slide Image as Base64
+Get own station only
 
-Get Visual Slide Image as Base64
+Get own station only
 
 ### Example 
 ```perl
 use Data::Dumper;
 use RadioManagerClient::Configuration;
-use RadioManagerClient::VisualSlideApi;
+use RadioManagerClient::StationApi;
 
 # Configure API key authorization: API Key
 $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 #$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
-my $api_instance = RadioManagerClient::VisualSlideApi->new();
+my $api_instance = RadioManagerClient::StationApi->new();
 
 eval { 
-    my $result = $api_instance->get_visual_slide();
+    my $result = $api_instance->get_station();
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling VisualSlideApi->get_visual_slide: $@\n";
+    warn "Exception when calling StationApi->get_station: $@\n";
 }
 ```
 
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**VisualResult**](VisualResult.md)
+[**StationResult**](StationResult.md)
 
 ### Authorization
 

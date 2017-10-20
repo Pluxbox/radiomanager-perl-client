@@ -257,6 +257,9 @@ sub invite_user_by_mail {
 # 
 # @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $role_id Search on Role ID *(Optional)* (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 {
     my $params = {
     'page' => {
@@ -267,6 +270,21 @@ sub invite_user_by_mail {
     'role_id' => {
         data_type => 'int',
         description => 'Search on Role ID *(Optional)*',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     };
@@ -304,6 +322,21 @@ sub list_users {
     # query params
     if ( exists $args{'role_id'}) {
         $query_params->{'role_id'} = $self->{api_client}->to_query_value($args{'role_id'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     my $_body_data;

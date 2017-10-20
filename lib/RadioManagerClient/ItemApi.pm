@@ -382,23 +382,24 @@ sub get_item_by_id {
 # Get a list of all the items currently in your station.
 # 
 # @param int $page Current page *(Optional)* (optional)
-# @param string $order_by Field to order the results *(Optional)* (optional)
-# @param string $order_direction Direction of ordering *(Optional)* (optional)
+# @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $campaign_id Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $contact_id Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $program_draft_id Search on Program Draft ID *(Optional)* (optional)
+# @param int $user_draft_id Search on User Draft ID *(Optional)* (optional)
+# @param int $station_draft_id Search on Station Draft ID *(Optional)* (optional)
+# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param DateTime $start_min Minimum start date *(Optional)* (optional)
 # @param DateTime $start_max Maximum start date *(Optional)* (optional)
 # @param int $duration_min Minimum duration (seconds) *(Optional)* (optional)
 # @param int $duration_max Maximum duration (seconds) *(Optional)* (optional)
 # @param string $status Play Status of item *(Optional)* (optional)
-# @param int $model_type_id Search on ModelType ID *(Optional)* (optional)
-# @param int $program_draft_id Search on Program Draft ID *(Optional)* (optional)
-# @param int $user_draft_id Search on User Draft ID *(Optional)* (optional)
-# @param int $station_draft_id Search on Station Draft ID *(Optional)* (optional)
-# @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $campaign_id Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $contact_id Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -407,14 +408,54 @@ sub get_item_by_id {
         description => 'Current page *(Optional)*',
         required => '0',
     },
-    'order_by' => {
-        data_type => 'string',
-        description => 'Field to order the results *(Optional)*',
+    'block_id' => {
+        data_type => 'int',
+        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'order_direction' => {
-        data_type => 'string',
-        description => 'Direction of ordering *(Optional)*',
+    'broadcast_id' => {
+        data_type => 'int',
+        description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'model_type_id' => {
+        data_type => 'int',
+        description => 'Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'tag_id' => {
+        data_type => 'int',
+        description => 'Search on Tag ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'campaign_id' => {
+        data_type => 'int',
+        description => 'Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'contact_id' => {
+        data_type => 'int',
+        description => 'Search on Contact ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'program_draft_id' => {
+        data_type => 'int',
+        description => 'Search on Program Draft ID *(Optional)*',
+        required => '0',
+    },
+    'user_draft_id' => {
+        data_type => 'int',
+        description => 'Search on User Draft ID *(Optional)*',
+        required => '0',
+    },
+    'station_draft_id' => {
+        data_type => 'int',
+        description => 'Search on Station Draft ID *(Optional)*',
+        required => '0',
+    },
+    'program_id' => {
+        data_type => 'int',
+        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'start_min' => {
@@ -442,54 +483,19 @@ sub get_item_by_id {
         description => 'Play Status of item *(Optional)*',
         required => '0',
     },
-    'model_type_id' => {
+    'limit' => {
         data_type => 'int',
-        description => 'Search on ModelType ID *(Optional)*',
+        description => 'Results per page *(Optional)*',
         required => '0',
     },
-    'program_draft_id' => {
-        data_type => 'int',
-        description => 'Search on Program Draft ID *(Optional)*',
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
         required => '0',
     },
-    'user_draft_id' => {
-        data_type => 'int',
-        description => 'Search on User Draft ID *(Optional)*',
-        required => '0',
-    },
-    'station_draft_id' => {
-        data_type => 'int',
-        description => 'Search on Station Draft ID *(Optional)*',
-        required => '0',
-    },
-    'block_id' => {
-        data_type => 'int',
-        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'broadcast_id' => {
-        data_type => 'int',
-        description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'campaign_id' => {
-        data_type => 'int',
-        description => 'Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'contact_id' => {
-        data_type => 'int',
-        description => 'Search on Contact ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'program_id' => {
-        data_type => 'int',
-        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'tag_id' => {
-        data_type => 'int',
-        description => 'Search on Tag ID *(Optional)* &#x60;(Relation)&#x60;',
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -530,13 +536,53 @@ sub list_items {
     }
 
     # query params
-    if ( exists $args{'order_by'}) {
-        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    if ( exists $args{'block_id'}) {
+        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
     }
 
     # query params
-    if ( exists $args{'order_direction'}) {
-        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
+    if ( exists $args{'broadcast_id'}) {
+        $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
+    }
+
+    # query params
+    if ( exists $args{'model_type_id'}) {
+        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
+    }
+
+    # query params
+    if ( exists $args{'tag_id'}) {
+        $query_params->{'tag_id'} = $self->{api_client}->to_query_value($args{'tag_id'});
+    }
+
+    # query params
+    if ( exists $args{'campaign_id'}) {
+        $query_params->{'campaign_id'} = $self->{api_client}->to_query_value($args{'campaign_id'});
+    }
+
+    # query params
+    if ( exists $args{'contact_id'}) {
+        $query_params->{'contact_id'} = $self->{api_client}->to_query_value($args{'contact_id'});
+    }
+
+    # query params
+    if ( exists $args{'program_draft_id'}) {
+        $query_params->{'program_draft_id'} = $self->{api_client}->to_query_value($args{'program_draft_id'});
+    }
+
+    # query params
+    if ( exists $args{'user_draft_id'}) {
+        $query_params->{'user_draft_id'} = $self->{api_client}->to_query_value($args{'user_draft_id'});
+    }
+
+    # query params
+    if ( exists $args{'station_draft_id'}) {
+        $query_params->{'station_draft_id'} = $self->{api_client}->to_query_value($args{'station_draft_id'});
+    }
+
+    # query params
+    if ( exists $args{'program_id'}) {
+        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
 
     # query params
@@ -565,53 +611,18 @@ sub list_items {
     }
 
     # query params
-    if ( exists $args{'model_type_id'}) {
-        $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
     # query params
-    if ( exists $args{'program_draft_id'}) {
-        $query_params->{'program_draft_id'} = $self->{api_client}->to_query_value($args{'program_draft_id'});
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
     }
 
     # query params
-    if ( exists $args{'user_draft_id'}) {
-        $query_params->{'user_draft_id'} = $self->{api_client}->to_query_value($args{'user_draft_id'});
-    }
-
-    # query params
-    if ( exists $args{'station_draft_id'}) {
-        $query_params->{'station_draft_id'} = $self->{api_client}->to_query_value($args{'station_draft_id'});
-    }
-
-    # query params
-    if ( exists $args{'block_id'}) {
-        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
-    }
-
-    # query params
-    if ( exists $args{'broadcast_id'}) {
-        $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
-    }
-
-    # query params
-    if ( exists $args{'campaign_id'}) {
-        $query_params->{'campaign_id'} = $self->{api_client}->to_query_value($args{'campaign_id'});
-    }
-
-    # query params
-    if ( exists $args{'contact_id'}) {
-        $query_params->{'contact_id'} = $self->{api_client}->to_query_value($args{'contact_id'});
-    }
-
-    # query params
-    if ( exists $args{'program_id'}) {
-        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
-    }
-
-    # query params
-    if ( exists $args{'tag_id'}) {
-        $query_params->{'tag_id'} = $self->{api_client}->to_query_value($args{'tag_id'});
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

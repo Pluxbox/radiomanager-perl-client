@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ItemApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_items**
-> ItemResults list_items(page => $page, order_by => $order_by, order_direction => $order_direction, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, model_type_id => $model_type_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, block_id => $block_id, broadcast_id => $broadcast_id, campaign_id => $campaign_id, contact_id => $contact_id, program_id => $program_id, tag_id => $tag_id, _external_station_id => $_external_station_id)
+> ItemResults list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get a list of all the items currently in your station.
 
@@ -297,27 +297,28 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::ItemApi->new();
 my $page = 789; # int | Current page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
+my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
+my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
+my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
+my $campaign_id = 789; # int | Search on Campaign ID *(Optional)* `(Relation)`
+my $contact_id = 789; # int | Search on Contact ID *(Optional)* `(Relation)`
+my $program_draft_id = 789; # int | Search on Program Draft ID *(Optional)*
+my $user_draft_id = 789; # int | Search on User Draft ID *(Optional)*
+my $station_draft_id = 789; # int | Search on Station Draft ID *(Optional)*
+my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
 my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
 my $duration_min = 56; # int | Minimum duration (seconds) *(Optional)*
 my $duration_max = 56; # int | Maximum duration (seconds) *(Optional)*
 my $status = 'status_example'; # string | Play Status of item *(Optional)*
-my $model_type_id = 789; # int | Search on ModelType ID *(Optional)*
-my $program_draft_id = 789; # int | Search on Program Draft ID *(Optional)*
-my $user_draft_id = 789; # int | Search on User Draft ID *(Optional)*
-my $station_draft_id = 789; # int | Search on Station Draft ID *(Optional)*
-my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
-my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
-my $campaign_id = 789; # int | Search on Campaign ID *(Optional)* `(Relation)`
-my $contact_id = 789; # int | Search on Contact ID *(Optional)* `(Relation)`
-my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
-my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_items(page => $page, order_by => $order_by, order_direction => $order_direction, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, model_type_id => $model_type_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, block_id => $block_id, broadcast_id => $broadcast_id, campaign_id => $campaign_id, contact_id => $contact_id, program_id => $program_id, tag_id => $tag_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -330,23 +331,24 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Current page *(Optional)* | [optional] 
- **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
- **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
+ **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **campaign_id** | **int**| Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **contact_id** | **int**| Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **program_draft_id** | **int**| Search on Program Draft ID *(Optional)* | [optional] 
+ **user_draft_id** | **int**| Search on User Draft ID *(Optional)* | [optional] 
+ **station_draft_id** | **int**| Search on Station Draft ID *(Optional)* | [optional] 
+ **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
  **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
  **duration_min** | **int**| Minimum duration (seconds) *(Optional)* | [optional] 
  **duration_max** | **int**| Maximum duration (seconds) *(Optional)* | [optional] 
  **status** | **string**| Play Status of item *(Optional)* | [optional] 
- **model_type_id** | **int**| Search on ModelType ID *(Optional)* | [optional] 
- **program_draft_id** | **int**| Search on Program Draft ID *(Optional)* | [optional] 
- **user_draft_id** | **int**| Search on User Draft ID *(Optional)* | [optional] 
- **station_draft_id** | **int**| Search on Station Draft ID *(Optional)* | [optional] 
- **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **campaign_id** | **int**| Search on Campaign ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **contact_id** | **int**| Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type

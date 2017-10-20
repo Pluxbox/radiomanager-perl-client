@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ProgramApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.pluxbox.com/api/v2*
+All URIs are relative to *https://staging.radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_programs**
-> ProgramResults list_programs(page => $page, genre_id => $genre_id, model_type_id => $model_type_id, presenter_id => $presenter_id, tag_id => $tag_id, broadcast_id => $broadcast_id, item_id => $item_id, block_id => $block_id, _external_station_id => $_external_station_id)
+> ProgramResults list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all programs.
 
@@ -191,17 +191,20 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::ProgramApi->new();
 my $page = 789; # int | Current page *(Optional)*
-my $genre_id = 789; # int | Search on Genre ID *(Optional)*
-my $model_type_id = 789; # int | Search on ModelType ID *(Optional)*
-my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
-my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
-my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
+my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
+my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
+my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
+my $genre_id = 789; # int | Search on Genre ID *(Optional)*
 my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
+my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
+my $limit = 789; # int | Results per page *(Optional)*
+my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
+my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_programs(page => $page, genre_id => $genre_id, model_type_id => $model_type_id, presenter_id => $presenter_id, tag_id => $tag_id, broadcast_id => $broadcast_id, item_id => $item_id, block_id => $block_id, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -214,13 +217,16 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Current page *(Optional)* | [optional] 
- **genre_id** | **int**| Search on Genre ID *(Optional)* | [optional] 
- **model_type_id** | **int**| Search on ModelType ID *(Optional)* | [optional] 
- **presenter_id** | **int**| Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **presenter_id** | **int**| Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **genre_id** | **int**| Search on Genre ID *(Optional)* | [optional] 
  **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **limit** | **int**| Results per page *(Optional)* | [optional] 
+ **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
+ **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type

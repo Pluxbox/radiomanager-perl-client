@@ -316,6 +316,7 @@ sub get_current_broadcast {
 # Get daily EPG
 # 
 # @param DateTime $date Date *(Optional)* (optional)
+# @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
@@ -323,14 +324,19 @@ sub get_current_broadcast {
         description => 'Date *(Optional)*',
         required => '0',
     },
+    'withunpublished' => {
+        data_type => 'boolean',
+        description => 'Show Unpublished *(Optional)*',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_daily_epg' } = { 
     	summary => 'Get daily EPG',
         params => $params,
-        returns => 'EPGBroadcast',
+        returns => 'EPGResults',
         };
 }
-# @return EPGBroadcast
+# @return EPGResults
 #
 sub get_daily_epg {
     my ($self, %args) = @_;
@@ -355,6 +361,11 @@ sub get_daily_epg {
         $query_params->{'date'} = $self->{api_client}->to_query_value($args{'date'});
     }
 
+    # query params
+    if ( exists $args{'withunpublished'}) {
+        $query_params->{'withunpublished'} = $self->{api_client}->to_query_value($args{'withunpublished'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API Key )];
@@ -366,7 +377,7 @@ sub get_daily_epg {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('EPGBroadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('EPGResults', $response);
     return $_response_object;
 }
 
@@ -376,6 +387,7 @@ sub get_daily_epg {
 # Get EPG by date
 # 
 # @param DateTime $date Date *(Optional)* (optional)
+# @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
@@ -383,14 +395,19 @@ sub get_daily_epg {
         description => 'Date *(Optional)*',
         required => '0',
     },
+    'withunpublished' => {
+        data_type => 'boolean',
+        description => 'Show Unpublished *(Optional)*',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_epg_by_date' } = { 
     	summary => 'Get EPG by date',
         params => $params,
-        returns => 'EPGBroadcast',
+        returns => 'EPGResults',
         };
 }
-# @return EPGBroadcast
+# @return EPGResults
 #
 sub get_epg_by_date {
     my ($self, %args) = @_;
@@ -415,6 +432,11 @@ sub get_epg_by_date {
         $query_params->{'date'} = $self->{api_client}->to_query_value($args{'date'});
     }
 
+    # query params
+    if ( exists $args{'withunpublished'}) {
+        $query_params->{'withunpublished'} = $self->{api_client}->to_query_value($args{'withunpublished'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API Key )];
@@ -426,7 +448,7 @@ sub get_epg_by_date {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('EPGBroadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('EPGResults', $response);
     return $_response_object;
 }
 
@@ -485,6 +507,7 @@ sub get_next_broadcast {
 # Get weekly EPG
 # 
 # @param string $date Date *(Optional)* (optional)
+# @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
@@ -492,14 +515,19 @@ sub get_next_broadcast {
         description => 'Date *(Optional)*',
         required => '0',
     },
+    'withunpublished' => {
+        data_type => 'boolean',
+        description => 'Show Unpublished *(Optional)*',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_weekly_epg' } = { 
     	summary => 'Get weekly EPG',
         params => $params,
-        returns => 'EPGBroadcast',
+        returns => 'EPGResults',
         };
 }
-# @return EPGBroadcast
+# @return EPGResults
 #
 sub get_weekly_epg {
     my ($self, %args) = @_;
@@ -524,6 +552,11 @@ sub get_weekly_epg {
         $query_params->{'date'} = $self->{api_client}->to_query_value($args{'date'});
     }
 
+    # query params
+    if ( exists $args{'withunpublished'}) {
+        $query_params->{'withunpublished'} = $self->{api_client}->to_query_value($args{'withunpublished'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API Key )];
@@ -535,7 +568,7 @@ sub get_weekly_epg {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('EPGBroadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('EPGResults', $response);
     return $_response_object;
 }
 
@@ -545,15 +578,18 @@ sub get_weekly_epg {
 # Get all broadcasts.
 # 
 # @param int $page Current page *(Optional)* (optional, default to 1)
-# @param DateTime $start_min Minimum start date *(Optional)* (optional)
-# @param DateTime $start_max Maximum start date *(Optional)* (optional)
-# @param int $model_type_id Search on ModelType ID *(Optional)* (optional)
+# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $presenter_id Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $genre_id Search on Genre ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param DateTime $start_min Minimum start date *(Optional)* (optional)
+# @param DateTime $start_max Maximum start date *(Optional)* (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -562,19 +598,19 @@ sub get_weekly_epg {
         description => 'Current page *(Optional)*',
         required => '0',
     },
-    'start_min' => {
-        data_type => 'DateTime',
-        description => 'Minimum start date *(Optional)*',
+    'program_id' => {
+        data_type => 'int',
+        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'start_max' => {
-        data_type => 'DateTime',
-        description => 'Maximum start date *(Optional)*',
+    'block_id' => {
+        data_type => 'int',
+        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'model_type_id' => {
         data_type => 'int',
-        description => 'Search on ModelType ID *(Optional)*',
+        description => 'Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'tag_id' => {
@@ -587,24 +623,39 @@ sub get_weekly_epg {
         description => 'Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'item_id' => {
-        data_type => 'int',
-        description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'block_id' => {
-        data_type => 'int',
-        description => 'Search on Block ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
     'genre_id' => {
         data_type => 'int',
         description => 'Search on Genre ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
-    'program_id' => {
+    'item_id' => {
         data_type => 'int',
-        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'start_min' => {
+        data_type => 'DateTime',
+        description => 'Minimum start date *(Optional)*',
+        required => '0',
+    },
+    'start_max' => {
+        data_type => 'DateTime',
+        description => 'Maximum start date *(Optional)*',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -645,13 +696,13 @@ sub list_broadcasts {
     }
 
     # query params
-    if ( exists $args{'start_min'}) {
-        $query_params->{'start-min'} = $self->{api_client}->to_query_value($args{'start_min'});
+    if ( exists $args{'program_id'}) {
+        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
 
     # query params
-    if ( exists $args{'start_max'}) {
-        $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
+    if ( exists $args{'block_id'}) {
+        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
     }
 
     # query params
@@ -670,23 +721,38 @@ sub list_broadcasts {
     }
 
     # query params
-    if ( exists $args{'item_id'}) {
-        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
-    }
-
-    # query params
-    if ( exists $args{'block_id'}) {
-        $query_params->{'block_id'} = $self->{api_client}->to_query_value($args{'block_id'});
-    }
-
-    # query params
     if ( exists $args{'genre_id'}) {
         $query_params->{'genre_id'} = $self->{api_client}->to_query_value($args{'genre_id'});
     }
 
     # query params
-    if ( exists $args{'program_id'}) {
-        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
+    if ( exists $args{'item_id'}) {
+        $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    }
+
+    # query params
+    if ( exists $args{'start_min'}) {
+        $query_params->{'start-min'} = $self->{api_client}->to_query_value($args{'start_min'});
+    }
+
+    # query params
+    if ( exists $args{'start_max'}) {
+        $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params
@@ -744,10 +810,10 @@ sub list_broadcasts {
     __PACKAGE__->method_documentation->{ 'print_broadcast_by_id' } = { 
     	summary => 'Print Broadcast by id',
         params => $params,
-        returns => 'EPGBroadcast',
+        returns => 'EPGResults',
         };
 }
-# @return EPGBroadcast
+# @return EPGResults
 #
 sub print_broadcast_by_id {
     my ($self, %args) = @_;
@@ -805,7 +871,7 @@ sub print_broadcast_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('EPGBroadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('EPGResults', $response);
     return $_response_object;
 }
 

@@ -135,24 +135,22 @@ sub get_model_type_by_id {
 # Get all modelTypes.
 # 
 # @param int $page Current page *(Optional)* (optional)
-# @param string $model  (optional)
 # @param int $program_id Search on Program ID *(Optional)* (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* (optional)
 # @param int $item_id Search on Item ID *(Optional)* (optional)
 # @param int $campaign_id Search on Campaign ID *(Optional)* (optional)
 # @param int $presenter_id Search on Presenter ID *(Optional)* (optional)
 # @param int $contact_id Search on Contact ID *(Optional)* (optional)
+# @param string $model Search Modeltypes for certain Model *(Optional)* (optional)
+# @param int $limit Results per page *(Optional)* (optional)
+# @param string $order_by Field to order the results *(Optional)* (optional)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
     'page' => {
         data_type => 'int',
         description => 'Current page *(Optional)*',
-        required => '0',
-    },
-    'model' => {
-        data_type => 'string',
-        description => '',
         required => '0',
     },
     'program_id' => {
@@ -183,6 +181,26 @@ sub get_model_type_by_id {
     'contact_id' => {
         data_type => 'int',
         description => 'Search on Contact ID *(Optional)*',
+        required => '0',
+    },
+    'model' => {
+        data_type => 'string',
+        description => 'Search Modeltypes for certain Model *(Optional)*',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Results per page *(Optional)*',
+        required => '0',
+    },
+    'order_by' => {
+        data_type => 'string',
+        description => 'Field to order the results *(Optional)*',
+        required => '0',
+    },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
     '_external_station_id' => {
@@ -223,11 +241,6 @@ sub list_model_types {
     }
 
     # query params
-    if ( exists $args{'model'}) {
-        $query_params->{'model'} = $self->{api_client}->to_query_value($args{'model'});
-    }
-
-    # query params
     if ( exists $args{'program_id'}) {
         $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
@@ -255,6 +268,26 @@ sub list_model_types {
     # query params
     if ( exists $args{'contact_id'}) {
         $query_params->{'contact_id'} = $self->{api_client}->to_query_value($args{'contact_id'});
+    }
+
+    # query params
+    if ( exists $args{'model'}) {
+        $query_params->{'model'} = $self->{api_client}->to_query_value($args{'model'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    # query params
+    if ( exists $args{'order_by'}) {
+        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
+    }
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
     # query params

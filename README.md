@@ -254,7 +254,6 @@ use RadioManagerClient::Object::BlockResults;
 use RadioManagerClient::Object::Broadcast;
 use RadioManagerClient::Object::BroadcastEPGDay;
 use RadioManagerClient::Object::BroadcastEPGRelations;
-use RadioManagerClient::Object::BroadcastFieldValues;
 use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
@@ -272,7 +271,6 @@ use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
 use RadioManagerClient::Object::Contact;
-use RadioManagerClient::Object::ContactFieldValues;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
 use RadioManagerClient::Object::ContactRelationsItems;
@@ -291,7 +289,6 @@ use RadioManagerClient::Object::GenreRelationsBroadcastsParams;
 use RadioManagerClient::Object::GenreRelationsPrograms;
 use RadioManagerClient::Object::GenreResults;
 use RadioManagerClient::Object::ImportItem;
-use RadioManagerClient::Object::ImportItemFieldValues;
 use RadioManagerClient::Object::InlineResponse202;
 use RadioManagerClient::Object::InternalServerError;
 use RadioManagerClient::Object::InviteUserData;
@@ -329,7 +326,6 @@ use RadioManagerClient::Object::PresenterRelationsPrograms;
 use RadioManagerClient::Object::PresenterRelationsProgramsParams;
 use RadioManagerClient::Object::PresenterResults;
 use RadioManagerClient::Object::Program;
-use RadioManagerClient::Object::ProgramFieldValues;
 use RadioManagerClient::Object::ProgramInputOnly;
 use RadioManagerClient::Object::ProgramOutputOnly;
 use RadioManagerClient::Object::ProgramRelations;
@@ -429,7 +425,6 @@ use RadioManagerClient::Object::BlockResults;
 use RadioManagerClient::Object::Broadcast;
 use RadioManagerClient::Object::BroadcastEPGDay;
 use RadioManagerClient::Object::BroadcastEPGRelations;
-use RadioManagerClient::Object::BroadcastFieldValues;
 use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
@@ -447,7 +442,6 @@ use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
 use RadioManagerClient::Object::Contact;
-use RadioManagerClient::Object::ContactFieldValues;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
 use RadioManagerClient::Object::ContactRelationsItems;
@@ -466,7 +460,6 @@ use RadioManagerClient::Object::GenreRelationsBroadcastsParams;
 use RadioManagerClient::Object::GenreRelationsPrograms;
 use RadioManagerClient::Object::GenreResults;
 use RadioManagerClient::Object::ImportItem;
-use RadioManagerClient::Object::ImportItemFieldValues;
 use RadioManagerClient::Object::InlineResponse202;
 use RadioManagerClient::Object::InternalServerError;
 use RadioManagerClient::Object::InviteUserData;
@@ -504,7 +497,6 @@ use RadioManagerClient::Object::PresenterRelationsPrograms;
 use RadioManagerClient::Object::PresenterRelationsProgramsParams;
 use RadioManagerClient::Object::PresenterResults;
 use RadioManagerClient::Object::Program;
-use RadioManagerClient::Object::ProgramFieldValues;
 use RadioManagerClient::Object::ProgramInputOnly;
 use RadioManagerClient::Object::ProgramOutputOnly;
 use RadioManagerClient::Object::ProgramRelations;
@@ -675,7 +667,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::Broadcast](docs/Broadcast.md)
  - [RadioManagerClient::Object::BroadcastEPGDay](docs/BroadcastEPGDay.md)
  - [RadioManagerClient::Object::BroadcastEPGRelations](docs/BroadcastEPGRelations.md)
- - [RadioManagerClient::Object::BroadcastFieldValues](docs/BroadcastFieldValues.md)
  - [RadioManagerClient::Object::BroadcastInputOnly](docs/BroadcastInputOnly.md)
  - [RadioManagerClient::Object::BroadcastOutputOnly](docs/BroadcastOutputOnly.md)
  - [RadioManagerClient::Object::BroadcastRelations](docs/BroadcastRelations.md)
@@ -693,7 +684,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::CampaignRelationsItemsParams](docs/CampaignRelationsItemsParams.md)
  - [RadioManagerClient::Object::CampaignResults](docs/CampaignResults.md)
  - [RadioManagerClient::Object::Contact](docs/Contact.md)
- - [RadioManagerClient::Object::ContactFieldValues](docs/ContactFieldValues.md)
  - [RadioManagerClient::Object::ContactOutputOnly](docs/ContactOutputOnly.md)
  - [RadioManagerClient::Object::ContactRelations](docs/ContactRelations.md)
  - [RadioManagerClient::Object::ContactRelationsItems](docs/ContactRelationsItems.md)
@@ -712,7 +702,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::GenreRelationsPrograms](docs/GenreRelationsPrograms.md)
  - [RadioManagerClient::Object::GenreResults](docs/GenreResults.md)
  - [RadioManagerClient::Object::ImportItem](docs/ImportItem.md)
- - [RadioManagerClient::Object::ImportItemFieldValues](docs/ImportItemFieldValues.md)
  - [RadioManagerClient::Object::InlineResponse202](docs/InlineResponse202.md)
  - [RadioManagerClient::Object::InternalServerError](docs/InternalServerError.md)
  - [RadioManagerClient::Object::InviteUserData](docs/InviteUserData.md)
@@ -750,7 +739,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::PresenterRelationsProgramsParams](docs/PresenterRelationsProgramsParams.md)
  - [RadioManagerClient::Object::PresenterResults](docs/PresenterResults.md)
  - [RadioManagerClient::Object::Program](docs/Program.md)
- - [RadioManagerClient::Object::ProgramFieldValues](docs/ProgramFieldValues.md)
  - [RadioManagerClient::Object::ProgramInputOnly](docs/ProgramInputOnly.md)
  - [RadioManagerClient::Object::ProgramOutputOnly](docs/ProgramOutputOnly.md)
  - [RadioManagerClient::Object::ProgramRelations](docs/ProgramRelations.md)

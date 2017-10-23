@@ -157,7 +157,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'field_values' => {
-    	datatype => 'ImportItemFieldValues',
+    	datatype => 'object',
     	base_name => 'field_values',
     	description => '',
     	format => '',
@@ -224,7 +224,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->swagger_types( {
     'model_type_id' => 'int',
     'external_id' => 'string',
-    'field_values' => 'ImportItemFieldValues',
+    'field_values' => 'object',
     'title' => 'string',
     'duration' => 'int',
     'start' => 'DateTime',

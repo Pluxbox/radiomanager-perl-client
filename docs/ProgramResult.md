@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **deleted_at** | **DateTime** |  | 
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
-**field_values** | [**ProgramFieldValues**](ProgramFieldValues.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | 
 **disabled** | **boolean** |  | [optional] 
 **genre_id** | **int** |  | [optional] 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **program_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | [optional] 
 **station_id** | **int** |  | [optional] 
-**field_values** | [**BroadcastFieldValues**](BroadcastFieldValues.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **start** | **DateTime** |  | [optional] 
 **stop** | **DateTime** |  | [optional] 

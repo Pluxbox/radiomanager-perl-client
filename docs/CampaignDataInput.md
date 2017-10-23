@@ -9,7 +9,7 @@ use RadioManagerClient::Object::CampaignDataInput;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**field_values** | **ARRAY[object]** |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **start** | **DateTime** |  | 
 **stop** | **DateTime** |  | 

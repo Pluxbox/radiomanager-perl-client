@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **model_type_id** | **int** |  | 
 **block_id** | **int** |  | [optional] 
 **external_id** | **string** |  | [optional] 
-**field_values** | [**ImportItemFieldValues**](ImportItemFieldValues.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 
 **start** | **DateTime** |  | [optional] 

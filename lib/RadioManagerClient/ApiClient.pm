@@ -46,7 +46,7 @@ sub _new_instance
     my $class = shift;
     my (%args) = (
         'ua' => LWP::UserAgent->new,
-        'base_url' => 'https://staging.radiomanager.io/api/v2',
+        'base_url' => 'https://radiomanager.io/api/v2',
         @_
     );
   

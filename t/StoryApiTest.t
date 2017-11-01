@@ -59,14 +59,11 @@ isa_ok($api, 'RadioManagerClient::StoryApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
     my $model_type_id = undef; # replace NULL with a proper value
     my $tag_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
+    my $item_id = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_stories(page => $page, item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_stories(page => $page, model_type_id => $model_type_id, tag_id => $tag_id, item_id => $item_id, _external_station_id => $_external_station_id);
 }
 
 #

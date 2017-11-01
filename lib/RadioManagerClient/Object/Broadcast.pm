@@ -164,7 +164,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'field_values' => {
-    	datatype => 'BroadcastFieldValues',
+    	datatype => 'object',
     	base_name => 'field_values',
     	description => '',
     	format => '',
@@ -302,7 +302,7 @@ __PACKAGE__->swagger_types( {
     'program_id' => 'int',
     'model_type_id' => 'int',
     'station_id' => 'int',
-    'field_values' => 'BroadcastFieldValues',
+    'field_values' => 'object',
     'title' => 'string',
     'start' => 'DateTime',
     'stop' => 'DateTime',

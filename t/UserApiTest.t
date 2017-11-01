@@ -59,10 +59,7 @@ isa_ok($api, 'RadioManagerClient::UserApi');
 {
     my $page = undef; # replace NULL with a proper value
     my $role_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $result = $api->list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction);
+    my $result = $api->list_users(page => $page, role_id => $role_id);
 }
 
 

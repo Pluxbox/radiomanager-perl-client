@@ -185,7 +185,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'field_values' => {
-    	datatype => 'ProgramFieldValues',
+    	datatype => 'object',
     	base_name => 'field_values',
     	description => '',
     	format => '',
@@ -319,7 +319,7 @@ __PACKAGE__->swagger_types( {
     'deleted_at' => 'DateTime',
     '_external_station_id' => 'int',
     'model_type_id' => 'int',
-    'field_values' => 'ProgramFieldValues',
+    'field_values' => 'object',
     'title' => 'string',
     'disabled' => 'boolean',
     'genre_id' => 'int',

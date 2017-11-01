@@ -63,11 +63,8 @@ isa_ok($api, 'RadioManagerClient::TagApi');
     my $item_id = undef; # replace NULL with a proper value
     my $broadcast_id = undef; # replace NULL with a proper value
     my $contact_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, _external_station_id => $_external_station_id);
 }
 
 #

@@ -75,26 +75,25 @@ isa_ok($api, 'RadioManagerClient::ItemApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
-    my $block_id = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $campaign_id = undef; # replace NULL with a proper value
-    my $contact_id = undef; # replace NULL with a proper value
-    my $program_draft_id = undef; # replace NULL with a proper value
-    my $user_draft_id = undef; # replace NULL with a proper value
-    my $station_draft_id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
+    my $order_by = undef; # replace NULL with a proper value
+    my $order_direction = undef; # replace NULL with a proper value
     my $start_min = undef; # replace NULL with a proper value
     my $start_max = undef; # replace NULL with a proper value
     my $duration_min = undef; # replace NULL with a proper value
     my $duration_max = undef; # replace NULL with a proper value
     my $status = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
+    my $model_type_id = undef; # replace NULL with a proper value
+    my $program_draft_id = undef; # replace NULL with a proper value
+    my $user_draft_id = undef; # replace NULL with a proper value
+    my $station_draft_id = undef; # replace NULL with a proper value
+    my $block_id = undef; # replace NULL with a proper value
+    my $broadcast_id = undef; # replace NULL with a proper value
+    my $campaign_id = undef; # replace NULL with a proper value
+    my $contact_id = undef; # replace NULL with a proper value
+    my $program_id = undef; # replace NULL with a proper value
+    my $tag_id = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_items(page => $page, order_by => $order_by, order_direction => $order_direction, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, model_type_id => $model_type_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, block_id => $block_id, broadcast_id => $broadcast_id, campaign_id => $campaign_id, contact_id => $contact_id, program_id => $program_id, tag_id => $tag_id, _external_station_id => $_external_station_id);
 }
 
 #

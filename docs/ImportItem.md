@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
 **external_id** | **string** |  | 
-**field_values** | [**ImportItemFieldValues**](ImportItemFieldValues.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 
 **start** | **DateTime** |  | [optional] 

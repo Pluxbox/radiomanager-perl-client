@@ -43,18 +43,15 @@ isa_ok($api, 'RadioManagerClient::ModelTypeApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
+    my $model = undef; # replace NULL with a proper value
     my $program_id = undef; # replace NULL with a proper value
     my $broadcast_id = undef; # replace NULL with a proper value
     my $item_id = undef; # replace NULL with a proper value
     my $campaign_id = undef; # replace NULL with a proper value
     my $presenter_id = undef; # replace NULL with a proper value
     my $contact_id = undef; # replace NULL with a proper value
-    my $model = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_model_types(page => $page, program_id => $program_id, broadcast_id => $broadcast_id, item_id => $item_id, campaign_id => $campaign_id, presenter_id => $presenter_id, contact_id => $contact_id, model => $model, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_model_types(page => $page, model => $model, program_id => $program_id, broadcast_id => $broadcast_id, item_id => $item_id, campaign_id => $campaign_id, presenter_id => $presenter_id, contact_id => $contact_id, _external_station_id => $_external_station_id);
 }
 
 

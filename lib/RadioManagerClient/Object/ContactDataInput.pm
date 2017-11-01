@@ -150,7 +150,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'field_values' => {
-    	datatype => 'ContactFieldValues',
+    	datatype => 'object',
     	base_name => 'field_values',
     	description => '',
     	format => '',
@@ -188,7 +188,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'model_type_id' => 'int',
-    'field_values' => 'ContactFieldValues',
+    'field_values' => 'object',
     'email' => 'string',
     'firstname' => 'string',
     'lastname' => 'string',

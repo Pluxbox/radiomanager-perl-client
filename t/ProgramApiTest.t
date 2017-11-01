@@ -59,18 +59,15 @@ isa_ok($api, 'RadioManagerClient::ProgramApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $presenter_id = undef; # replace NULL with a proper value
     my $genre_id = undef; # replace NULL with a proper value
-    my $block_id = undef; # replace NULL with a proper value
+    my $model_type_id = undef; # replace NULL with a proper value
+    my $presenter_id = undef; # replace NULL with a proper value
+    my $tag_id = undef; # replace NULL with a proper value
+    my $broadcast_id = undef; # replace NULL with a proper value
     my $item_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
+    my $block_id = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_programs(page => $page, genre_id => $genre_id, model_type_id => $model_type_id, presenter_id => $presenter_id, tag_id => $tag_id, broadcast_id => $broadcast_id, item_id => $item_id, block_id => $block_id, _external_station_id => $_external_station_id);
 }
 
 #

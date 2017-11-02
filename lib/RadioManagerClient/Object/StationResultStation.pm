@@ -206,7 +206,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'keywords' => {
-    	datatype => 'string',
+    	datatype => 'ARRAY[string]',
     	base_name => 'keywords',
     	description => '',
     	format => '',
@@ -336,7 +336,7 @@ __PACKAGE__->swagger_types( {
     'medium_name' => 'string',
     'website' => 'string',
     'email' => 'string',
-    'keywords' => 'string',
+    'keywords' => 'ARRAY[string]',
     'description' => 'string',
     'sms' => 'string',
     'telephone' => 'string',

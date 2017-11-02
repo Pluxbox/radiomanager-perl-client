@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **medium_name** | **string** |  | [optional] 
 **website** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
-**keywords** | **string** |  | [optional] 
+**keywords** | **ARRAY[string]** |  | [optional] 
 **description** | **string** |  | [optional] 
 **sms** | **string** |  | [optional] 
 **telephone** | **string** |  | [optional] 

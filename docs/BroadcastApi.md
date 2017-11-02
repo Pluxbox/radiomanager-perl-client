@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_current_broadcast**
-> Broadcast get_current_broadcast()
+> BroadcastResult get_current_broadcast(withunpublished => $withunpublished)
 
 Get current Broadcast
 
@@ -196,9 +196,10 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 #$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
+my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
-    my $result = $api_instance->get_current_broadcast();
+    my $result = $api_instance->get_current_broadcast(withunpublished => $withunpublished);
     print Dumper($result);
 };
 if ($@) {
@@ -207,11 +208,14 @@ if ($@) {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **withunpublished** | **boolean**| Show Unpublished *(Optional)* | [optional] 
 
 ### Return type
 
-[**Broadcast**](Broadcast.md)
+[**BroadcastResult**](BroadcastResult.md)
 
 ### Authorization
 
@@ -331,7 +335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_next_broadcast**
-> Broadcast get_next_broadcast()
+> BroadcastResult get_next_broadcast(withunpublished => $withunpublished)
 
 Get next Broadcast
 
@@ -349,9 +353,10 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 #$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
 
 my $api_instance = RadioManagerClient::BroadcastApi->new();
+my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
-    my $result = $api_instance->get_next_broadcast();
+    my $result = $api_instance->get_next_broadcast(withunpublished => $withunpublished);
     print Dumper($result);
 };
 if ($@) {
@@ -360,11 +365,14 @@ if ($@) {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **withunpublished** | **boolean**| Show Unpublished *(Optional)* | [optional] 
 
 ### Return type
 
-[**Broadcast**](Broadcast.md)
+[**BroadcastResult**](BroadcastResult.md)
 
 ### Authorization
 

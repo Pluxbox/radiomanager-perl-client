@@ -266,16 +266,22 @@ sub get_broadcast_by_id {
 #
 # Get current Broadcast
 # 
+# @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
+    'withunpublished' => {
+        data_type => 'boolean',
+        description => 'Show Unpublished *(Optional)*',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_current_broadcast' } = { 
     	summary => 'Get current Broadcast',
         params => $params,
-        returns => 'Broadcast',
+        returns => 'BroadcastResult',
         };
 }
-# @return Broadcast
+# @return BroadcastResult
 #
 sub get_current_broadcast {
     my ($self, %args) = @_;
@@ -295,6 +301,11 @@ sub get_current_broadcast {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
+    # query params
+    if ( exists $args{'withunpublished'}) {
+        $query_params->{'withunpublished'} = $self->{api_client}->to_query_value($args{'withunpublished'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API Key )];
@@ -306,7 +317,7 @@ sub get_current_broadcast {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Broadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('BroadcastResult', $response);
     return $_response_object;
 }
 
@@ -457,16 +468,22 @@ sub get_epg_by_date {
 #
 # Get next Broadcast
 # 
+# @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
+    'withunpublished' => {
+        data_type => 'boolean',
+        description => 'Show Unpublished *(Optional)*',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_next_broadcast' } = { 
     	summary => 'Get next Broadcast',
         params => $params,
-        returns => 'Broadcast',
+        returns => 'BroadcastResult',
         };
 }
-# @return Broadcast
+# @return BroadcastResult
 #
 sub get_next_broadcast {
     my ($self, %args) = @_;
@@ -486,6 +503,11 @@ sub get_next_broadcast {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
+    # query params
+    if ( exists $args{'withunpublished'}) {
+        $query_params->{'withunpublished'} = $self->{api_client}->to_query_value($args{'withunpublished'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API Key )];
@@ -497,7 +519,7 @@ sub get_next_broadcast {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Broadcast', $response);
+    my $_response_object = $self->{api_client}->deserialize('BroadcastResult', $response);
     return $_response_object;
 }
 

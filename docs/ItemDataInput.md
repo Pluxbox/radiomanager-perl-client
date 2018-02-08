@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **static_start** | **boolean** |  | [optional] 
 **details** | **string** |  | [optional] 
 **_previous_id** | **int** |  | [optional] 
+**_before_id** | **int** |  | [optional] 
 **contacts** | **ARRAY[int]** |  | [optional] 
 **tags** | **ARRAY[int]** |  | [optional] 
 

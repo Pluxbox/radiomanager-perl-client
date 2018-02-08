@@ -219,9 +219,9 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'role_id' => {
-    	datatype => 'int',
-    	base_name => 'role_id',
+    'roles' => {
+    	datatype => 'ARRAY[UserResultRoles]',
+    	base_name => 'roles',
     	description => '',
     	format => '',
     	read_only => '',
@@ -240,7 +240,7 @@ __PACKAGE__->swagger_types( {
     'settings' => 'UserResultSettings',
     'language' => 'boolean',
     'active_external_station_id' => 'int',
-    'role_id' => 'int'
+    'roles' => 'ARRAY[UserResultRoles]'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -255,7 +255,7 @@ __PACKAGE__->attribute_map( {
     'settings' => 'settings',
     'language' => 'language',
     'active_external_station_id' => 'active_external_station_id',
-    'role_id' => 'role_id'
+    'roles' => 'roles'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

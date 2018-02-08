@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **settings** | [**UserResultSettings**](UserResultSettings.md) |  | [optional] 
 **language** | **boolean** |  | [optional] 
 **active_external_station_id** | **int** |  | [optional] 
-**role_id** | **int** |  | [optional] 
+**roles** | [**ARRAY[UserResultRoles]**](UserResultRoles.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

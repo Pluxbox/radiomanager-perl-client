@@ -25,9 +25,9 @@ use strict;
 use warnings;
 
 
-use_ok('RadioManagerClient::Object::BroadcastFieldValues');
+use_ok('RadioManagerClient::Object::UserResultRoles');
 
-my $instance = RadioManagerClient::Object::BroadcastFieldValues->new();
+my $instance = RadioManagerClient::Object::UserResultRoles->new();
 
-isa_ok($instance, 'RadioManagerClient::Object::BroadcastFieldValues');
+isa_ok($instance, 'RadioManagerClient::Object::UserResultRoles');
 

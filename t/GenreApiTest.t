@@ -46,8 +46,11 @@ isa_ok($api, 'RadioManagerClient::GenreApi');
     my $parent_id = undef; # replace NULL with a proper value
     my $program_id = undef; # replace NULL with a proper value
     my $broadcast_id = undef; # replace NULL with a proper value
+    my $limit = undef; # replace NULL with a proper value
+    my $order_by = undef; # replace NULL with a proper value
+    my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, _external_station_id => $_external_station_id);
+    my $result = $api->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
 }
 
 

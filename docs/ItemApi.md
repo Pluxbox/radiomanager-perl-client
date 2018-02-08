@@ -488,7 +488,7 @@ $RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
 
 my $api_instance = RadioManagerClient::ItemApi->new();
 my $id = 789; # int | ID of Item **(Required)**
-my $data = RadioManagerClient::Object::Item->new(); # Item | Data *(Optional)*
+my $data = RadioManagerClient::Object::ItemDataInput->new(); # ItemDataInput | Data *(Optional)*
 
 eval { 
     my $result = $api_instance->update_item_by_id(id => $id, data => $data);
@@ -504,7 +504,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of Item **(Required)** | 
- **data** | [**Item**](Item.md)| Data *(Optional)* | [optional] 
+ **data** | [**ItemDataInput**](ItemDataInput.md)| Data *(Optional)* | [optional] 
 
 ### Return type
 

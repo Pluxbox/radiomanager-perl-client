@@ -771,7 +771,7 @@ sub playlist_post_timing {
 # Update extended item details by ID.
 # 
 # @param int $id ID of Item **(Required)** (required)
-# @param Item $data Data *(Optional)* (optional)
+# @param ItemDataInput $data Data *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -780,7 +780,7 @@ sub playlist_post_timing {
         required => '1',
     },
     'data' => {
-        data_type => 'Item',
+        data_type => 'ItemDataInput',
         description => 'Data *(Optional)*',
         required => '0',
     },

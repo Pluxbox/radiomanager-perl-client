@@ -317,13 +317,6 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'trial_date' => {
-    	datatype => 'DateTime',
-    	base_name => 'trial_date',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -351,8 +344,7 @@ __PACKAGE__->swagger_types( {
     'pty_code' => 'int',
     'pty_type' => 'string',
     'station_key' => 'string',
-    'timezone' => 'string',
-    'trial_date' => 'DateTime'
+    'timezone' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -380,8 +372,7 @@ __PACKAGE__->attribute_map( {
     'pty_code' => 'pty_code',
     'pty_type' => 'pty_type',
     'station_key' => 'station_key',
-    'timezone' => 'timezone',
-    'trial_date' => 'trial_date'
+    'timezone' => 'timezone'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

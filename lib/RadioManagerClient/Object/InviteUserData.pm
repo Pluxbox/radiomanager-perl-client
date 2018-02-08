@@ -149,9 +149,9 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'role_id' => {
-    	datatype => 'int',
-    	base_name => 'role_id',
+    'role_ids' => {
+    	datatype => 'ARRAY[int]',
+    	base_name => 'role_ids',
     	description => '',
     	format => '',
     	read_only => '',
@@ -160,12 +160,12 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'email' => 'string',
-    'role_id' => 'int'
+    'role_ids' => 'ARRAY[int]'
 } );
 
 __PACKAGE__->attribute_map( {
     'email' => 'email',
-    'role_id' => 'role_id'
+    'role_ids' => 'role_ids'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

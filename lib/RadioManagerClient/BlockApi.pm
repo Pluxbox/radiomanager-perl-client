@@ -181,13 +181,13 @@ sub get_current_block {
 #
 # get_next_block
 #
-# Get next Block
+# Get upcoming Block
 # 
 {
     my $params = {
     };
     __PACKAGE__->method_documentation->{ 'get_next_block' } = { 
-    	summary => 'Get next Block',
+    	summary => 'Get upcoming Block',
         params => $params,
         returns => 'BlockResult',
         };

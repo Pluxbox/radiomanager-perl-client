@@ -362,6 +362,7 @@ use RadioManagerClient::Object::TextString;
 use RadioManagerClient::Object::TooManyRequests;
 use RadioManagerClient::Object::UnprocessableEntity;
 use RadioManagerClient::Object::UserResult;
+use RadioManagerClient::Object::UserResultRoles;
 use RadioManagerClient::Object::UserResultSettings;
 use RadioManagerClient::Object::UserResults;
 use RadioManagerClient::Object::VisualResult;
@@ -533,6 +534,7 @@ use RadioManagerClient::Object::TextString;
 use RadioManagerClient::Object::TooManyRequests;
 use RadioManagerClient::Object::UnprocessableEntity;
 use RadioManagerClient::Object::UserResult;
+use RadioManagerClient::Object::UserResultRoles;
 use RadioManagerClient::Object::UserResultSettings;
 use RadioManagerClient::Object::UserResults;
 use RadioManagerClient::Object::VisualResult;
@@ -590,7 +592,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BlockApi* | [**get_block_by_id**](docs/BlockApi.md#get_block_by_id) | **GET** /blocks/{id} | Get block by id
 *BlockApi* | [**get_current_block**](docs/BlockApi.md#get_current_block) | **GET** /blocks/current | Get current Block
-*BlockApi* | [**get_next_block**](docs/BlockApi.md#get_next_block) | **GET** /blocks/next | Get next Block
+*BlockApi* | [**get_next_block**](docs/BlockApi.md#get_next_block) | **GET** /blocks/next | Get upcoming Block
 *BlockApi* | [**list_blocks**](docs/BlockApi.md#list_blocks) | **GET** /blocks | Get a list of all blocks currently in your station.
 *BroadcastApi* | [**create_broadcast**](docs/BroadcastApi.md#create_broadcast) | **POST** /broadcasts | Create broadcast.
 *BroadcastApi* | [**delete_broadcast_by_id**](docs/BroadcastApi.md#delete_broadcast_by_id) | **DELETE** /broadcasts/{id} | Delete broadcast by id
@@ -775,6 +777,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::TooManyRequests](docs/TooManyRequests.md)
  - [RadioManagerClient::Object::UnprocessableEntity](docs/UnprocessableEntity.md)
  - [RadioManagerClient::Object::UserResult](docs/UserResult.md)
+ - [RadioManagerClient::Object::UserResultRoles](docs/UserResultRoles.md)
  - [RadioManagerClient::Object::UserResultSettings](docs/UserResultSettings.md)
  - [RadioManagerClient::Object::UserResults](docs/UserResults.md)
  - [RadioManagerClient::Object::VisualResult](docs/VisualResult.md)

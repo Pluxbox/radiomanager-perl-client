@@ -261,6 +261,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    '_before_id' => {
+    	datatype => 'int',
+    	base_name => '_before_id',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'contacts' => {
     	datatype => 'ARRAY[int]',
     	base_name => 'contacts',
@@ -295,6 +302,7 @@ __PACKAGE__->swagger_types( {
     'static_start' => 'boolean',
     'details' => 'string',
     '_previous_id' => 'int',
+    '_before_id' => 'int',
     'contacts' => 'ARRAY[int]',
     'tags' => 'ARRAY[int]'
 } );
@@ -317,6 +325,7 @@ __PACKAGE__->attribute_map( {
     'static_start' => 'static_start',
     'details' => 'details',
     '_previous_id' => '_previous_id',
+    '_before_id' => '_before_id',
     'contacts' => 'contacts',
     'tags' => 'tags'
 } );

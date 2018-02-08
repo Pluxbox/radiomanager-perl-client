@@ -149,14 +149,23 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'sub_broadcast' => {
+    	datatype => 'boolean',
+    	base_name => 'subBroadcast',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
-    'color' => 'string'
+    'color' => 'string',
+    'sub_broadcast' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'color' => 'color'
+    'color' => 'color',
+    'sub_broadcast' => 'subBroadcast'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

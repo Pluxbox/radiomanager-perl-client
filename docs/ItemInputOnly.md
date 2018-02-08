@@ -9,6 +9,7 @@ use RadioManagerClient::Object::ItemInputOnly;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_previous_id** | **int** |  | [optional] 
+**_before_id** | **int** |  | [optional] 
 **contacts** | **ARRAY[int]** |  | [optional] 
 **tags** | **ARRAY[int]** |  | [optional] 
 

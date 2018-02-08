@@ -1,15 +1,17 @@
-# RadioManagerClient::Object::InviteUserData
+# RadioManagerClient::Object::UserResultRoles
 
 ## Load the model package
 ```perl
-use RadioManagerClient::Object::InviteUserData;
+use RadioManagerClient::Object::UserResultRoles;
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **string** |  | 
-**role_ids** | **ARRAY[int]** |  | 
+**href** | **string** |  | [optional] 
+**model** | **string** |  | [optional] 
+**operation** | **string** |  | [optional] 
+**params** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

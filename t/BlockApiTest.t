@@ -57,13 +57,16 @@ isa_ok($api, 'RadioManagerClient::BlockApi');
 #
 {
     my $page = undef; # replace NULL with a proper value
+    my $broadcast_id = undef; # replace NULL with a proper value
+    my $item_id = undef; # replace NULL with a proper value
+    my $program_id = undef; # replace NULL with a proper value
     my $start_min = undef; # replace NULL with a proper value
     my $start_max = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
+    my $limit = undef; # replace NULL with a proper value
+    my $order_by = undef; # replace NULL with a proper value
+    my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_blocks(page => $page, start_min => $start_min, start_max => $start_max, broadcast_id => $broadcast_id, program_id => $program_id, item_id => $item_id, _external_station_id => $_external_station_id);
+    my $result = $api->list_blocks(page => $page, broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
 }
 
 

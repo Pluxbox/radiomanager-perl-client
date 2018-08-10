@@ -258,6 +258,7 @@ use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
+use RadioManagerClient::Object::BroadcastRelationsGenre;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
@@ -340,6 +341,7 @@ use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
+use RadioManagerClient::Object::StationResultStationStartDays;
 use RadioManagerClient::Object::Story;
 use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
@@ -430,6 +432,7 @@ use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
+use RadioManagerClient::Object::BroadcastRelationsGenre;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
@@ -512,6 +515,7 @@ use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
+use RadioManagerClient::Object::StationResultStationStartDays;
 use RadioManagerClient::Object::Story;
 use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
@@ -603,7 +607,7 @@ Class | Method | HTTP request | Description
 *BroadcastApi* | [**get_next_broadcast**](docs/BroadcastApi.md#get_next_broadcast) | **GET** /broadcasts/next | Get next Broadcast
 *BroadcastApi* | [**get_weekly_epg**](docs/BroadcastApi.md#get_weekly_epg) | **GET** /broadcasts/epg/weekly | Get weekly EPG
 *BroadcastApi* | [**list_broadcasts**](docs/BroadcastApi.md#list_broadcasts) | **GET** /broadcasts | Get all broadcasts.
-*BroadcastApi* | [**print_broadcast_by_id**](docs/BroadcastApi.md#print_broadcast_by_id) | **GET** /broadcasts/print/{id} | Print Broadcast by id
+*BroadcastApi* | [**print_broadcast_by_id**](docs/BroadcastApi.md#print_broadcast_by_id) | **GET** /broadcasts/print/{id} | Print broadcast by id with template
 *BroadcastApi* | [**update_broadcast_by_id**](docs/BroadcastApi.md#update_broadcast_by_id) | **PATCH** /broadcasts/{id} | Update broadcast by id
 *CampaignApi* | [**create_campaign**](docs/CampaignApi.md#create_campaign) | **POST** /campaigns | Create campaign.
 *CampaignApi* | [**delete_campaign_by_id**](docs/CampaignApi.md#delete_campaign_by_id) | **DELETE** /campaigns/{id} | Delete campaign by id
@@ -621,6 +625,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**current_item_post_structure**](docs/ItemApi.md#current_item_post_structure) | **POST** /items/current/structure | Post a current playing item, keep structure
 *ItemApi* | [**current_item_post_timing**](docs/ItemApi.md#current_item_post_timing) | **POST** /items/current/timing | Post a current playing item
 *ItemApi* | [**delete_item_by_id**](docs/ItemApi.md#delete_item_by_id) | **DELETE** /items/{id} | Delete item by ID.
+*ItemApi* | [**get_current_item**](docs/ItemApi.md#get_current_item) | **GET** /items/current | Get current Item
 *ItemApi* | [**get_item_by_id**](docs/ItemApi.md#get_item_by_id) | **GET** /items/{id} | Get extended item details by ID.
 *ItemApi* | [**list_items**](docs/ItemApi.md#list_items) | **GET** /items | Get a list of all the items currently in your station.
 *ItemApi* | [**playlist_post_structure**](docs/ItemApi.md#playlist_post_structure) | **POST** /items/playlist/structure | Post a playlist, keep current structure
@@ -673,6 +678,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::BroadcastOutputOnly](docs/BroadcastOutputOnly.md)
  - [RadioManagerClient::Object::BroadcastRelations](docs/BroadcastRelations.md)
  - [RadioManagerClient::Object::BroadcastRelationsBlocks](docs/BroadcastRelationsBlocks.md)
+ - [RadioManagerClient::Object::BroadcastRelationsGenre](docs/BroadcastRelationsGenre.md)
  - [RadioManagerClient::Object::BroadcastRelationsItems](docs/BroadcastRelationsItems.md)
  - [RadioManagerClient::Object::BroadcastRelationsItemsParams](docs/BroadcastRelationsItemsParams.md)
  - [RadioManagerClient::Object::BroadcastRelationsModelType](docs/BroadcastRelationsModelType.md)
@@ -755,6 +761,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::RelationsPlaceholder](docs/RelationsPlaceholder.md)
  - [RadioManagerClient::Object::StationResult](docs/StationResult.md)
  - [RadioManagerClient::Object::StationResultStation](docs/StationResultStation.md)
+ - [RadioManagerClient::Object::StationResultStationStartDays](docs/StationResultStationStartDays.md)
  - [RadioManagerClient::Object::Story](docs/Story.md)
  - [RadioManagerClient::Object::StoryInputOnly](docs/StoryInputOnly.md)
  - [RadioManagerClient::Object::StoryOutputOnly](docs/StoryOutputOnly.md)

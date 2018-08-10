@@ -800,12 +800,10 @@ sub list_broadcasts {
 #
 # print_broadcast_by_id
 #
-# Print Broadcast by id
+# Print broadcast by id with template
 # 
 # @param int $id ID of Broadcast **(Required)** (required)
-# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $presenter_id Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $template_id Search on template ID *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -813,24 +811,14 @@ sub list_broadcasts {
         description => 'ID of Broadcast **(Required)**',
         required => '1',
     },
-    'program_id' => {
+    'template_id' => {
         data_type => 'int',
-        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'presenter_id' => {
-        data_type => 'int',
-        description => 'Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'tag_id' => {
-        data_type => 'int',
-        description => 'Search on Tag ID *(Optional)* &#x60;(Relation)&#x60;',
+        description => 'Search on template ID *(Optional)*',
         required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ 'print_broadcast_by_id' } = { 
-    	summary => 'Print Broadcast by id',
+    	summary => 'Print broadcast by id with template',
         params => $params,
         returns => 'EPGResults',
         };
@@ -861,18 +849,8 @@ sub print_broadcast_by_id {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     # query params
-    if ( exists $args{'program_id'}) {
-        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
-    }
-
-    # query params
-    if ( exists $args{'presenter_id'}) {
-        $query_params->{'presenter_id'} = $self->{api_client}->to_query_value($args{'presenter_id'});
-    }
-
-    # query params
-    if ( exists $args{'tag_id'}) {
-        $query_params->{'tag_id'} = $self->{api_client}->to_query_value($args{'tag_id'});
+    if ( exists $args{'template_id'}) {
+        $query_params->{'template_id'} = $self->{api_client}->to_query_value($args{'template_id'});
     }
 
     # path params

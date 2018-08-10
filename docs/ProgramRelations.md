@@ -8,6 +8,7 @@ use RadioManagerClient::Object::ProgramRelations;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**genre** | [**BroadcastRelationsGenre**](BroadcastRelationsGenre.md) |  | [optional] 
 **items** | [**ProgramRelationsItems**](ProgramRelationsItems.md) |  | [optional] 
 **blocks** | [**ProgramRelationsBlocks**](ProgramRelationsBlocks.md) |  | [optional] 
 **broadcasts** | [**ProgramRelationsBroadcasts**](ProgramRelationsBroadcasts.md) |  | [optional] 

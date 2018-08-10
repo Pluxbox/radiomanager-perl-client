@@ -142,6 +142,13 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
+    'genre' => {
+    	datatype => 'BroadcastRelationsGenre',
+    	base_name => 'genre',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'items' => {
     	datatype => 'ProgramRelationsItems',
     	base_name => 'items',
@@ -187,6 +194,7 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->swagger_types( {
+    'genre' => 'BroadcastRelationsGenre',
     'items' => 'ProgramRelationsItems',
     'blocks' => 'ProgramRelationsBlocks',
     'broadcasts' => 'ProgramRelationsBroadcasts',
@@ -196,6 +204,7 @@ __PACKAGE__->swagger_types( {
 } );
 
 __PACKAGE__->attribute_map( {
+    'genre' => 'genre',
     'items' => 'items',
     'blocks' => 'blocks',
     'broadcasts' => 'broadcasts',

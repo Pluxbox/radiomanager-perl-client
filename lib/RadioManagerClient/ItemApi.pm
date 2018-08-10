@@ -299,6 +299,66 @@ sub delete_item_by_id {
 }
 
 #
+# get_current_item
+#
+# Get current Item
+# 
+# @param boolean $lastplayed Show last played item if there is no current item*(Optional)* (optional)
+{
+    my $params = {
+    'lastplayed' => {
+        data_type => 'boolean',
+        description => 'Show last played item if there is no current item*(Optional)*',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'get_current_item' } = { 
+    	summary => 'Get current Item',
+        params => $params,
+        returns => 'ItemResult',
+        };
+}
+# @return ItemResult
+#
+sub get_current_item {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/items/current';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if ( exists $args{'lastplayed'}) {
+        $query_params->{'lastplayed'} = $self->{api_client}->to_query_value($args{'lastplayed'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(API Key )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('ItemResult', $response);
+    return $_response_object;
+}
+
+#
 # get_item_by_id
 #
 # Get extended item details by ID.
@@ -392,6 +452,7 @@ sub get_item_by_id {
 # @param int $user_draft_id Search on User Draft ID *(Optional)* (optional)
 # @param int $station_draft_id Search on Station Draft ID *(Optional)* (optional)
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param string $external_id Search on External ID *(Optional)* (optional)
 # @param DateTime $start_min Minimum start date *(Optional)* (optional)
 # @param DateTime $start_max Maximum start date *(Optional)* (optional)
 # @param int $duration_min Minimum duration (seconds) *(Optional)* (optional)
@@ -456,6 +517,11 @@ sub get_item_by_id {
     'program_id' => {
         data_type => 'int',
         description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'external_id' => {
+        data_type => 'string',
+        description => 'Search on External ID *(Optional)*',
         required => '0',
     },
     'start_min' => {
@@ -583,6 +649,11 @@ sub list_items {
     # query params
     if ( exists $args{'program_id'}) {
         $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
+    }
+
+    # query params
+    if ( exists $args{'external_id'}) {
+        $query_params->{'external_id'} = $self->{api_client}->to_query_value($args{'external_id'});
     }
 
     # query params

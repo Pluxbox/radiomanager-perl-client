@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **repetition_start** | **DateTime** |  | [optional] 
 **repetition_days** | **string** |  | [optional] 
 **pty_code_id** | **int** |  | [optional] 
+**genre** | [**BroadcastRelationsGenre**](BroadcastRelationsGenre.md) |  | [optional] 
 **items** | [**BroadcastRelationsItems**](BroadcastRelationsItems.md) |  | [optional] 
 **blocks** | [**BroadcastRelationsBlocks**](BroadcastRelationsBlocks.md) |  | [optional] 
 **program** | [**BlockRelationsProgram**](BlockRelationsProgram.md) |  | [optional] 

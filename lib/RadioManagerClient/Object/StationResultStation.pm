@@ -317,6 +317,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'start_days' => {
+    	datatype => 'StationResultStationStartDays',
+    	base_name => 'start_days',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -344,7 +351,8 @@ __PACKAGE__->swagger_types( {
     'pty_code' => 'int',
     'pty_type' => 'string',
     'station_key' => 'string',
-    'timezone' => 'string'
+    'timezone' => 'string',
+    'start_days' => 'StationResultStationStartDays'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -372,7 +380,8 @@ __PACKAGE__->attribute_map( {
     'pty_code' => 'pty_code',
     'pty_type' => 'pty_type',
     'station_key' => 'station_key',
-    'timezone' => 'timezone'
+    'timezone' => 'timezone',
+    'start_days' => 'start_days'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

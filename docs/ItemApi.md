@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**current_item_post_structure**](ItemApi.md#current_item_post_structure) | **POST** /items/current/structure | Post a current playing item, keep structure
 [**current_item_post_timing**](ItemApi.md#current_item_post_timing) | **POST** /items/current/timing | Post a current playing item
 [**delete_item_by_id**](ItemApi.md#delete_item_by_id) | **DELETE** /items/{id} | Delete item by ID.
+[**get_current_item**](ItemApi.md#get_current_item) | **GET** /items/current | Get current Item
 [**get_item_by_id**](ItemApi.md#get_item_by_id) | **GET** /items/{id} | Get extended item details by ID.
 [**list_items**](ItemApi.md#list_items) | **GET** /items | Get a list of all the items currently in your station.
 [**playlist_post_structure**](ItemApi.md#playlist_post_structure) | **POST** /items/playlist/structure | Post a playlist, keep current structure
@@ -224,6 +225,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_current_item**
+> ItemResult get_current_item(lastplayed => $lastplayed)
+
+Get current Item
+
+Get current Item
+
+### Example 
+```perl
+use Data::Dumper;
+use RadioManagerClient::Configuration;
+use RadioManagerClient::ItemApi;
+
+# Configure API key authorization: API Key
+$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+
+my $api_instance = RadioManagerClient::ItemApi->new();
+my $lastplayed = 1; # boolean | Show last played item if there is no current item*(Optional)*
+
+eval { 
+    my $result = $api_instance->get_current_item(lastplayed => $lastplayed);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ItemApi->get_current_item: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lastplayed** | **boolean**| Show last played item if there is no current item*(Optional)* | [optional] 
+
+### Return type
+
+[**ItemResult**](ItemResult.md)
+
+### Authorization
+
+[API Key](../README.md#API Key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_item_by_id**
 > ItemResult get_item_by_id(id => $id, _external_station_id => $_external_station_id)
 
@@ -278,7 +330,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_items**
-> ItemResults list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> ItemResults list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, external_id => $external_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get a list of all the items currently in your station.
 
@@ -307,6 +359,7 @@ my $program_draft_id = 789; # int | Search on Program Draft ID *(Optional)*
 my $user_draft_id = 789; # int | Search on User Draft ID *(Optional)*
 my $station_draft_id = 789; # int | Search on Station Draft ID *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
+my $external_id = 'external_id_example'; # string | Search on External ID *(Optional)*
 my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
 my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
 my $duration_min = 56; # int | Minimum duration (seconds) *(Optional)*
@@ -318,7 +371,7 @@ my $order_direction = 'order_direction_example'; # string | Direction of orderin
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, external_id => $external_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -341,6 +394,7 @@ Name | Type | Description  | Notes
  **user_draft_id** | **int**| Search on User Draft ID *(Optional)* | [optional] 
  **station_draft_id** | **int**| Search on Station Draft ID *(Optional)* | [optional] 
  **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **external_id** | **string**| Search on External ID *(Optional)* | [optional] 
  **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
  **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
  **duration_min** | **int**| Minimum duration (seconds) *(Optional)* | [optional] 

@@ -89,37 +89,37 @@ you are accessing. Usually `prefix` and `in` will be determined by the code gene
 the spec and you will not need to set them at run time. If not, `in` will
 default to 'head' and `prefix` to the empty string.
 
-The tokens will be placed in the `RadioManagerClient::Configuration` namespace
+The tokens will be placed in a L<RadioManagerClient::Configuration> instance
 as follows, but you don't need to know about this.
 
-- `$RadioManagerClient::Configuration::username`
+- `$cfg->{username}`
 
     String. The username for basic auth.
 
-- `$RadioManagerClient::Configuration::password`
+- `$cfg->{password}`
 
     String. The password for basic auth.
 
-- `$RadioManagerClient::Configuration::api_key`
+- `$cfg->{api_key}`
 
     Hashref. Keyed on the name of each key (there can be multiple tokens).
 
-            $RadioManagerClient::Configuration::api_key = {
+            $cfg->{api_key} = {
                     secretKey => 'aaaabbbbccccdddd',
                     anotherKey => '1111222233334444',
                     };
 
-- `$RadioManagerClient::Configuration::api_key_prefix`
+- `$cfg->{api_key_prefix}`
 
     Hashref. Keyed on the name of each key (there can be multiple tokens). Note not
     all api keys require a prefix.
 
-            $RadioManagerClient::Configuration::api_key_prefix = {
+            $cfg->{api_key_prefix} = {
                     secretKey => 'string',
                     anotherKey => 'same or some other string',
                     };
 
-- `$RadioManagerClient::Configuration::access_token`
+- `$cfg->{access_token}`
 
     String. The OAuth access token.
 
@@ -128,8 +128,7 @@ as follows, but you don't need to know about this.
 ## `base_url`
 
 The generated code has the `base_url` already set as a default value. This method
-returns (and optionally sets, but only if the API client has not been
-created yet) the current value of `base_url`.
+returns the current value of `base_url`.
 
 ## `api_factory`
 
@@ -566,15 +565,16 @@ use RadioManagerClient::Object::TagResult;
 
 # for displaying the API response data
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::;
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = 'Bearer';
+my $api_instance = RadioManagerClient::->new(
 
-my $api_instance = RadioManagerClient::BlockApi->new();
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
+
 my $id = 789; # int | ID of Block **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 

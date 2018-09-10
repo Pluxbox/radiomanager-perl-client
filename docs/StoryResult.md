@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **field_values** | **object** |  | [optional] 
 **name** | **string** |  | 
 **description** | **string** |  | [optional] 
-**tags** | [**StoryRelationsTags**](StoryRelationsTags.md) |  | [optional] 
+**tags** | [**StoryRelationsTags**](StoryRelationsTags.md) |  | 
 **items** | [**StoryRelationsItems**](StoryRelationsItems.md) |  | [optional] 
 **model_type** | [**BroadcastRelationsModelType**](BroadcastRelationsModelType.md) |  | [optional] 
 

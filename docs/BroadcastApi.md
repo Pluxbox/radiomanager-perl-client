@@ -32,15 +32,15 @@ Create broadcast.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $data = RadioManagerClient::Object::BroadcastDataInput->new(); # BroadcastDataInput | Data **(Required)**
 
 eval { 
@@ -83,15 +83,15 @@ Delete broadcast by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $id = 789; # int | ID of Broadcast **(Required)**
 
 eval { 
@@ -134,15 +134,15 @@ Get broadcast by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $id = 789; # int | ID of Broadcast **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
@@ -187,15 +187,15 @@ Get current Broadcast
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
@@ -238,15 +238,15 @@ Get current Broadcast
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
 my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
@@ -291,15 +291,15 @@ Get EPG by date
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
 my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
@@ -344,15 +344,15 @@ Get next Broadcast
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
 eval { 
@@ -395,15 +395,15 @@ Get weekly EPG
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $date = 'date_example'; # string | Date *(Optional)*
 my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
 
@@ -448,15 +448,15 @@ List all broadcasts.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **print_broadcast_by_id**
-> EPGResults print_broadcast_by_id(id => $id, template_id => $template_id)
+> string print_broadcast_by_id(id => $id, template_id => $template_id)
 
 Print broadcast by id with template
 
@@ -525,15 +525,15 @@ Print broadcast by id with template
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $id = 789; # int | ID of Broadcast **(Required)**
 my $template_id = 789; # int | Search on template ID *(Optional)*
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EPGResults**](EPGResults.md)
+**string**
 
 ### Authorization
 
@@ -578,15 +578,15 @@ Update broadcast by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::BroadcastApi;
+my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::BroadcastApi->new();
 my $id = 789; # int | ID of Broadcast **(Required)**
 my $data = RadioManagerClient::Object::BroadcastDataInput->new(); # BroadcastDataInput | Data *(Optional)*
 

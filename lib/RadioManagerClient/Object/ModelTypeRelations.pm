@@ -30,6 +30,13 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::ModelTypeRelationsBroadcasts;
+use RadioManagerClient::Object::ModelTypeRelationsCampaigns;
+use RadioManagerClient::Object::ModelTypeRelationsContacts;
+use RadioManagerClient::Object::ModelTypeRelationsItems;
+use RadioManagerClient::Object::ModelTypeRelationsPresenters;
+use RadioManagerClient::Object::ModelTypeRelationsPrograms;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 

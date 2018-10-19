@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **updated_at** | **DateTime** |  | 
 **created_at** | **DateTime** |  | 
 **deleted_at** | **DateTime** |  | 
-**item** | [**ARRAY[Item]**](Item.md) |  | [optional] 
+**item** | [**Item**](Item.md) |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
 **field_values** | **object** |  | [optional] 

@@ -178,7 +178,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'item' => {
-    	datatype => 'ARRAY[Item]',
+    	datatype => 'Item',
     	base_name => 'item',
     	description => '',
     	format => '',
@@ -261,7 +261,7 @@ __PACKAGE__->swagger_types( {
     'updated_at' => 'DateTime',
     'created_at' => 'DateTime',
     'deleted_at' => 'DateTime',
-    'item' => 'ARRAY[Item]',
+    'item' => 'Item',
     '_external_station_id' => 'int',
     'model_type_id' => 'int',
     'field_values' => 'object',

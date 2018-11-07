@@ -270,6 +270,7 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
+use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::Contact;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
@@ -444,6 +445,7 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
+use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::Contact;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
@@ -691,6 +693,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::CampaignRelationsItems](docs/CampaignRelationsItems.md)
  - [RadioManagerClient::Object::CampaignRelationsItemsParams](docs/CampaignRelationsItemsParams.md)
  - [RadioManagerClient::Object::CampaignResults](docs/CampaignResults.md)
+ - [RadioManagerClient::Object::CampaignTemplateItem](docs/CampaignTemplateItem.md)
  - [RadioManagerClient::Object::Contact](docs/Contact.md)
  - [RadioManagerClient::Object::ContactOutputOnly](docs/ContactOutputOnly.md)
  - [RadioManagerClient::Object::ContactRelations](docs/ContactRelations.md)

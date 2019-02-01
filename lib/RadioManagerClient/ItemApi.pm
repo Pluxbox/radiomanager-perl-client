@@ -714,6 +714,66 @@ sub list_items {
 }
 
 #
+# playlist_post_merge
+#
+# Post a playlist, do not remove previously imported items
+# 
+# @param Data2 $data Data *(Optional)* (optional)
+{
+    my $params = {
+    'data' => {
+        data_type => 'Data2',
+        description => 'Data *(Optional)*',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'playlist_post_merge' } = { 
+    	summary => 'Post a playlist, do not remove previously imported items',
+        params => $params,
+        returns => 'InlineResponse202',
+        };
+}
+# @return InlineResponse202
+#
+sub playlist_post_merge {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/items/playlist/merge';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'data'}) {
+        $_body_data = $args{'data'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(API Key )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
+    return $_response_object;
+}
+
+#
 # playlist_post_structure
 #
 # Post a playlist, keep current structure
@@ -830,6 +890,66 @@ sub playlist_post_timing {
         return;
     }
     my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
+    return $_response_object;
+}
+
+#
+# stop_current_item
+#
+# Stop an Item
+# 
+# @param Data3 $data Data *(Optional)* (optional)
+{
+    my $params = {
+    'data' => {
+        data_type => 'Data3',
+        description => 'Data *(Optional)*',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'stop_current_item' } = { 
+    	summary => 'Stop an Item',
+        params => $params,
+        returns => 'Success',
+        };
+}
+# @return Success
+#
+sub stop_current_item {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/items/stopcurrent';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'data'}) {
+        $_body_data = $args{'data'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(API Key )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('Success', $response);
     return $_response_object;
 }
 

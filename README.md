@@ -280,6 +280,8 @@ use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::Data;
 use RadioManagerClient::Object::Data1;
+use RadioManagerClient::Object::Data2;
+use RadioManagerClient::Object::Data3;
 use RadioManagerClient::Object::EPGResults;
 use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
@@ -455,6 +457,8 @@ use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::Data;
 use RadioManagerClient::Object::Data1;
+use RadioManagerClient::Object::Data2;
+use RadioManagerClient::Object::Data3;
 use RadioManagerClient::Object::EPGResults;
 use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
@@ -630,8 +634,10 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**get_current_item**](docs/ItemApi.md#get_current_item) | **GET** /items/current | Get current Item
 *ItemApi* | [**get_item_by_id**](docs/ItemApi.md#get_item_by_id) | **GET** /items/{id} | Get extended item details by ID.
 *ItemApi* | [**list_items**](docs/ItemApi.md#list_items) | **GET** /items | Get a list of all the items currently in your station.
+*ItemApi* | [**playlist_post_merge**](docs/ItemApi.md#playlist_post_merge) | **POST** /items/playlist/merge | Post a playlist, do not remove previously imported items
 *ItemApi* | [**playlist_post_structure**](docs/ItemApi.md#playlist_post_structure) | **POST** /items/playlist/structure | Post a playlist, keep current structure
 *ItemApi* | [**playlist_post_timing**](docs/ItemApi.md#playlist_post_timing) | **POST** /items/playlist/timing | Post a playlist
+*ItemApi* | [**stop_current_item**](docs/ItemApi.md#stop_current_item) | **POST** /items/stopcurrent | Stop an Item
 *ItemApi* | [**update_item_by_id**](docs/ItemApi.md#update_item_by_id) | **PATCH** /items/{id} | Update extended item details by ID.
 *ModelTypeApi* | [**get_model_type_by_id**](docs/ModelTypeApi.md#get_model_type_by_id) | **GET** /model_types/{id} | Get modelType by id
 *ModelTypeApi* | [**list_model_types**](docs/ModelTypeApi.md#list_model_types) | **GET** /model_types | Get all modelTypes.
@@ -703,6 +709,8 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ContactResults](docs/ContactResults.md)
  - [RadioManagerClient::Object::Data](docs/Data.md)
  - [RadioManagerClient::Object::Data1](docs/Data1.md)
+ - [RadioManagerClient::Object::Data2](docs/Data2.md)
+ - [RadioManagerClient::Object::Data3](docs/Data3.md)
  - [RadioManagerClient::Object::EPGResults](docs/EPGResults.md)
  - [RadioManagerClient::Object::Forbidden](docs/Forbidden.md)
  - [RadioManagerClient::Object::Genre](docs/Genre.md)

@@ -123,10 +123,8 @@ isa_ok($api, 'RadioManagerClient::BroadcastApi');
 #
 {
     my $id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $presenter_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $result = $api->print_broadcast_by_id(id => $id, program_id => $program_id, presenter_id => $presenter_id, tag_id => $tag_id);
+    my $template_id = undef; # replace NULL with a proper value
+    my $result = $api->print_broadcast_by_id(id => $id, template_id => $template_id);
 }
 
 #

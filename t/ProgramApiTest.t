@@ -66,11 +66,12 @@ isa_ok($api, 'RadioManagerClient::ProgramApi');
     my $genre_id = undef; # replace NULL with a proper value
     my $block_id = undef; # replace NULL with a proper value
     my $item_id = undef; # replace NULL with a proper value
+    my $disabled = undef; # replace NULL with a proper value
     my $limit = undef; # replace NULL with a proper value
     my $order_by = undef; # replace NULL with a proper value
     my $order_direction = undef; # replace NULL with a proper value
     my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
 }
 
 #

@@ -30,6 +30,17 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::BroadcastRelationsGenre;
+use RadioManagerClient::Object::BroadcastRelationsModelType;
+use RadioManagerClient::Object::Program;
+use RadioManagerClient::Object::ProgramOutputOnly;
+use RadioManagerClient::Object::ProgramRelations;
+use RadioManagerClient::Object::ProgramRelationsBlocks;
+use RadioManagerClient::Object::ProgramRelationsBroadcasts;
+use RadioManagerClient::Object::ProgramRelationsItems;
+use RadioManagerClient::Object::ProgramRelationsPresenters;
+use RadioManagerClient::Object::ProgramRelationsTags;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 
@@ -268,6 +279,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'genre' => {
+    	datatype => 'BroadcastRelationsGenre',
+    	base_name => 'genre',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'items' => {
     	datatype => 'ProgramRelationsItems',
     	base_name => 'items',
@@ -331,6 +349,7 @@ __PACKAGE__->swagger_types( {
     'recommended' => 'boolean',
     'language' => 'string',
     'pty_code_id' => 'int',
+    'genre' => 'BroadcastRelationsGenre',
     'items' => 'ProgramRelationsItems',
     'blocks' => 'ProgramRelationsBlocks',
     'broadcasts' => 'ProgramRelationsBroadcasts',
@@ -358,6 +377,7 @@ __PACKAGE__->attribute_map( {
     'recommended' => 'recommended',
     'language' => 'language',
     'pty_code_id' => 'pty_code_id',
+    'genre' => 'genre',
     'items' => 'items',
     'blocks' => 'blocks',
     'broadcasts' => 'broadcasts',

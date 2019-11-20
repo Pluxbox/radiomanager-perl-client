@@ -28,25 +28,22 @@ use Carp qw( croak );
 use Log::Any qw($log);
 
 use RadioManagerClient::ApiClient;
-use RadioManagerClient::Configuration;
 
 use base "Class::Data::Inheritable";
 
 __PACKAGE__->mk_classdata('method_documentation' => {});
 
 sub new {
-    my $class   = shift;
-    my (%self) = (
-        'api_client' => RadioManagerClient::ApiClient->instance,
-        @_
-    );
+    my $class = shift;
+    my $api_client;
 
-    #my $self = {
-    #    #api_client => $options->{api_client}
-    #    api_client => $default_api_client
-    #}; 
+    if ($_[0] && ref $_[0] && ref $_[0] eq 'RadioManagerClient::ApiClient' ) {
+        $api_client = $_[0];
+    } else {
+        $api_client = RadioManagerClient::ApiClient->new(@_);
+    }
 
-    bless \%self, $class;
+    bless { api_client => $api_client }, $class;
 
 }
 
@@ -274,6 +271,7 @@ sub get_program_by_id {
 # @param int $genre_id Search on Genre ID *(Optional)* (optional)
 # @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $disabled Search on Disabled status *(Optional)* (optional)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
@@ -318,6 +316,11 @@ sub get_program_by_id {
     'item_id' => {
         data_type => 'int',
         description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'disabled' => {
+        data_type => 'int',
+        description => 'Search on Disabled status *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -405,6 +408,11 @@ sub list_programs {
     # query params
     if ( exists $args{'item_id'}) {
         $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    }
+
+    # query params
+    if ( exists $args{'disabled'}) {
+        $query_params->{'disabled'} = $self->{api_client}->to_query_value($args{'disabled'});
     }
 
     # query params

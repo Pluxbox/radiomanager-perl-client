@@ -30,6 +30,13 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::BroadcastRelationsModelType;
+use RadioManagerClient::Object::Campaign;
+use RadioManagerClient::Object::CampaignOutputOnly;
+use RadioManagerClient::Object::CampaignRelations;
+use RadioManagerClient::Object::CampaignRelationsItems;
+use RadioManagerClient::Object::CampaignTemplateItem;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 
@@ -171,7 +178,7 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'item' => {
-    	datatype => 'ARRAY[Item]',
+    	datatype => 'CampaignTemplateItem',
     	base_name => 'item',
     	description => '',
     	format => '',
@@ -254,7 +261,7 @@ __PACKAGE__->swagger_types( {
     'updated_at' => 'DateTime',
     'created_at' => 'DateTime',
     'deleted_at' => 'DateTime',
-    'item' => 'ARRAY[Item]',
+    'item' => 'CampaignTemplateItem',
     '_external_station_id' => 'int',
     'model_type_id' => 'int',
     'field_values' => 'object',

@@ -33,6 +33,9 @@ Name | Type | Description | Notes
 **pty_type** | **string** |  | [optional] 
 **station_key** | **string** |  | [optional] 
 **timezone** | **string** |  | [optional] 
+**metadataradio_organisation** | **string** |  | [optional] 
+**metadataradio_station_id** | **string** |  | [optional] 
+**start_days** | [**StationResultStationStartDays**](StationResultStationStartDays.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,15 +26,15 @@ Create tag.
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::TagApi;
+my $api_instance = RadioManagerClient::TagApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::TagApi->new();
 my $data = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data **(Required)**
 
 eval { 
@@ -77,15 +77,15 @@ Delete tag by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::TagApi;
+my $api_instance = RadioManagerClient::TagApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::TagApi->new();
 my $id = 789; # int | ID of Tag **(Required)**
 
 eval { 
@@ -128,15 +128,15 @@ Get tags by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::TagApi;
+my $api_instance = RadioManagerClient::TagApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::TagApi->new();
 my $id = 789; # int | ID of Tag **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
@@ -181,15 +181,15 @@ Get a list of all the tags currently in your station. This feature supports pagi
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::TagApi;
+my $api_instance = RadioManagerClient::TagApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::TagApi->new();
 my $page = 789; # int | Current page *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
@@ -248,15 +248,15 @@ Update tag by id
 ### Example 
 ```perl
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::TagApi;
+my $api_instance = RadioManagerClient::TagApi->new(
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
 
-my $api_instance = RadioManagerClient::TagApi->new();
 my $id = 789; # int | ID of Tag **(Required)**
 my $data = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data *(Optional)*
 

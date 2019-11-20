@@ -30,6 +30,8 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::StationResultStationStartDays;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 
@@ -317,6 +319,27 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'metadataradio_organisation' => {
+    	datatype => 'string',
+    	base_name => 'metadataradio_organisation',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
+    'metadataradio_station_id' => {
+    	datatype => 'string',
+    	base_name => 'metadataradio_station_id',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
+    'start_days' => {
+    	datatype => 'StationResultStationStartDays',
+    	base_name => 'start_days',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -344,7 +367,10 @@ __PACKAGE__->swagger_types( {
     'pty_code' => 'int',
     'pty_type' => 'string',
     'station_key' => 'string',
-    'timezone' => 'string'
+    'timezone' => 'string',
+    'metadataradio_organisation' => 'string',
+    'metadataradio_station_id' => 'string',
+    'start_days' => 'StationResultStationStartDays'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -372,7 +398,10 @@ __PACKAGE__->attribute_map( {
     'pty_code' => 'pty_code',
     'pty_type' => 'pty_type',
     'station_key' => 'station_key',
-    'timezone' => 'timezone'
+    'timezone' => 'timezone',
+    'metadataradio_organisation' => 'metadataradio_organisation',
+    'metadataradio_station_id' => 'metadataradio_station_id',
+    'start_days' => 'start_days'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

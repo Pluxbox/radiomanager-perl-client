@@ -30,6 +30,8 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::ImportItem;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 
@@ -149,6 +151,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'allow_playlist_past' => {
+    	datatype => 'int',
+    	base_name => 'allow_playlist_past',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'items' => {
     	datatype => 'ARRAY[ImportItem]',
     	base_name => 'items',
@@ -160,11 +169,13 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'start' => 'DateTime',
+    'allow_playlist_past' => 'int',
     'items' => 'ARRAY[ImportItem]'
 } );
 
 __PACKAGE__->attribute_map( {
     'start' => 'start',
+    'allow_playlist_past' => 'allow_playlist_past',
     'items' => 'items'
 } );
 

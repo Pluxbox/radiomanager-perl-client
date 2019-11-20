@@ -30,6 +30,17 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use RadioManagerClient::Object::BlockRelationsProgram;
+use RadioManagerClient::Object::Broadcast;
+use RadioManagerClient::Object::BroadcastOutputOnly;
+use RadioManagerClient::Object::BroadcastRelations;
+use RadioManagerClient::Object::BroadcastRelationsBlocks;
+use RadioManagerClient::Object::BroadcastRelationsGenre;
+use RadioManagerClient::Object::BroadcastRelationsItems;
+use RadioManagerClient::Object::BroadcastRelationsModelType;
+use RadioManagerClient::Object::BroadcastRelationsPresenters;
+use RadioManagerClient::Object::BroadcastRelationsTags;
+
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
 
@@ -331,6 +342,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'genre' => {
+    	datatype => 'BroadcastRelationsGenre',
+    	base_name => 'genre',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'items' => {
     	datatype => 'BroadcastRelationsItems',
     	base_name => 'items',
@@ -403,6 +421,7 @@ __PACKAGE__->swagger_types( {
     'repetition_start' => 'DateTime',
     'repetition_days' => 'string',
     'pty_code_id' => 'int',
+    'genre' => 'BroadcastRelationsGenre',
     'items' => 'BroadcastRelationsItems',
     'blocks' => 'BroadcastRelationsBlocks',
     'program' => 'BlockRelationsProgram',
@@ -439,6 +458,7 @@ __PACKAGE__->attribute_map( {
     'repetition_start' => 'repetition_start',
     'repetition_days' => 'repetition_days',
     'pty_code_id' => 'pty_code_id',
+    'genre' => 'genre',
     'items' => 'items',
     'blocks' => 'blocks',
     'program' => 'program',

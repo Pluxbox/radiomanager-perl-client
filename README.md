@@ -3,7 +3,7 @@
 Pluxbox RadioManager gives you the power, flexibility and speed you always wanted in a lightweight and easy-to-use web-based radio solution. With Pluxbox RadioManager you can organise your radio workflow and automate your omnichannel communication with your listeners. We offer wide range specialised services for the radio and connections like Hybrid Radio, Visual Radio, your website and social media without losing focus on your broadcast. For more information visit: pluxbox.com
 
 - API version: 2.0
-- Package version: 1.1.7
+- Package version: 1.1.12
 - Build package: io.swagger.codegen.languages.PerlClientCodegen
 For more information, please visit [https://pluxbox.com](https://pluxbox.com)
 
@@ -83,37 +83,37 @@ you are accessing. Usually `prefix` and `in` will be determined by the code gene
 the spec and you will not need to set them at run time. If not, `in` will
 default to 'head' and `prefix` to the empty string.
 
-The tokens will be placed in the `RadioManagerClient::Configuration` namespace
+The tokens will be placed in a L<RadioManagerClient::Configuration> instance
 as follows, but you don't need to know about this.
 
-- `$RadioManagerClient::Configuration::username`
+- `$cfg->{username}`
 
     String. The username for basic auth.
 
-- `$RadioManagerClient::Configuration::password`
+- `$cfg->{password}`
 
     String. The password for basic auth.
 
-- `$RadioManagerClient::Configuration::api_key`
+- `$cfg->{api_key}`
 
     Hashref. Keyed on the name of each key (there can be multiple tokens).
 
-            $RadioManagerClient::Configuration::api_key = {
+            $cfg->{api_key} = {
                     secretKey => 'aaaabbbbccccdddd',
                     anotherKey => '1111222233334444',
                     };
 
-- `$RadioManagerClient::Configuration::api_key_prefix`
+- `$cfg->{api_key_prefix}`
 
     Hashref. Keyed on the name of each key (there can be multiple tokens). Note not
     all api keys require a prefix.
 
-            $RadioManagerClient::Configuration::api_key_prefix = {
+            $cfg->{api_key_prefix} = {
                     secretKey => 'string',
                     anotherKey => 'same or some other string',
                     };
 
-- `$RadioManagerClient::Configuration::access_token`
+- `$cfg->{access_token}`
 
     String. The OAuth access token.
 
@@ -122,8 +122,7 @@ as follows, but you don't need to know about this.
 ## `base_url`
 
 The generated code has the `base_url` already set as a default value. This method
-returns (and optionally sets, but only if the API client has not been
-created yet) the current value of `base_url`.
+returns the current value of `base_url`.
 
 ## `api_factory`
 
@@ -252,6 +251,7 @@ use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
+use RadioManagerClient::Object::BroadcastRelationsGenre;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
@@ -264,6 +264,7 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
+use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::Contact;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
@@ -273,6 +274,8 @@ use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::Data;
 use RadioManagerClient::Object::Data1;
+use RadioManagerClient::Object::Data2;
+use RadioManagerClient::Object::Data3;
 use RadioManagerClient::Object::EPGResults;
 use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
@@ -334,6 +337,7 @@ use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
+use RadioManagerClient::Object::StationResultStationStartDays;
 use RadioManagerClient::Object::Story;
 use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
@@ -424,6 +428,7 @@ use RadioManagerClient::Object::BroadcastInputOnly;
 use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
+use RadioManagerClient::Object::BroadcastRelationsGenre;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
@@ -436,6 +441,7 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResults;
+use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::Contact;
 use RadioManagerClient::Object::ContactOutputOnly;
 use RadioManagerClient::Object::ContactRelations;
@@ -445,6 +451,8 @@ use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::Data;
 use RadioManagerClient::Object::Data1;
+use RadioManagerClient::Object::Data2;
+use RadioManagerClient::Object::Data3;
 use RadioManagerClient::Object::EPGResults;
 use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
@@ -506,6 +514,7 @@ use RadioManagerClient::Object::ReadOnly;
 use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
+use RadioManagerClient::Object::StationResultStationStartDays;
 use RadioManagerClient::Object::Story;
 use RadioManagerClient::Object::StoryInputOnly;
 use RadioManagerClient::Object::StoryOutputOnly;
@@ -556,15 +565,16 @@ use RadioManagerClient::Object::TagResult;
 
 # for displaying the API response data
 use Data::Dumper;
-use RadioManagerClient::Configuration;
 use RadioManagerClient::;
 
-# Configure API key authorization: API Key
-$RadioManagerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$RadioManagerClient::Configuration::api_key_prefix->{'api-key'} = 'Bearer';
+my $api_instance = RadioManagerClient::->new(
 
-my $api_instance = RadioManagerClient::BlockApi->new();
+    # Configure API key authorization: API Key
+    api_key => {'api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'api-key' => 'Bearer'},
+);
+
 my $id = 789; # int | ID of Block **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
@@ -597,7 +607,7 @@ Class | Method | HTTP request | Description
 *BroadcastApi* | [**get_next_broadcast**](docs/BroadcastApi.md#get_next_broadcast) | **GET** /broadcasts/next | Get next Broadcast
 *BroadcastApi* | [**get_weekly_epg**](docs/BroadcastApi.md#get_weekly_epg) | **GET** /broadcasts/epg/weekly | Get weekly EPG
 *BroadcastApi* | [**list_broadcasts**](docs/BroadcastApi.md#list_broadcasts) | **GET** /broadcasts | Get all broadcasts.
-*BroadcastApi* | [**print_broadcast_by_id**](docs/BroadcastApi.md#print_broadcast_by_id) | **GET** /broadcasts/print/{id} | Print Broadcast by id
+*BroadcastApi* | [**print_broadcast_by_id**](docs/BroadcastApi.md#print_broadcast_by_id) | **GET** /broadcasts/print/{id} | Print broadcast by id with template
 *BroadcastApi* | [**update_broadcast_by_id**](docs/BroadcastApi.md#update_broadcast_by_id) | **PATCH** /broadcasts/{id} | Update broadcast by id
 *CampaignApi* | [**create_campaign**](docs/CampaignApi.md#create_campaign) | **POST** /campaigns | Create campaign.
 *CampaignApi* | [**delete_campaign_by_id**](docs/CampaignApi.md#delete_campaign_by_id) | **DELETE** /campaigns/{id} | Delete campaign by id
@@ -618,8 +628,10 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**get_current_item**](docs/ItemApi.md#get_current_item) | **GET** /items/current | Get current Item
 *ItemApi* | [**get_item_by_id**](docs/ItemApi.md#get_item_by_id) | **GET** /items/{id} | Get extended item details by ID.
 *ItemApi* | [**list_items**](docs/ItemApi.md#list_items) | **GET** /items | Get a list of all the items currently in your station.
+*ItemApi* | [**playlist_post_merge**](docs/ItemApi.md#playlist_post_merge) | **POST** /items/playlist/merge | Post a playlist, do not remove previously imported items
 *ItemApi* | [**playlist_post_structure**](docs/ItemApi.md#playlist_post_structure) | **POST** /items/playlist/structure | Post a playlist, keep current structure
 *ItemApi* | [**playlist_post_timing**](docs/ItemApi.md#playlist_post_timing) | **POST** /items/playlist/timing | Post a playlist
+*ItemApi* | [**stop_current_item**](docs/ItemApi.md#stop_current_item) | **POST** /items/stopcurrent | Stop an Item
 *ItemApi* | [**update_item_by_id**](docs/ItemApi.md#update_item_by_id) | **PATCH** /items/{id} | Update extended item details by ID.
 *ModelTypeApi* | [**get_model_type_by_id**](docs/ModelTypeApi.md#get_model_type_by_id) | **GET** /model_types/{id} | Get modelType by id
 *ModelTypeApi* | [**list_model_types**](docs/ModelTypeApi.md#list_model_types) | **GET** /model_types | Get all modelTypes.
@@ -668,6 +680,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::BroadcastOutputOnly](docs/BroadcastOutputOnly.md)
  - [RadioManagerClient::Object::BroadcastRelations](docs/BroadcastRelations.md)
  - [RadioManagerClient::Object::BroadcastRelationsBlocks](docs/BroadcastRelationsBlocks.md)
+ - [RadioManagerClient::Object::BroadcastRelationsGenre](docs/BroadcastRelationsGenre.md)
  - [RadioManagerClient::Object::BroadcastRelationsItems](docs/BroadcastRelationsItems.md)
  - [RadioManagerClient::Object::BroadcastRelationsItemsParams](docs/BroadcastRelationsItemsParams.md)
  - [RadioManagerClient::Object::BroadcastRelationsModelType](docs/BroadcastRelationsModelType.md)
@@ -680,6 +693,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::CampaignRelationsItems](docs/CampaignRelationsItems.md)
  - [RadioManagerClient::Object::CampaignRelationsItemsParams](docs/CampaignRelationsItemsParams.md)
  - [RadioManagerClient::Object::CampaignResults](docs/CampaignResults.md)
+ - [RadioManagerClient::Object::CampaignTemplateItem](docs/CampaignTemplateItem.md)
  - [RadioManagerClient::Object::Contact](docs/Contact.md)
  - [RadioManagerClient::Object::ContactOutputOnly](docs/ContactOutputOnly.md)
  - [RadioManagerClient::Object::ContactRelations](docs/ContactRelations.md)
@@ -689,6 +703,8 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ContactResults](docs/ContactResults.md)
  - [RadioManagerClient::Object::Data](docs/Data.md)
  - [RadioManagerClient::Object::Data1](docs/Data1.md)
+ - [RadioManagerClient::Object::Data2](docs/Data2.md)
+ - [RadioManagerClient::Object::Data3](docs/Data3.md)
  - [RadioManagerClient::Object::EPGResults](docs/EPGResults.md)
  - [RadioManagerClient::Object::Forbidden](docs/Forbidden.md)
  - [RadioManagerClient::Object::Genre](docs/Genre.md)
@@ -750,6 +766,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::RelationsPlaceholder](docs/RelationsPlaceholder.md)
  - [RadioManagerClient::Object::StationResult](docs/StationResult.md)
  - [RadioManagerClient::Object::StationResultStation](docs/StationResultStation.md)
+ - [RadioManagerClient::Object::StationResultStationStartDays](docs/StationResultStationStartDays.md)
  - [RadioManagerClient::Object::Story](docs/Story.md)
  - [RadioManagerClient::Object::StoryInputOnly](docs/StoryInputOnly.md)
  - [RadioManagerClient::Object::StoryOutputOnly](docs/StoryOutputOnly.md)

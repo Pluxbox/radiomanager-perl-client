@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ItemApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -87,7 +87,7 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -138,7 +138,7 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -189,13 +189,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Item **(Required)**
+my $id = 0; # int | ID of Item **(Required)**
 
 eval { 
     my $result = $api_instance->delete_item_by_id(id => $id);
@@ -210,7 +210,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Item **(Required)** | 
+ **id** | **int**| ID of Item **(Required)** | [default to 0]
 
 ### Return type
 
@@ -218,11 +218,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -240,13 +240,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $lastplayed = 1; # boolean | Show last played item if there is no current item*(Optional)*
+my $lastplayed = null; # boolean | Show last played item if there is no current item*(Optional)*
 
 eval { 
     my $result = $api_instance->get_current_item(lastplayed => $lastplayed);
@@ -269,11 +269,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -291,13 +291,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Item **(Required)**
+my $id = 0; # int | ID of Item **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -313,7 +313,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Item **(Required)** | 
+ **id** | **int**| ID of Item **(Required)** | [default to 0]
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -322,11 +322,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -344,7 +344,7 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -361,15 +361,15 @@ my $program_draft_id = 789; # int | Search on Program Draft ID *(Optional)*
 my $user_draft_id = 789; # int | Search on User Draft ID *(Optional)*
 my $station_draft_id = 789; # int | Search on Station Draft ID *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
-my $external_id = 'external_id_example'; # string | Search on External ID *(Optional)*
-my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
-my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
+my $external_id = "external_id_example"; # string | Search on External ID *(Optional)*
+my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Minimum start date *(Optional)*
+my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Maximum start date *(Optional)*
 my $duration_min = 56; # int | Minimum duration (seconds) *(Optional)*
 my $duration_max = 56; # int | Maximum duration (seconds) *(Optional)*
-my $status = 'status_example'; # string | Play Status of item *(Optional)*
+my $status = "status_example"; # string | Play Status of item *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
+my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -413,11 +413,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -435,13 +435,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::Data2->new(); # Data2 | Data *(Optional)*
+my $data = RadioManagerClient::Object::InlineObject2->new(); # InlineObject2 | 
 
 eval { 
     my $result = $api_instance->playlist_post_merge(data => $data);
@@ -456,7 +456,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data2**](Data2.md)| Data *(Optional)* | [optional] 
+ **data** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -486,13 +486,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::Data1->new(); # Data1 | Data *(Optional)*
+my $data = RadioManagerClient::Object::InlineObject1->new(); # InlineObject1 | 
 
 eval { 
     my $result = $api_instance->playlist_post_structure(data => $data);
@@ -507,7 +507,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data1**](Data1.md)| Data *(Optional)* | [optional] 
+ **data** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -537,13 +537,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::Data->new(); # Data | Data *(Optional)*
+my $data = RadioManagerClient::Object::InlineObject->new(); # InlineObject | 
 
 eval { 
     my $result = $api_instance->playlist_post_timing(data => $data);
@@ -558,7 +558,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data**](Data.md)| Data *(Optional)* | [optional] 
+ **data** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -588,13 +588,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::Data3->new(); # Data3 | Data *(Optional)*
+my $data = RadioManagerClient::Object::InlineObject3->new(); # InlineObject3 | 
 
 eval { 
     my $result = $api_instance->stop_current_item(data => $data);
@@ -609,7 +609,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data3**](Data3.md)| Data *(Optional)* | [optional] 
+ **data** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -639,13 +639,13 @@ use Data::Dumper;
 use RadioManagerClient::ItemApi;
 my $api_instance = RadioManagerClient::ItemApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Item **(Required)**
+my $id = 0; # int | ID of Item **(Required)**
 my $data = RadioManagerClient::Object::ItemDataInput->new(); # ItemDataInput | Data *(Optional)*
 
 eval { 
@@ -661,7 +661,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Item **(Required)** | 
+ **id** | **int**| ID of Item **(Required)** | [default to 0]
  **data** | [**ItemDataInput**](ItemDataInput.md)| Data *(Optional)* | [optional] 
 
 ### Return type
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 

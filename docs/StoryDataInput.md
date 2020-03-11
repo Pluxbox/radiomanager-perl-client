@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
 **recommended** | **boolean** |  | [optional] 
-**field_values** | **object** |  | [optional] 
+**field_values** | [**object**](.md) |  | [optional] 
 **name** | **string** |  | 
 **description** | **string** |  | [optional] 
 **tags** | **ARRAY[int]** |  | [optional] 

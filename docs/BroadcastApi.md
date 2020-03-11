@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::BroadcastApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -86,13 +86,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Broadcast **(Required)**
+my $id = 0; # int | ID of Broadcast **(Required)**
 
 eval { 
     my $result = $api_instance->delete_broadcast_by_id(id => $id);
@@ -107,7 +107,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Broadcast **(Required)** | 
+ **id** | **int**| ID of Broadcast **(Required)** | [default to 0]
 
 ### Return type
 
@@ -115,11 +115,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -137,13 +137,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Broadcast **(Required)**
+my $id = 0; # int | ID of Broadcast **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -159,7 +159,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Broadcast **(Required)** | 
+ **id** | **int**| ID of Broadcast **(Required)** | [default to 0]
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -168,11 +168,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -190,13 +190,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
+my $withunpublished = null; # boolean | Show Unpublished *(Optional)*
 
 eval { 
     my $result = $api_instance->get_current_broadcast(withunpublished => $withunpublished);
@@ -219,11 +219,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -241,14 +241,14 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
-my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
+my $date = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Date *(Optional)*
+my $withunpublished = null; # boolean | Show Unpublished *(Optional)*
 
 eval { 
     my $result = $api_instance->get_daily_epg(date => $date, withunpublished => $withunpublished);
@@ -272,11 +272,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -294,14 +294,14 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $date = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Date *(Optional)*
-my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
+my $date = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Date *(Optional)*
+my $withunpublished = null; # boolean | Show Unpublished *(Optional)*
 
 eval { 
     my $result = $api_instance->get_epg_by_date(date => $date, withunpublished => $withunpublished);
@@ -325,11 +325,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -347,13 +347,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
+my $withunpublished = null; # boolean | Show Unpublished *(Optional)*
 
 eval { 
     my $result = $api_instance->get_next_broadcast(withunpublished => $withunpublished);
@@ -376,11 +376,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -398,14 +398,14 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $date = 'date_example'; # string | Date *(Optional)*
-my $withunpublished = 1; # boolean | Show Unpublished *(Optional)*
+my $date = "date_example"; # string | Date *(Optional)*
+my $withunpublished = null; # boolean | Show Unpublished *(Optional)*
 
 eval { 
     my $result = $api_instance->get_weekly_epg(date => $date, withunpublished => $withunpublished);
@@ -429,11 +429,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -451,13 +451,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
@@ -465,11 +465,11 @@ my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
 my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
 my $genre_id = 789; # int | Search on Genre ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
-my $start_min = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Minimum start date *(Optional)*
-my $start_max = DateTime->from_epoch(epoch => str2time('2013-10-20T19:20:30+01:00')); # DateTime | Maximum start date *(Optional)*
+my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Minimum start date *(Optional)*
+my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Maximum start date *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
+my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -506,11 +506,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -528,13 +528,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Broadcast **(Required)**
+my $id = 0; # int | ID of Broadcast **(Required)**
 my $template_id = 789; # int | Search on template ID *(Optional)*
 
 eval { 
@@ -550,7 +550,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Broadcast **(Required)** | 
+ **id** | **int**| ID of Broadcast **(Required)** | [default to 0]
  **template_id** | **int**| Search on template ID *(Optional)* | [optional] 
 
 ### Return type
@@ -559,11 +559,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -581,13 +581,13 @@ use Data::Dumper;
 use RadioManagerClient::BroadcastApi;
 my $api_instance = RadioManagerClient::BroadcastApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Broadcast **(Required)**
+my $id = 0; # int | ID of Broadcast **(Required)**
 my $data = RadioManagerClient::Object::BroadcastDataInput->new(); # BroadcastDataInput | Data *(Optional)*
 
 eval { 
@@ -603,7 +603,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Broadcast **(Required)** | 
+ **id** | **int**| ID of Broadcast **(Required)** | [default to 0]
  **data** | [**BroadcastDataInput**](BroadcastDataInput.md)| Data *(Optional)* | [optional] 
 
 ### Return type
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 

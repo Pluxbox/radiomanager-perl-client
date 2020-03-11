@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **href** | **string** | HREF | 
 **model** | **string** | MODEL | 
 **operation** | **string** | OPERATION | 
-**params** | **object** | PARAMS | 
+**params** | [**object**](.md) | PARAMS | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

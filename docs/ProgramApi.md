@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ProgramApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ use Data::Dumper;
 use RadioManagerClient::ProgramApi;
 my $api_instance = RadioManagerClient::ProgramApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -80,13 +80,13 @@ use Data::Dumper;
 use RadioManagerClient::ProgramApi;
 my $api_instance = RadioManagerClient::ProgramApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of program **(Required)**
+my $id = 0; # int | ID of program **(Required)**
 
 eval { 
     my $result = $api_instance->delete_program_by_id(id => $id);
@@ -101,7 +101,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of program **(Required)** | 
+ **id** | **int**| ID of program **(Required)** | [default to 0]
 
 ### Return type
 
@@ -109,11 +109,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -131,13 +131,13 @@ use Data::Dumper;
 use RadioManagerClient::ProgramApi;
 my $api_instance = RadioManagerClient::ProgramApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Program **(Required)**
+my $id = 0; # int | ID of Program **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -153,7 +153,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Program **(Required)** | 
+ **id** | **int**| ID of Program **(Required)** | [default to 0]
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -162,17 +162,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_programs**
-> ProgramResults list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> ProgramResults list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all programs.
 
@@ -184,7 +184,7 @@ use Data::Dumper;
 use RadioManagerClient::ProgramApi;
 my $api_instance = RadioManagerClient::ProgramApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -198,13 +198,14 @@ my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
 my $genre_id = 789; # int | Search on Genre ID *(Optional)*
 my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
+my $disabled = 56; # int | Search on Disabled status *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
+my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
-    my $result = $api_instance->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+    my $result = $api_instance->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -224,6 +225,7 @@ Name | Type | Description  | Notes
  **genre_id** | **int**| Search on Genre ID *(Optional)* | [optional] 
  **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **disabled** | **int**| Search on Disabled status *(Optional)* | [optional] 
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -235,11 +237,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -257,13 +259,13 @@ use Data::Dumper;
 use RadioManagerClient::ProgramApi;
 my $api_instance = RadioManagerClient::ProgramApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Program **(Required)**
+my $id = 0; # int | ID of Program **(Required)**
 my $data = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data *(Optional)*
 
 eval { 
@@ -279,7 +281,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Program **(Required)** | 
+ **id** | **int**| ID of Program **(Required)** | [default to 0]
  **data** | [**ProgramDataInput**](ProgramDataInput.md)| Data *(Optional)* | [optional] 
 
 ### Return type
@@ -288,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 

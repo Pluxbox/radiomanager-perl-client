@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::ContactApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ use Data::Dumper;
 use RadioManagerClient::ContactApi;
 my $api_instance = RadioManagerClient::ContactApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -80,13 +80,13 @@ use Data::Dumper;
 use RadioManagerClient::ContactApi;
 my $api_instance = RadioManagerClient::ContactApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Contact **(Required)**
+my $id = 0; # int | ID of Contact **(Required)**
 
 eval { 
     my $result = $api_instance->delete_contact_by_id(id => $id);
@@ -101,7 +101,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | 
+ **id** | **int**| ID of Contact **(Required)** | [default to 0]
 
 ### Return type
 
@@ -109,11 +109,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -131,13 +131,13 @@ use Data::Dumper;
 use RadioManagerClient::ContactApi;
 my $api_instance = RadioManagerClient::ContactApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Contact **(Required)**
+my $id = 0; # int | ID of Contact **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -153,7 +153,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | 
+ **id** | **int**| ID of Contact **(Required)** | [default to 0]
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -162,11 +162,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -184,19 +184,19 @@ use Data::Dumper;
 use RadioManagerClient::ContactApi;
 my $api_instance = RadioManagerClient::ContactApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
 my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
 my $limit = 789; # int | Results per page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
+my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval { 
@@ -227,11 +227,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -249,13 +249,13 @@ use Data::Dumper;
 use RadioManagerClient::ContactApi;
 my $api_instance = RadioManagerClient::ContactApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | ID of Contact **(Required)**
+my $id = 0; # int | ID of Contact **(Required)**
 my $data = RadioManagerClient::Object::ContactDataInput->new(); # ContactDataInput | Data *(Optional)*
 
 eval { 
@@ -271,7 +271,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | 
+ **id** | **int**| ID of Contact **(Required)** | [default to 0]
  **data** | [**ContactDataInput**](ContactDataInput.md)| Data *(Optional)* | [optional] 
 
 ### Return type
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::VisualSlideApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ use Data::Dumper;
 use RadioManagerClient::VisualSlideApi;
 my $api_instance = RadioManagerClient::VisualSlideApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -50,11 +50,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

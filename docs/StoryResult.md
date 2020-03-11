@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
 **recommended** | **boolean** |  | [optional] 
-**field_values** | **object** |  | [optional] 
+**field_values** | [**object**](.md) |  | [optional] 
 **name** | **string** |  | 
 **description** | **string** |  | [optional] 
 **tags** | [**StoryRelationsTags**](StoryRelationsTags.md) |  | 

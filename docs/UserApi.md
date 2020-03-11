@@ -5,7 +5,7 @@
 use RadioManagerClient::Object::UserApi;
 ```
 
-All URIs are relative to *https://staging.radiomanager.io/api/v2*
+All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,13 +28,13 @@ use Data::Dumper;
 use RadioManagerClient::UserApi;
 my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | id of User
+my $id = 0; # int | id of User
 
 eval { 
     my $result = $api_instance->delete_user_by_id(id => $id);
@@ -49,7 +49,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| id of User | 
+ **id** | **int**| id of User | [default to 0]
 
 ### Return type
 
@@ -57,11 +57,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -79,13 +79,13 @@ use Data::Dumper;
 use RadioManagerClient::UserApi;
 my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 789; # int | id of User
+my $id = 0; # int | id of User
 
 eval { 
     my $result = $api_instance->get_user_by_id(id => $id);
@@ -100,7 +100,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| id of User | 
+ **id** | **int**| id of User | [default to 0]
 
 ### Return type
 
@@ -108,17 +108,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_user_by_mail**
-> InviteUserSuccess invite_user_by_mail(data => $data)
+> object invite_user_by_mail(data => $data)
 
 Invite user by mail
 
@@ -130,7 +130,7 @@ use Data::Dumper;
 use RadioManagerClient::UserApi;
 my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
@@ -155,11 +155,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteUserSuccess**](InviteUserSuccess.md)
+**object**
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
@@ -181,17 +181,17 @@ use Data::Dumper;
 use RadioManagerClient::UserApi;
 my $api_instance = RadioManagerClient::UserApi->new(
 
-    # Configure API key authorization: API Key
+    # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $role_id = 789; # int | Search on Role ID *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
-my $order_by = 'order_by_example'; # string | Field to order the results *(Optional)*
-my $order_direction = 'order_direction_example'; # string | Direction of ordering *(Optional)*
+my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
+my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 
 eval { 
     my $result = $api_instance->list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction);
@@ -218,11 +218,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

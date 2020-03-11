@@ -9,7 +9,7 @@ use RadioManagerClient::Object::Program;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**field_values** | **object** |  | [optional] 
+**field_values** | [**object**](.md) |  | [optional] 
 **title** | **string** |  | 
 **disabled** | **boolean** |  | [optional] 
 **genre_id** | **int** |  | [optional] 

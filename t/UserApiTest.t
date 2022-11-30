@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,38 +32,33 @@ isa_ok($api, 'RadioManagerClient::UserApi');
 #
 # delete_user_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_user_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_user_by_id_id = undef; # replace NULL with a proper value
+#my $delete_user_by_id_result = $api->delete_user_by_id(id => $delete_user_by_id_id);
 
 #
 # get_user_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->get_user_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $get_user_by_id_id = undef; # replace NULL with a proper value
+#my $get_user_by_id_result = $api->get_user_by_id(id => $get_user_by_id_id);
 
 #
 # invite_user_by_mail test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->invite_user_by_mail(data => $data);
-}
+# uncomment below and update the test
+#my $invite_user_by_mail_invite_user_data = undef; # replace NULL with a proper value
+#my $invite_user_by_mail_result = $api->invite_user_by_mail(invite_user_data => $invite_user_by_mail_invite_user_data);
 
 #
 # list_users test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $role_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $result = $api->list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction);
-}
+# uncomment below and update the test
+#my $list_users_role_id = undef; # replace NULL with a proper value
+#my $list_users_group_id = undef; # replace NULL with a proper value
+#my $list_users_page = undef; # replace NULL with a proper value
+#my $list_users_limit = undef; # replace NULL with a proper value
+#my $list_users_order_by = undef; # replace NULL with a proper value
+#my $list_users_order_direction = undef; # replace NULL with a proper value
+#my $list_users_result = $api->list_users(role_id => $list_users_role_id, group_id => $list_users_group_id, page => $list_users_page, limit => $list_users_limit, order_by => $list_users_order_by, order_direction => $list_users_order_direction);
 
-
-1;

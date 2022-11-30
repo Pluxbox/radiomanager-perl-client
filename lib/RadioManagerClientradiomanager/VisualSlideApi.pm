@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::VisualSlideApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -51,13 +51,13 @@ sub new {
 #
 # get_visual_slide
 #
-# Get Visual Slide Image as Base64
-# 
+# Get Visual Slide Image
+#
 {
     my $params = {
     };
-    __PACKAGE__->method_documentation->{ 'get_visual_slide' } = { 
-        summary => 'Get Visual Slide Image as Base64',
+    __PACKAGE__->method_documentation->{ 'get_visual_slide' } = {
+        summary => 'Get Visual Slide Image',
         params => $params,
         returns => 'VisualResult',
         };

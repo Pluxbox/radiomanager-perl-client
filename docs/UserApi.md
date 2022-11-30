@@ -9,20 +9,20 @@ All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_user_by_id**](UserApi.md#delete_user_by_id) | **DELETE** /users/{id} | Remove user from station by Id
+[**delete_user_by_id**](UserApi.md#delete_user_by_id) | **DELETE** /users/{id} | Remove User from station by Id
 [**get_user_by_id**](UserApi.md#get_user_by_id) | **GET** /users/{id} | Get user by id
 [**invite_user_by_mail**](UserApi.md#invite_user_by_mail) | **POST** /users/invite | Invite user by mail
 [**list_users**](UserApi.md#list_users) | **GET** /users | Get all users.
 
 
 # **delete_user_by_id**
-> Success delete_user_by_id(id => $id)
+> InlineResponse202 delete_user_by_id(id => $id)
 
-Remove user from station by Id
+Remove User from station by Id
 
-Remove user from station by Id
+Remove User from station by Id, will not actually delete a User record
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::UserApi;
@@ -34,9 +34,9 @@ my $api_instance = RadioManagerClient::UserApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | id of User
+my $id = 789; # int | ID of User **(Required)**
 
-eval { 
+eval {
     my $result = $api_instance->delete_user_by_id(id => $id);
     print Dumper($result);
 };
@@ -49,11 +49,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| id of User | [default to 0]
+ **id** | **int**| ID of User **(Required)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Get user by id
 
 Get user by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::UserApi;
@@ -85,9 +85,9 @@ my $api_instance = RadioManagerClient::UserApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | id of User
+my $id = 789; # int | id of User
 
-eval { 
+eval {
     my $result = $api_instance->get_user_by_id(id => $id);
     print Dumper($result);
 };
@@ -100,7 +100,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| id of User | [default to 0]
+ **id** | **int**| id of User | 
 
 ### Return type
 
@@ -118,13 +118,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invite_user_by_mail**
-> object invite_user_by_mail(data => $data)
+> InlineResponse202 invite_user_by_mail(invite_user_data => $invite_user_data)
 
 Invite user by mail
 
 Invite user by mail
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::UserApi;
@@ -136,10 +136,10 @@ my $api_instance = RadioManagerClient::UserApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::InviteUserData->new(); # InviteUserData | Data **(Required)**
+my $invite_user_data = RadioManagerClient::Object::InviteUserData->new(); # InviteUserData | Data *(Required)*
 
-eval { 
-    my $result = $api_instance->invite_user_by_mail(data => $data);
+eval {
+    my $result = $api_instance->invite_user_by_mail(invite_user_data => $invite_user_data);
     print Dumper($result);
 };
 if ($@) {
@@ -151,11 +151,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InviteUserData**](InviteUserData.md)| Data **(Required)** | 
+ **invite_user_data** | [**InviteUserData**](InviteUserData.md)| Data *(Required)* | 
 
 ### Return type
 
-**object**
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -169,13 +169,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> UserResults list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction)
+> InlineResponse20013 list_users(role_id => $role_id, group_id => $group_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction)
 
 Get all users.
 
 List all users.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::UserApi;
@@ -187,14 +187,15 @@ my $api_instance = RadioManagerClient::UserApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 1; # int | Current page *(Optional)*
 my $role_id = 789; # int | Search on Role ID *(Optional)*
+my $group_id = 789; # int | Search on Group ID *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_users(page => $page, role_id => $role_id, limit => $limit, order_by => $order_by, order_direction => $order_direction);
+eval {
+    my $result = $api_instance->list_users(role_id => $role_id, group_id => $group_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction);
     print Dumper($result);
 };
 if ($@) {
@@ -206,15 +207,16 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **role_id** | **int**| Search on Role ID *(Optional)* | [optional] 
+ **group_id** | **int**| Search on Group ID *(Optional)* | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
 
 ### Return type
 
-[**UserResults**](UserResults.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 

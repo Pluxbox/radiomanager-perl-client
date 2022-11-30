@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,30 +32,24 @@ isa_ok($api, 'RadioManagerClient::ModelTypeApi');
 #
 # get_model_type_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_model_type_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_model_type_by_id_id = undef; # replace NULL with a proper value
+#my $get_model_type_by_id_order_direction = undef; # replace NULL with a proper value
+#my $get_model_type_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_model_type_by_id_result = $api->get_model_type_by_id(id => $get_model_type_by_id_id, order_direction => $get_model_type_by_id_order_direction, _external_station_id => $get_model_type_by_id__external_station_id);
 
 #
 # list_model_types test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $campaign_id = undef; # replace NULL with a proper value
-    my $presenter_id = undef; # replace NULL with a proper value
-    my $contact_id = undef; # replace NULL with a proper value
-    my $model = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_model_types(page => $page, program_id => $program_id, broadcast_id => $broadcast_id, item_id => $item_id, campaign_id => $campaign_id, presenter_id => $presenter_id, contact_id => $contact_id, model => $model, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_model_types_program_id = undef; # replace NULL with a proper value
+#my $list_model_types_broadcast_id = undef; # replace NULL with a proper value
+#my $list_model_types_item_id = undef; # replace NULL with a proper value
+#my $list_model_types_campaign_id = undef; # replace NULL with a proper value
+#my $list_model_types_presenter_id = undef; # replace NULL with a proper value
+#my $list_model_types_contact_id = undef; # replace NULL with a proper value
+#my $list_model_types_model = undef; # replace NULL with a proper value
+#my $list_model_types_order_direction = undef; # replace NULL with a proper value
+#my $list_model_types__external_station_id = undef; # replace NULL with a proper value
+#my $list_model_types_result = $api->list_model_types(program_id => $list_model_types_program_id, broadcast_id => $list_model_types_broadcast_id, item_id => $list_model_types_item_id, campaign_id => $list_model_types_campaign_id, presenter_id => $list_model_types_presenter_id, contact_id => $list_model_types_contact_id, model => $list_model_types_model, order_direction => $list_model_types_order_direction, _external_station_id => $list_model_types__external_station_id);
 
-
-1;

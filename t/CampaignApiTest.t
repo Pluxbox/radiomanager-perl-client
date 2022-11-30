@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,52 +32,44 @@ isa_ok($api, 'RadioManagerClient::CampaignApi');
 #
 # create_campaign test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_campaign(data => $data);
-}
+# uncomment below and update the test
+#my $create_campaign_campaign_data_input = undef; # replace NULL with a proper value
+#my $create_campaign_result = $api->create_campaign(campaign_data_input => $create_campaign_campaign_data_input);
 
 #
 # delete_campaign_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_campaign_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_campaign_by_id_id = undef; # replace NULL with a proper value
+#my $delete_campaign_by_id_result = $api->delete_campaign_by_id(id => $delete_campaign_by_id_id);
 
 #
 # get_campaign_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_campaign_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_campaign_by_id_id = undef; # replace NULL with a proper value
+#my $get_campaign_by_id_result = $api->get_campaign_by_id(id => $get_campaign_by_id_id);
 
 #
 # list_campaigns test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $start_min = undef; # replace NULL with a proper value
-    my $start_max = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_campaigns(page => $page, item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_campaigns_item_id = undef; # replace NULL with a proper value
+#my $list_campaigns_model_type_id = undef; # replace NULL with a proper value
+#my $list_campaigns_start_min = undef; # replace NULL with a proper value
+#my $list_campaigns_start_max = undef; # replace NULL with a proper value
+#my $list_campaigns_page = undef; # replace NULL with a proper value
+#my $list_campaigns_limit = undef; # replace NULL with a proper value
+#my $list_campaigns_order_by = undef; # replace NULL with a proper value
+#my $list_campaigns_order_direction = undef; # replace NULL with a proper value
+#my $list_campaigns__external_station_id = undef; # replace NULL with a proper value
+#my $list_campaigns_result = $api->list_campaigns(item_id => $list_campaigns_item_id, model_type_id => $list_campaigns_model_type_id, start_min => $list_campaigns_start_min, start_max => $list_campaigns_start_max, page => $list_campaigns_page, limit => $list_campaigns_limit, order_by => $list_campaigns_order_by, order_direction => $list_campaigns_order_direction, _external_station_id => $list_campaigns__external_station_id);
 
 #
 # update_campaign_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_campaign_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_campaign_by_id_id = undef; # replace NULL with a proper value
+#my $update_campaign_by_id_campaign_data_input = undef; # replace NULL with a proper value
+#my $update_campaign_by_id_result = $api->update_campaign_by_id(id => $update_campaign_by_id_id, campaign_data_input => $update_campaign_by_id_campaign_data_input);
 
-
-1;

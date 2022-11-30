@@ -9,15 +9,16 @@ use RadioManagerClient::Object::ProgramResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**updated_at** | **DateTime** |  | 
-**created_at** | **DateTime** |  | 
-**deleted_at** | **DateTime** |  | 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | 
 **disabled** | **boolean** |  | [optional] 
 **genre_id** | **int** |  | [optional] 
+**group_id** | **int** |  | [optional] 
 **description** | **string** |  | [optional] 
 **short_name** | **string** |  | [optional] 
 **medium_name** | **string** |  | [optional] 
@@ -33,6 +34,7 @@ Name | Type | Description | Notes
 **presenters** | [**ProgramRelationsPresenters**](ProgramRelationsPresenters.md) |  | [optional] 
 **tags** | [**ProgramRelationsTags**](ProgramRelationsTags.md) |  | [optional] 
 **model_type** | [**BroadcastRelationsModelType**](BroadcastRelationsModelType.md) |  | [optional] 
+**group** | [**BroadcastRelationsGroup**](BroadcastRelationsGroup.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

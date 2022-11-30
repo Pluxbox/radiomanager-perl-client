@@ -2,7 +2,7 @@
 
 RadioManagerClient::Role - a Moose role for the RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 # VERSION
 
@@ -218,6 +218,15 @@ spec. If so, this is available via the `class_documentation()` and
 
 Each of these calls returns a hashref with various useful pieces of information.
 
+# Installation Prerequisites
+
+Use [cpanm](https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm) to install the module dependencies:
+
+```
+cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+cpanm --quiet --no-interactive Class::Accessor Test::Exception Test::More Log::Any LWP::UserAgent URI::Query Module::Runtime DateTime Module::Find Moose::Role JSON
+```
+
 # LOAD THE MODULES
 
 To load the API packages:
@@ -227,12 +236,12 @@ use RadioManagerClient::BroadcastApi;
 use RadioManagerClient::CampaignApi;
 use RadioManagerClient::ContactApi;
 use RadioManagerClient::GenreApi;
+use RadioManagerClient::GroupApi;
 use RadioManagerClient::ItemApi;
 use RadioManagerClient::ModelTypeApi;
 use RadioManagerClient::PresenterApi;
 use RadioManagerClient::ProgramApi;
 use RadioManagerClient::StationApi;
-use RadioManagerClient::StoryApi;
 use RadioManagerClient::StringApi;
 use RadioManagerClient::TagApi;
 use RadioManagerClient::UserApi;
@@ -250,7 +259,6 @@ use RadioManagerClient::Object::BlockRelationsItems;
 use RadioManagerClient::Object::BlockRelationsItemsParams;
 use RadioManagerClient::Object::BlockRelationsProgram;
 use RadioManagerClient::Object::BlockResult;
-use RadioManagerClient::Object::BlockResults;
 use RadioManagerClient::Object::Broadcast;
 use RadioManagerClient::Object::BroadcastDataInput;
 use RadioManagerClient::Object::BroadcastEPGDay;
@@ -261,13 +269,13 @@ use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
 use RadioManagerClient::Object::BroadcastRelationsGenre;
+use RadioManagerClient::Object::BroadcastRelationsGroup;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
 use RadioManagerClient::Object::BroadcastRelationsPresenters;
 use RadioManagerClient::Object::BroadcastRelationsTags;
 use RadioManagerClient::Object::BroadcastResult;
-use RadioManagerClient::Object::BroadcastResults;
 use RadioManagerClient::Object::Campaign;
 use RadioManagerClient::Object::CampaignDataInput;
 use RadioManagerClient::Object::CampaignOutputOnly;
@@ -275,7 +283,6 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResult;
-use RadioManagerClient::Object::CampaignResults;
 use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::CampaignTemplateItemAllOf;
 use RadioManagerClient::Object::Contact;
@@ -286,9 +293,7 @@ use RadioManagerClient::Object::ContactRelationsItems;
 use RadioManagerClient::Object::ContactRelationsTags;
 use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResult;
-use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::EPGResults;
-use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
 use RadioManagerClient::Object::GenreOutputOnly;
 use RadioManagerClient::Object::GenreRelations;
@@ -296,15 +301,40 @@ use RadioManagerClient::Object::GenreRelationsBroadcasts;
 use RadioManagerClient::Object::GenreRelationsBroadcastsParams;
 use RadioManagerClient::Object::GenreRelationsPrograms;
 use RadioManagerClient::Object::GenreResult;
-use RadioManagerClient::Object::GenreResults;
+use RadioManagerClient::Object::Group;
+use RadioManagerClient::Object::GroupDataInput;
+use RadioManagerClient::Object::GroupOutputOnly;
+use RadioManagerClient::Object::GroupRelations;
+use RadioManagerClient::Object::GroupRelationsBroadcasts;
+use RadioManagerClient::Object::GroupRelationsPrograms;
+use RadioManagerClient::Object::GroupRelationsUsers;
+use RadioManagerClient::Object::GroupRelationsUsersParams;
+use RadioManagerClient::Object::GroupResult;
 use RadioManagerClient::Object::ImportItem;
 use RadioManagerClient::Object::ImportItemAllOf;
-use RadioManagerClient::Object::InlineObject;
-use RadioManagerClient::Object::InlineObject1;
-use RadioManagerClient::Object::InlineObject2;
-use RadioManagerClient::Object::InlineObject3;
+use RadioManagerClient::Object::InlineResponse200;
+use RadioManagerClient::Object::InlineResponse2001;
+use RadioManagerClient::Object::InlineResponse20010;
+use RadioManagerClient::Object::InlineResponse20011;
+use RadioManagerClient::Object::InlineResponse20012;
+use RadioManagerClient::Object::InlineResponse20013;
+use RadioManagerClient::Object::InlineResponse2002;
+use RadioManagerClient::Object::InlineResponse2003;
+use RadioManagerClient::Object::InlineResponse2004;
+use RadioManagerClient::Object::InlineResponse2005;
+use RadioManagerClient::Object::InlineResponse2006;
+use RadioManagerClient::Object::InlineResponse2007;
+use RadioManagerClient::Object::InlineResponse2008;
+use RadioManagerClient::Object::InlineResponse2009;
 use RadioManagerClient::Object::InlineResponse202;
-use RadioManagerClient::Object::InternalServerError;
+use RadioManagerClient::Object::InlineResponse2021;
+use RadioManagerClient::Object::InlineResponse400;
+use RadioManagerClient::Object::InlineResponse401;
+use RadioManagerClient::Object::InlineResponse403;
+use RadioManagerClient::Object::InlineResponse404;
+use RadioManagerClient::Object::InlineResponse422;
+use RadioManagerClient::Object::InlineResponse429;
+use RadioManagerClient::Object::InlineResponse500;
 use RadioManagerClient::Object::InviteUserData;
 use RadioManagerClient::Object::Item;
 use RadioManagerClient::Object::ItemAllOf;
@@ -319,7 +349,7 @@ use RadioManagerClient::Object::ItemRelationsContactsParams;
 use RadioManagerClient::Object::ItemRelationsProgram;
 use RadioManagerClient::Object::ItemRelationsTags;
 use RadioManagerClient::Object::ItemResult;
-use RadioManagerClient::Object::ItemResults;
+use RadioManagerClient::Object::ItemsStopcurrentBody;
 use RadioManagerClient::Object::ModelType;
 use RadioManagerClient::Object::ModelTypeOptions;
 use RadioManagerClient::Object::ModelTypeOutputOnly;
@@ -332,19 +362,20 @@ use RadioManagerClient::Object::ModelTypeRelationsItems;
 use RadioManagerClient::Object::ModelTypeRelationsPresenters;
 use RadioManagerClient::Object::ModelTypeRelationsPrograms;
 use RadioManagerClient::Object::ModelTypeResult;
-use RadioManagerClient::Object::ModelTypeResults;
-use RadioManagerClient::Object::NotFound;
-use RadioManagerClient::Object::PostSuccess;
+use RadioManagerClient::Object::OrderDirection;
+use RadioManagerClient::Object::PlaylistMergeBody;
+use RadioManagerClient::Object::PlaylistStructureBody;
+use RadioManagerClient::Object::PlaylistTimingBody;
 use RadioManagerClient::Object::Presenter;
 use RadioManagerClient::Object::PresenterDataInput;
 use RadioManagerClient::Object::PresenterEPGResult;
 use RadioManagerClient::Object::PresenterOutputOnly;
 use RadioManagerClient::Object::PresenterRelations;
 use RadioManagerClient::Object::PresenterRelationsBroadcasts;
+use RadioManagerClient::Object::PresenterRelationsModelType;
 use RadioManagerClient::Object::PresenterRelationsPrograms;
 use RadioManagerClient::Object::PresenterRelationsProgramsParams;
 use RadioManagerClient::Object::PresenterResult;
-use RadioManagerClient::Object::PresenterResults;
 use RadioManagerClient::Object::Program;
 use RadioManagerClient::Object::ProgramDataInput;
 use RadioManagerClient::Object::ProgramInputOnly;
@@ -358,24 +389,9 @@ use RadioManagerClient::Object::ProgramRelationsItemsParams;
 use RadioManagerClient::Object::ProgramRelationsPresenters;
 use RadioManagerClient::Object::ProgramRelationsTags;
 use RadioManagerClient::Object::ProgramResult;
-use RadioManagerClient::Object::ProgramResults;
-use RadioManagerClient::Object::ReadOnly;
-use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
 use RadioManagerClient::Object::StationResultStationStartDays;
-use RadioManagerClient::Object::Story;
-use RadioManagerClient::Object::StoryDataInput;
-use RadioManagerClient::Object::StoryInputOnly;
-use RadioManagerClient::Object::StoryInputOnlyAllOf;
-use RadioManagerClient::Object::StoryOutputOnly;
-use RadioManagerClient::Object::StoryRelations;
-use RadioManagerClient::Object::StoryRelationsItems;
-use RadioManagerClient::Object::StoryRelationsTags;
-use RadioManagerClient::Object::StoryRelationsTagsParams;
-use RadioManagerClient::Object::StoryResult;
-use RadioManagerClient::Object::StoryResults;
-use RadioManagerClient::Object::Success;
 use RadioManagerClient::Object::Tag;
 use RadioManagerClient::Object::TagDataInput;
 use RadioManagerClient::Object::TagOutputOnly;
@@ -386,14 +402,13 @@ use RadioManagerClient::Object::TagRelationsContacts;
 use RadioManagerClient::Object::TagRelationsItems;
 use RadioManagerClient::Object::TagRelationsPrograms;
 use RadioManagerClient::Object::TagResult;
-use RadioManagerClient::Object::TagResults;
 use RadioManagerClient::Object::TextString;
-use RadioManagerClient::Object::TooManyRequests;
-use RadioManagerClient::Object::UnprocessableEntity;
+use RadioManagerClient::Object::UnusedBooleanParameter;
 use RadioManagerClient::Object::UserResult;
+use RadioManagerClient::Object::UserResultGroups;
+use RadioManagerClient::Object::UserResultParams;
 use RadioManagerClient::Object::UserResultRoles;
 use RadioManagerClient::Object::UserResultSettings;
-use RadioManagerClient::Object::UserResults;
 use RadioManagerClient::Object::VisualResult;
 
 ````
@@ -411,12 +426,12 @@ use RadioManagerClient::BroadcastApi;
 use RadioManagerClient::CampaignApi;
 use RadioManagerClient::ContactApi;
 use RadioManagerClient::GenreApi;
+use RadioManagerClient::GroupApi;
 use RadioManagerClient::ItemApi;
 use RadioManagerClient::ModelTypeApi;
 use RadioManagerClient::PresenterApi;
 use RadioManagerClient::ProgramApi;
 use RadioManagerClient::StationApi;
-use RadioManagerClient::StoryApi;
 use RadioManagerClient::StringApi;
 use RadioManagerClient::TagApi;
 use RadioManagerClient::UserApi;
@@ -431,7 +446,6 @@ use RadioManagerClient::Object::BlockRelationsItems;
 use RadioManagerClient::Object::BlockRelationsItemsParams;
 use RadioManagerClient::Object::BlockRelationsProgram;
 use RadioManagerClient::Object::BlockResult;
-use RadioManagerClient::Object::BlockResults;
 use RadioManagerClient::Object::Broadcast;
 use RadioManagerClient::Object::BroadcastDataInput;
 use RadioManagerClient::Object::BroadcastEPGDay;
@@ -442,13 +456,13 @@ use RadioManagerClient::Object::BroadcastOutputOnly;
 use RadioManagerClient::Object::BroadcastRelations;
 use RadioManagerClient::Object::BroadcastRelationsBlocks;
 use RadioManagerClient::Object::BroadcastRelationsGenre;
+use RadioManagerClient::Object::BroadcastRelationsGroup;
 use RadioManagerClient::Object::BroadcastRelationsItems;
 use RadioManagerClient::Object::BroadcastRelationsItemsParams;
 use RadioManagerClient::Object::BroadcastRelationsModelType;
 use RadioManagerClient::Object::BroadcastRelationsPresenters;
 use RadioManagerClient::Object::BroadcastRelationsTags;
 use RadioManagerClient::Object::BroadcastResult;
-use RadioManagerClient::Object::BroadcastResults;
 use RadioManagerClient::Object::Campaign;
 use RadioManagerClient::Object::CampaignDataInput;
 use RadioManagerClient::Object::CampaignOutputOnly;
@@ -456,7 +470,6 @@ use RadioManagerClient::Object::CampaignRelations;
 use RadioManagerClient::Object::CampaignRelationsItems;
 use RadioManagerClient::Object::CampaignRelationsItemsParams;
 use RadioManagerClient::Object::CampaignResult;
-use RadioManagerClient::Object::CampaignResults;
 use RadioManagerClient::Object::CampaignTemplateItem;
 use RadioManagerClient::Object::CampaignTemplateItemAllOf;
 use RadioManagerClient::Object::Contact;
@@ -467,9 +480,7 @@ use RadioManagerClient::Object::ContactRelationsItems;
 use RadioManagerClient::Object::ContactRelationsTags;
 use RadioManagerClient::Object::ContactRelationsTagsParams;
 use RadioManagerClient::Object::ContactResult;
-use RadioManagerClient::Object::ContactResults;
 use RadioManagerClient::Object::EPGResults;
-use RadioManagerClient::Object::Forbidden;
 use RadioManagerClient::Object::Genre;
 use RadioManagerClient::Object::GenreOutputOnly;
 use RadioManagerClient::Object::GenreRelations;
@@ -477,15 +488,40 @@ use RadioManagerClient::Object::GenreRelationsBroadcasts;
 use RadioManagerClient::Object::GenreRelationsBroadcastsParams;
 use RadioManagerClient::Object::GenreRelationsPrograms;
 use RadioManagerClient::Object::GenreResult;
-use RadioManagerClient::Object::GenreResults;
+use RadioManagerClient::Object::Group;
+use RadioManagerClient::Object::GroupDataInput;
+use RadioManagerClient::Object::GroupOutputOnly;
+use RadioManagerClient::Object::GroupRelations;
+use RadioManagerClient::Object::GroupRelationsBroadcasts;
+use RadioManagerClient::Object::GroupRelationsPrograms;
+use RadioManagerClient::Object::GroupRelationsUsers;
+use RadioManagerClient::Object::GroupRelationsUsersParams;
+use RadioManagerClient::Object::GroupResult;
 use RadioManagerClient::Object::ImportItem;
 use RadioManagerClient::Object::ImportItemAllOf;
-use RadioManagerClient::Object::InlineObject;
-use RadioManagerClient::Object::InlineObject1;
-use RadioManagerClient::Object::InlineObject2;
-use RadioManagerClient::Object::InlineObject3;
+use RadioManagerClient::Object::InlineResponse200;
+use RadioManagerClient::Object::InlineResponse2001;
+use RadioManagerClient::Object::InlineResponse20010;
+use RadioManagerClient::Object::InlineResponse20011;
+use RadioManagerClient::Object::InlineResponse20012;
+use RadioManagerClient::Object::InlineResponse20013;
+use RadioManagerClient::Object::InlineResponse2002;
+use RadioManagerClient::Object::InlineResponse2003;
+use RadioManagerClient::Object::InlineResponse2004;
+use RadioManagerClient::Object::InlineResponse2005;
+use RadioManagerClient::Object::InlineResponse2006;
+use RadioManagerClient::Object::InlineResponse2007;
+use RadioManagerClient::Object::InlineResponse2008;
+use RadioManagerClient::Object::InlineResponse2009;
 use RadioManagerClient::Object::InlineResponse202;
-use RadioManagerClient::Object::InternalServerError;
+use RadioManagerClient::Object::InlineResponse2021;
+use RadioManagerClient::Object::InlineResponse400;
+use RadioManagerClient::Object::InlineResponse401;
+use RadioManagerClient::Object::InlineResponse403;
+use RadioManagerClient::Object::InlineResponse404;
+use RadioManagerClient::Object::InlineResponse422;
+use RadioManagerClient::Object::InlineResponse429;
+use RadioManagerClient::Object::InlineResponse500;
 use RadioManagerClient::Object::InviteUserData;
 use RadioManagerClient::Object::Item;
 use RadioManagerClient::Object::ItemAllOf;
@@ -500,7 +536,7 @@ use RadioManagerClient::Object::ItemRelationsContactsParams;
 use RadioManagerClient::Object::ItemRelationsProgram;
 use RadioManagerClient::Object::ItemRelationsTags;
 use RadioManagerClient::Object::ItemResult;
-use RadioManagerClient::Object::ItemResults;
+use RadioManagerClient::Object::ItemsStopcurrentBody;
 use RadioManagerClient::Object::ModelType;
 use RadioManagerClient::Object::ModelTypeOptions;
 use RadioManagerClient::Object::ModelTypeOutputOnly;
@@ -513,19 +549,20 @@ use RadioManagerClient::Object::ModelTypeRelationsItems;
 use RadioManagerClient::Object::ModelTypeRelationsPresenters;
 use RadioManagerClient::Object::ModelTypeRelationsPrograms;
 use RadioManagerClient::Object::ModelTypeResult;
-use RadioManagerClient::Object::ModelTypeResults;
-use RadioManagerClient::Object::NotFound;
-use RadioManagerClient::Object::PostSuccess;
+use RadioManagerClient::Object::OrderDirection;
+use RadioManagerClient::Object::PlaylistMergeBody;
+use RadioManagerClient::Object::PlaylistStructureBody;
+use RadioManagerClient::Object::PlaylistTimingBody;
 use RadioManagerClient::Object::Presenter;
 use RadioManagerClient::Object::PresenterDataInput;
 use RadioManagerClient::Object::PresenterEPGResult;
 use RadioManagerClient::Object::PresenterOutputOnly;
 use RadioManagerClient::Object::PresenterRelations;
 use RadioManagerClient::Object::PresenterRelationsBroadcasts;
+use RadioManagerClient::Object::PresenterRelationsModelType;
 use RadioManagerClient::Object::PresenterRelationsPrograms;
 use RadioManagerClient::Object::PresenterRelationsProgramsParams;
 use RadioManagerClient::Object::PresenterResult;
-use RadioManagerClient::Object::PresenterResults;
 use RadioManagerClient::Object::Program;
 use RadioManagerClient::Object::ProgramDataInput;
 use RadioManagerClient::Object::ProgramInputOnly;
@@ -539,24 +576,9 @@ use RadioManagerClient::Object::ProgramRelationsItemsParams;
 use RadioManagerClient::Object::ProgramRelationsPresenters;
 use RadioManagerClient::Object::ProgramRelationsTags;
 use RadioManagerClient::Object::ProgramResult;
-use RadioManagerClient::Object::ProgramResults;
-use RadioManagerClient::Object::ReadOnly;
-use RadioManagerClient::Object::RelationsPlaceholder;
 use RadioManagerClient::Object::StationResult;
 use RadioManagerClient::Object::StationResultStation;
 use RadioManagerClient::Object::StationResultStationStartDays;
-use RadioManagerClient::Object::Story;
-use RadioManagerClient::Object::StoryDataInput;
-use RadioManagerClient::Object::StoryInputOnly;
-use RadioManagerClient::Object::StoryInputOnlyAllOf;
-use RadioManagerClient::Object::StoryOutputOnly;
-use RadioManagerClient::Object::StoryRelations;
-use RadioManagerClient::Object::StoryRelationsItems;
-use RadioManagerClient::Object::StoryRelationsTags;
-use RadioManagerClient::Object::StoryRelationsTagsParams;
-use RadioManagerClient::Object::StoryResult;
-use RadioManagerClient::Object::StoryResults;
-use RadioManagerClient::Object::Success;
 use RadioManagerClient::Object::Tag;
 use RadioManagerClient::Object::TagDataInput;
 use RadioManagerClient::Object::TagOutputOnly;
@@ -567,29 +589,27 @@ use RadioManagerClient::Object::TagRelationsContacts;
 use RadioManagerClient::Object::TagRelationsItems;
 use RadioManagerClient::Object::TagRelationsPrograms;
 use RadioManagerClient::Object::TagResult;
-use RadioManagerClient::Object::TagResults;
 use RadioManagerClient::Object::TextString;
-use RadioManagerClient::Object::TooManyRequests;
-use RadioManagerClient::Object::UnprocessableEntity;
+use RadioManagerClient::Object::UnusedBooleanParameter;
 use RadioManagerClient::Object::UserResult;
+use RadioManagerClient::Object::UserResultGroups;
+use RadioManagerClient::Object::UserResultParams;
 use RadioManagerClient::Object::UserResultRoles;
 use RadioManagerClient::Object::UserResultSettings;
-use RadioManagerClient::Object::UserResults;
 use RadioManagerClient::Object::VisualResult;
 
 # for displaying the API response data
 use Data::Dumper;
-use RadioManagerClient::;
 
-my $api_instance = RadioManagerClient::->new(
 
+my $api_instance = RadioManagerClient::BlockApi->new(
     # Configure API key authorization: API-Key
     api_key => {'api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Block **(Required)**
+my $id = 789; # int | ID of Block **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
 eval {
@@ -617,7 +637,7 @@ Class | Method | HTTP request | Description
 *BroadcastApi* | [**get_broadcast_by_id**](docs/BroadcastApi.md#get_broadcast_by_id) | **GET** /broadcasts/{id} | Get broadcast by id
 *BroadcastApi* | [**get_current_broadcast**](docs/BroadcastApi.md#get_current_broadcast) | **GET** /broadcasts/current | Get current Broadcast
 *BroadcastApi* | [**get_daily_epg**](docs/BroadcastApi.md#get_daily_epg) | **GET** /broadcasts/epg/daily | Get daily EPG
-*BroadcastApi* | [**get_epg_by_date**](docs/BroadcastApi.md#get_epg_by_date) | **GET** /broadcasts/epg | Get EPG by date
+*BroadcastApi* | [**get_epgby_date**](docs/BroadcastApi.md#get_epgby_date) | **GET** /broadcasts/epg | Get EPG by date
 *BroadcastApi* | [**get_next_broadcast**](docs/BroadcastApi.md#get_next_broadcast) | **GET** /broadcasts/next | Get next Broadcast
 *BroadcastApi* | [**get_weekly_epg**](docs/BroadcastApi.md#get_weekly_epg) | **GET** /broadcasts/epg/weekly | Get weekly EPG
 *BroadcastApi* | [**list_broadcasts**](docs/BroadcastApi.md#list_broadcasts) | **GET** /broadcasts | Get all broadcasts.
@@ -635,9 +655,11 @@ Class | Method | HTTP request | Description
 *ContactApi* | [**update_contact_by_id**](docs/ContactApi.md#update_contact_by_id) | **PATCH** /contacts/{id} | Update contact by id
 *GenreApi* | [**get_genre_by_id**](docs/GenreApi.md#get_genre_by_id) | **GET** /genres/{id} | Get genre by id
 *GenreApi* | [**list_genres**](docs/GenreApi.md#list_genres) | **GET** /genres | List all genres.
+*GroupApi* | [**get_group_by_id**](docs/GroupApi.md#get_group_by_id) | **GET** /groups/{id} | Get group by id
+*GroupApi* | [**list_groups**](docs/GroupApi.md#list_groups) | **GET** /groups | Get all groups.
 *ItemApi* | [**create_item**](docs/ItemApi.md#create_item) | **POST** /items | Create an new item.
 *ItemApi* | [**current_item_post_structure**](docs/ItemApi.md#current_item_post_structure) | **POST** /items/current/structure | Post a current playing item, keep structure
-*ItemApi* | [**current_item_post_timing**](docs/ItemApi.md#current_item_post_timing) | **POST** /items/current/timing | Post a current playing item
+*ItemApi* | [**current_item_post_timing**](docs/ItemApi.md#current_item_post_timing) | **POST** /items/current/timing | Post current playing Item
 *ItemApi* | [**delete_item_by_id**](docs/ItemApi.md#delete_item_by_id) | **DELETE** /items/{id} | Delete item by ID.
 *ItemApi* | [**get_current_item**](docs/ItemApi.md#get_current_item) | **GET** /items/current | Get current Item
 *ItemApi* | [**get_item_by_id**](docs/ItemApi.md#get_item_by_id) | **GET** /items/{id} | Get extended item details by ID.
@@ -660,22 +682,17 @@ Class | Method | HTTP request | Description
 *ProgramApi* | [**list_programs**](docs/ProgramApi.md#list_programs) | **GET** /programs | Get all programs.
 *ProgramApi* | [**update_program_by_id**](docs/ProgramApi.md#update_program_by_id) | **PATCH** /programs/{id} | Update program by id
 *StationApi* | [**get_station**](docs/StationApi.md#get_station) | **GET** /station | Get own station only
-*StoryApi* | [**create_story**](docs/StoryApi.md#create_story) | **POST** /stories | Create story.
-*StoryApi* | [**delete_story_by_id**](docs/StoryApi.md#delete_story_by_id) | **DELETE** /stories/{id} | Delete story by id
-*StoryApi* | [**get_story_by_id**](docs/StoryApi.md#get_story_by_id) | **GET** /stories/{id} | Get story by id
-*StoryApi* | [**list_stories**](docs/StoryApi.md#list_stories) | **GET** /stories | Get all stories.
-*StoryApi* | [**update_story_by_id**](docs/StoryApi.md#update_story_by_id) | **PATCH** /stories/{id} | Update story by id
 *StringApi* | [**get_strings_by_name**](docs/StringApi.md#get_strings_by_name) | **GET** /strings/{name} | Get Strings (formatted)
 *TagApi* | [**create_tag**](docs/TagApi.md#create_tag) | **POST** /tags | Create tag.
 *TagApi* | [**delete_tag_by_id**](docs/TagApi.md#delete_tag_by_id) | **DELETE** /tags/{id} | Delete tag by id
 *TagApi* | [**get_tag_by_id**](docs/TagApi.md#get_tag_by_id) | **GET** /tags/{id} | Get tags by id
 *TagApi* | [**list_tags**](docs/TagApi.md#list_tags) | **GET** /tags | Get a list of all the tags currently in your station.
 *TagApi* | [**update_tag_by_id**](docs/TagApi.md#update_tag_by_id) | **PATCH** /tags/{id} | Update tag by id
-*UserApi* | [**delete_user_by_id**](docs/UserApi.md#delete_user_by_id) | **DELETE** /users/{id} | Remove user from station by Id
+*UserApi* | [**delete_user_by_id**](docs/UserApi.md#delete_user_by_id) | **DELETE** /users/{id} | Remove User from station by Id
 *UserApi* | [**get_user_by_id**](docs/UserApi.md#get_user_by_id) | **GET** /users/{id} | Get user by id
 *UserApi* | [**invite_user_by_mail**](docs/UserApi.md#invite_user_by_mail) | **POST** /users/invite | Invite user by mail
 *UserApi* | [**list_users**](docs/UserApi.md#list_users) | **GET** /users | Get all users.
-*VisualSlideApi* | [**get_visual_slide**](docs/VisualSlideApi.md#get_visual_slide) | **GET** /visual | Get Visual Slide Image as Base64
+*VisualSlideApi* | [**get_visual_slide**](docs/VisualSlideApi.md#get_visual_slide) | **GET** /visual | Get Visual Slide Image
 
 
 # DOCUMENTATION FOR MODELS
@@ -687,7 +704,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::BlockRelationsItemsParams](docs/BlockRelationsItemsParams.md)
  - [RadioManagerClient::Object::BlockRelationsProgram](docs/BlockRelationsProgram.md)
  - [RadioManagerClient::Object::BlockResult](docs/BlockResult.md)
- - [RadioManagerClient::Object::BlockResults](docs/BlockResults.md)
  - [RadioManagerClient::Object::Broadcast](docs/Broadcast.md)
  - [RadioManagerClient::Object::BroadcastDataInput](docs/BroadcastDataInput.md)
  - [RadioManagerClient::Object::BroadcastEPGDay](docs/BroadcastEPGDay.md)
@@ -698,13 +714,13 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::BroadcastRelations](docs/BroadcastRelations.md)
  - [RadioManagerClient::Object::BroadcastRelationsBlocks](docs/BroadcastRelationsBlocks.md)
  - [RadioManagerClient::Object::BroadcastRelationsGenre](docs/BroadcastRelationsGenre.md)
+ - [RadioManagerClient::Object::BroadcastRelationsGroup](docs/BroadcastRelationsGroup.md)
  - [RadioManagerClient::Object::BroadcastRelationsItems](docs/BroadcastRelationsItems.md)
  - [RadioManagerClient::Object::BroadcastRelationsItemsParams](docs/BroadcastRelationsItemsParams.md)
  - [RadioManagerClient::Object::BroadcastRelationsModelType](docs/BroadcastRelationsModelType.md)
  - [RadioManagerClient::Object::BroadcastRelationsPresenters](docs/BroadcastRelationsPresenters.md)
  - [RadioManagerClient::Object::BroadcastRelationsTags](docs/BroadcastRelationsTags.md)
  - [RadioManagerClient::Object::BroadcastResult](docs/BroadcastResult.md)
- - [RadioManagerClient::Object::BroadcastResults](docs/BroadcastResults.md)
  - [RadioManagerClient::Object::Campaign](docs/Campaign.md)
  - [RadioManagerClient::Object::CampaignDataInput](docs/CampaignDataInput.md)
  - [RadioManagerClient::Object::CampaignOutputOnly](docs/CampaignOutputOnly.md)
@@ -712,7 +728,6 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::CampaignRelationsItems](docs/CampaignRelationsItems.md)
  - [RadioManagerClient::Object::CampaignRelationsItemsParams](docs/CampaignRelationsItemsParams.md)
  - [RadioManagerClient::Object::CampaignResult](docs/CampaignResult.md)
- - [RadioManagerClient::Object::CampaignResults](docs/CampaignResults.md)
  - [RadioManagerClient::Object::CampaignTemplateItem](docs/CampaignTemplateItem.md)
  - [RadioManagerClient::Object::CampaignTemplateItemAllOf](docs/CampaignTemplateItemAllOf.md)
  - [RadioManagerClient::Object::Contact](docs/Contact.md)
@@ -723,9 +738,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ContactRelationsTags](docs/ContactRelationsTags.md)
  - [RadioManagerClient::Object::ContactRelationsTagsParams](docs/ContactRelationsTagsParams.md)
  - [RadioManagerClient::Object::ContactResult](docs/ContactResult.md)
- - [RadioManagerClient::Object::ContactResults](docs/ContactResults.md)
  - [RadioManagerClient::Object::EPGResults](docs/EPGResults.md)
- - [RadioManagerClient::Object::Forbidden](docs/Forbidden.md)
  - [RadioManagerClient::Object::Genre](docs/Genre.md)
  - [RadioManagerClient::Object::GenreOutputOnly](docs/GenreOutputOnly.md)
  - [RadioManagerClient::Object::GenreRelations](docs/GenreRelations.md)
@@ -733,15 +746,40 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::GenreRelationsBroadcastsParams](docs/GenreRelationsBroadcastsParams.md)
  - [RadioManagerClient::Object::GenreRelationsPrograms](docs/GenreRelationsPrograms.md)
  - [RadioManagerClient::Object::GenreResult](docs/GenreResult.md)
- - [RadioManagerClient::Object::GenreResults](docs/GenreResults.md)
+ - [RadioManagerClient::Object::Group](docs/Group.md)
+ - [RadioManagerClient::Object::GroupDataInput](docs/GroupDataInput.md)
+ - [RadioManagerClient::Object::GroupOutputOnly](docs/GroupOutputOnly.md)
+ - [RadioManagerClient::Object::GroupRelations](docs/GroupRelations.md)
+ - [RadioManagerClient::Object::GroupRelationsBroadcasts](docs/GroupRelationsBroadcasts.md)
+ - [RadioManagerClient::Object::GroupRelationsPrograms](docs/GroupRelationsPrograms.md)
+ - [RadioManagerClient::Object::GroupRelationsUsers](docs/GroupRelationsUsers.md)
+ - [RadioManagerClient::Object::GroupRelationsUsersParams](docs/GroupRelationsUsersParams.md)
+ - [RadioManagerClient::Object::GroupResult](docs/GroupResult.md)
  - [RadioManagerClient::Object::ImportItem](docs/ImportItem.md)
  - [RadioManagerClient::Object::ImportItemAllOf](docs/ImportItemAllOf.md)
- - [RadioManagerClient::Object::InlineObject](docs/InlineObject.md)
- - [RadioManagerClient::Object::InlineObject1](docs/InlineObject1.md)
- - [RadioManagerClient::Object::InlineObject2](docs/InlineObject2.md)
- - [RadioManagerClient::Object::InlineObject3](docs/InlineObject3.md)
+ - [RadioManagerClient::Object::InlineResponse200](docs/InlineResponse200.md)
+ - [RadioManagerClient::Object::InlineResponse2001](docs/InlineResponse2001.md)
+ - [RadioManagerClient::Object::InlineResponse20010](docs/InlineResponse20010.md)
+ - [RadioManagerClient::Object::InlineResponse20011](docs/InlineResponse20011.md)
+ - [RadioManagerClient::Object::InlineResponse20012](docs/InlineResponse20012.md)
+ - [RadioManagerClient::Object::InlineResponse20013](docs/InlineResponse20013.md)
+ - [RadioManagerClient::Object::InlineResponse2002](docs/InlineResponse2002.md)
+ - [RadioManagerClient::Object::InlineResponse2003](docs/InlineResponse2003.md)
+ - [RadioManagerClient::Object::InlineResponse2004](docs/InlineResponse2004.md)
+ - [RadioManagerClient::Object::InlineResponse2005](docs/InlineResponse2005.md)
+ - [RadioManagerClient::Object::InlineResponse2006](docs/InlineResponse2006.md)
+ - [RadioManagerClient::Object::InlineResponse2007](docs/InlineResponse2007.md)
+ - [RadioManagerClient::Object::InlineResponse2008](docs/InlineResponse2008.md)
+ - [RadioManagerClient::Object::InlineResponse2009](docs/InlineResponse2009.md)
  - [RadioManagerClient::Object::InlineResponse202](docs/InlineResponse202.md)
- - [RadioManagerClient::Object::InternalServerError](docs/InternalServerError.md)
+ - [RadioManagerClient::Object::InlineResponse2021](docs/InlineResponse2021.md)
+ - [RadioManagerClient::Object::InlineResponse400](docs/InlineResponse400.md)
+ - [RadioManagerClient::Object::InlineResponse401](docs/InlineResponse401.md)
+ - [RadioManagerClient::Object::InlineResponse403](docs/InlineResponse403.md)
+ - [RadioManagerClient::Object::InlineResponse404](docs/InlineResponse404.md)
+ - [RadioManagerClient::Object::InlineResponse422](docs/InlineResponse422.md)
+ - [RadioManagerClient::Object::InlineResponse429](docs/InlineResponse429.md)
+ - [RadioManagerClient::Object::InlineResponse500](docs/InlineResponse500.md)
  - [RadioManagerClient::Object::InviteUserData](docs/InviteUserData.md)
  - [RadioManagerClient::Object::Item](docs/Item.md)
  - [RadioManagerClient::Object::ItemAllOf](docs/ItemAllOf.md)
@@ -756,7 +794,7 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ItemRelationsProgram](docs/ItemRelationsProgram.md)
  - [RadioManagerClient::Object::ItemRelationsTags](docs/ItemRelationsTags.md)
  - [RadioManagerClient::Object::ItemResult](docs/ItemResult.md)
- - [RadioManagerClient::Object::ItemResults](docs/ItemResults.md)
+ - [RadioManagerClient::Object::ItemsStopcurrentBody](docs/ItemsStopcurrentBody.md)
  - [RadioManagerClient::Object::ModelType](docs/ModelType.md)
  - [RadioManagerClient::Object::ModelTypeOptions](docs/ModelTypeOptions.md)
  - [RadioManagerClient::Object::ModelTypeOutputOnly](docs/ModelTypeOutputOnly.md)
@@ -769,19 +807,20 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ModelTypeRelationsPresenters](docs/ModelTypeRelationsPresenters.md)
  - [RadioManagerClient::Object::ModelTypeRelationsPrograms](docs/ModelTypeRelationsPrograms.md)
  - [RadioManagerClient::Object::ModelTypeResult](docs/ModelTypeResult.md)
- - [RadioManagerClient::Object::ModelTypeResults](docs/ModelTypeResults.md)
- - [RadioManagerClient::Object::NotFound](docs/NotFound.md)
- - [RadioManagerClient::Object::PostSuccess](docs/PostSuccess.md)
+ - [RadioManagerClient::Object::OrderDirection](docs/OrderDirection.md)
+ - [RadioManagerClient::Object::PlaylistMergeBody](docs/PlaylistMergeBody.md)
+ - [RadioManagerClient::Object::PlaylistStructureBody](docs/PlaylistStructureBody.md)
+ - [RadioManagerClient::Object::PlaylistTimingBody](docs/PlaylistTimingBody.md)
  - [RadioManagerClient::Object::Presenter](docs/Presenter.md)
  - [RadioManagerClient::Object::PresenterDataInput](docs/PresenterDataInput.md)
  - [RadioManagerClient::Object::PresenterEPGResult](docs/PresenterEPGResult.md)
  - [RadioManagerClient::Object::PresenterOutputOnly](docs/PresenterOutputOnly.md)
  - [RadioManagerClient::Object::PresenterRelations](docs/PresenterRelations.md)
  - [RadioManagerClient::Object::PresenterRelationsBroadcasts](docs/PresenterRelationsBroadcasts.md)
+ - [RadioManagerClient::Object::PresenterRelationsModelType](docs/PresenterRelationsModelType.md)
  - [RadioManagerClient::Object::PresenterRelationsPrograms](docs/PresenterRelationsPrograms.md)
  - [RadioManagerClient::Object::PresenterRelationsProgramsParams](docs/PresenterRelationsProgramsParams.md)
  - [RadioManagerClient::Object::PresenterResult](docs/PresenterResult.md)
- - [RadioManagerClient::Object::PresenterResults](docs/PresenterResults.md)
  - [RadioManagerClient::Object::Program](docs/Program.md)
  - [RadioManagerClient::Object::ProgramDataInput](docs/ProgramDataInput.md)
  - [RadioManagerClient::Object::ProgramInputOnly](docs/ProgramInputOnly.md)
@@ -795,24 +834,9 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::ProgramRelationsPresenters](docs/ProgramRelationsPresenters.md)
  - [RadioManagerClient::Object::ProgramRelationsTags](docs/ProgramRelationsTags.md)
  - [RadioManagerClient::Object::ProgramResult](docs/ProgramResult.md)
- - [RadioManagerClient::Object::ProgramResults](docs/ProgramResults.md)
- - [RadioManagerClient::Object::ReadOnly](docs/ReadOnly.md)
- - [RadioManagerClient::Object::RelationsPlaceholder](docs/RelationsPlaceholder.md)
  - [RadioManagerClient::Object::StationResult](docs/StationResult.md)
  - [RadioManagerClient::Object::StationResultStation](docs/StationResultStation.md)
  - [RadioManagerClient::Object::StationResultStationStartDays](docs/StationResultStationStartDays.md)
- - [RadioManagerClient::Object::Story](docs/Story.md)
- - [RadioManagerClient::Object::StoryDataInput](docs/StoryDataInput.md)
- - [RadioManagerClient::Object::StoryInputOnly](docs/StoryInputOnly.md)
- - [RadioManagerClient::Object::StoryInputOnlyAllOf](docs/StoryInputOnlyAllOf.md)
- - [RadioManagerClient::Object::StoryOutputOnly](docs/StoryOutputOnly.md)
- - [RadioManagerClient::Object::StoryRelations](docs/StoryRelations.md)
- - [RadioManagerClient::Object::StoryRelationsItems](docs/StoryRelationsItems.md)
- - [RadioManagerClient::Object::StoryRelationsTags](docs/StoryRelationsTags.md)
- - [RadioManagerClient::Object::StoryRelationsTagsParams](docs/StoryRelationsTagsParams.md)
- - [RadioManagerClient::Object::StoryResult](docs/StoryResult.md)
- - [RadioManagerClient::Object::StoryResults](docs/StoryResults.md)
- - [RadioManagerClient::Object::Success](docs/Success.md)
  - [RadioManagerClient::Object::Tag](docs/Tag.md)
  - [RadioManagerClient::Object::TagDataInput](docs/TagDataInput.md)
  - [RadioManagerClient::Object::TagOutputOnly](docs/TagOutputOnly.md)
@@ -823,14 +847,13 @@ Class | Method | HTTP request | Description
  - [RadioManagerClient::Object::TagRelationsItems](docs/TagRelationsItems.md)
  - [RadioManagerClient::Object::TagRelationsPrograms](docs/TagRelationsPrograms.md)
  - [RadioManagerClient::Object::TagResult](docs/TagResult.md)
- - [RadioManagerClient::Object::TagResults](docs/TagResults.md)
  - [RadioManagerClient::Object::TextString](docs/TextString.md)
- - [RadioManagerClient::Object::TooManyRequests](docs/TooManyRequests.md)
- - [RadioManagerClient::Object::UnprocessableEntity](docs/UnprocessableEntity.md)
+ - [RadioManagerClient::Object::UnusedBooleanParameter](docs/UnusedBooleanParameter.md)
  - [RadioManagerClient::Object::UserResult](docs/UserResult.md)
+ - [RadioManagerClient::Object::UserResultGroups](docs/UserResultGroups.md)
+ - [RadioManagerClient::Object::UserResultParams](docs/UserResultParams.md)
  - [RadioManagerClient::Object::UserResultRoles](docs/UserResultRoles.md)
  - [RadioManagerClient::Object::UserResultSettings](docs/UserResultSettings.md)
- - [RadioManagerClient::Object::UserResults](docs/UserResults.md)
  - [RadioManagerClient::Object::VisualResult](docs/VisualResult.md)
 
 

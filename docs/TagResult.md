@@ -9,9 +9,9 @@ use RadioManagerClient::Object::TagResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**created_at** | **DateTime** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
-**deleted_at** | **DateTime** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **broadcasts** | [**TagRelationsBroadcasts**](TagRelationsBroadcasts.md) |  | [optional] 

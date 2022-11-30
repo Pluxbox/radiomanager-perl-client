@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **content** | **string** |  | 
 **name** | **string** |  | 
-**created_at** | **DateTime** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

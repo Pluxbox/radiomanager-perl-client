@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::GenreApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,23 +52,17 @@ sub new {
 # get_genre_by_id
 #
 # Get genre by id
-# 
-# @param int $id ID of Genre **(Required)** (required)
-# @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
+#
+# @param int $id  (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'ID of Genre **(Required)**',
+        description => '',
         required => '1',
     },
-    '_external_station_id' => {
-        data_type => 'int',
-        description => 'Query on a different (content providing) station *(Optional)*',
-        required => '0',
-    },
     };
-    __PACKAGE__->method_documentation->{ 'get_genre_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_genre_by_id' } = {
         summary => 'Get genre by id',
         params => $params,
         returns => 'GenreResult',
@@ -99,11 +93,6 @@ sub get_genre_by_id {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
-    # query params
-    if ( exists $args{'_external_station_id'}) {
-        $query_params->{'_external_station_id'} = $self->{api_client}->to_query_value($args{'_external_station_id'});
-    }
-
     # path params
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
@@ -130,35 +119,16 @@ sub get_genre_by_id {
 # list_genres
 #
 # List all genres.
-# 
-# @param int $page Current page *(Optional)* (optional)
-# @param int $parent_id Search on Parent ID of Genre *(Optional)* (optional)
-# @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+#
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
-# @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
     'page' => {
         data_type => 'int',
         description => 'Current page *(Optional)*',
-        required => '0',
-    },
-    'parent_id' => {
-        data_type => 'int',
-        description => 'Search on Parent ID of Genre *(Optional)*',
-        required => '0',
-    },
-    'program_id' => {
-        data_type => 'int',
-        description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
-        required => '0',
-    },
-    'broadcast_id' => {
-        data_type => 'int',
-        description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
     'limit' => {
@@ -176,19 +146,14 @@ sub get_genre_by_id {
         description => 'Direction of ordering *(Optional)*',
         required => '0',
     },
-    '_external_station_id' => {
-        data_type => 'int',
-        description => 'Query on a different (content providing) station *(Optional)*',
-        required => '0',
-    },
     };
-    __PACKAGE__->method_documentation->{ 'list_genres' } = { 
+    __PACKAGE__->method_documentation->{ 'list_genres' } = {
         summary => 'List all genres.',
         params => $params,
-        returns => 'GenreResults',
+        returns => 'InlineResponse2006',
         };
 }
-# @return GenreResults
+# @return InlineResponse2006
 #
 sub list_genres {
     my ($self, %args) = @_;
@@ -214,21 +179,6 @@ sub list_genres {
     }
 
     # query params
-    if ( exists $args{'parent_id'}) {
-        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
-    }
-
-    # query params
-    if ( exists $args{'program_id'}) {
-        $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
-    }
-
-    # query params
-    if ( exists $args{'broadcast_id'}) {
-        $query_params->{'broadcast_id'} = $self->{api_client}->to_query_value($args{'broadcast_id'});
-    }
-
-    # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
@@ -243,11 +193,6 @@ sub list_genres {
         $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
 
-    # query params
-    if ( exists $args{'_external_station_id'}) {
-        $query_params->{'_external_station_id'} = $self->{api_client}->to_query_value($args{'_external_station_id'});
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(API-Key )];
@@ -259,7 +204,7 @@ sub list_genres {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GenreResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2006', $response);
     return $_response_object;
 }
 

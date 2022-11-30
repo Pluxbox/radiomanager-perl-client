@@ -17,13 +17,13 @@ Method | HTTP request | Description
 
 
 # **create_program**
-> PostSuccess create_program(data => $data)
+> InlineResponse2002 create_program(program_data_input => $program_data_input)
 
 Create program.
 
 Create program.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ProgramApi;
@@ -35,10 +35,10 @@ my $api_instance = RadioManagerClient::ProgramApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data **(Required)**
+my $program_data_input = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data **(Required)**
 
-eval { 
-    my $result = $api_instance->create_program(data => $data);
+eval {
+    my $result = $api_instance->create_program(program_data_input => $program_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -50,11 +50,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ProgramDataInput**](ProgramDataInput.md)| Data **(Required)** | 
+ **program_data_input** | [**ProgramDataInput**](ProgramDataInput.md)| Data **(Required)** | 
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -68,13 +68,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_program_by_id**
-> Success delete_program_by_id(id => $id)
+> InlineResponse202 delete_program_by_id(id => $id)
 
 Delete program by id
 
 Delete program by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ProgramApi;
@@ -86,9 +86,9 @@ my $api_instance = RadioManagerClient::ProgramApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of program **(Required)**
+my $id = 789; # int | ID of program **(Required)**
 
-eval { 
+eval {
     my $result = $api_instance->delete_program_by_id(id => $id);
     print Dumper($result);
 };
@@ -101,11 +101,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of program **(Required)** | [default to 0]
+ **id** | **int**| ID of program **(Required)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Get program by id
 
 Get program by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ProgramApi;
@@ -137,10 +137,10 @@ my $api_instance = RadioManagerClient::ProgramApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Program **(Required)**
+my $id = 789; # int | ID of Program **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
+eval {
     my $result = $api_instance->get_program_by_id(id => $id, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
@@ -153,7 +153,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Program **(Required)** | [default to 0]
+ **id** | **int**| ID of Program **(Required)** | 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -172,13 +172,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_programs**
-> ProgramResults list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse20011 list_programs(broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, group_id => $group_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all programs.
 
 List all programs.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ProgramApi;
@@ -190,22 +190,23 @@ my $api_instance = RadioManagerClient::ProgramApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
 my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
 my $presenter_id = 789; # int | Search on Presenter ID *(Optional)* `(Relation)`
 my $genre_id = 789; # int | Search on Genre ID *(Optional)*
+my $group_id = 789; # int | Search on Group ID *(Optional)*
 my $block_id = 789; # int | Search on Block ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $disabled = 56; # int | Search on Disabled status *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_programs(broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, group_id => $group_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -217,15 +218,16 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **presenter_id** | **int**| Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **genre_id** | **int**| Search on Genre ID *(Optional)* | [optional] 
+ **group_id** | **int**| Search on Group ID *(Optional)* | [optional] 
  **block_id** | **int**| Search on Block ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **disabled** | **int**| Search on Disabled status *(Optional)* | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -233,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProgramResults**](ProgramResults.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -247,13 +249,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_program_by_id**
-> Success update_program_by_id(id => $id, data => $data)
+> InlineResponse202 update_program_by_id(id => $id, program_data_input => $program_data_input)
 
 Update program by id
 
 Update program by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ProgramApi;
@@ -265,11 +267,11 @@ my $api_instance = RadioManagerClient::ProgramApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Program **(Required)**
-my $data = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data *(Optional)*
+my $id = 789; # int | ID of Program **(Required)**
+my $program_data_input = RadioManagerClient::Object::ProgramDataInput->new(); # ProgramDataInput | Data *(Optional)*
 
-eval { 
-    my $result = $api_instance->update_program_by_id(id => $id, data => $data);
+eval {
+    my $result = $api_instance->update_program_by_id(id => $id, program_data_input => $program_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -281,12 +283,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Program **(Required)** | [default to 0]
- **data** | [**ProgramDataInput**](ProgramDataInput.md)| Data *(Optional)* | [optional] 
+ **id** | **int**| ID of Program **(Required)** | 
+ **program_data_input** | [**ProgramDataInput**](ProgramDataInput.md)| Data *(Optional)* | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

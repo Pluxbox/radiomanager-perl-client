@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,9 +32,6 @@ isa_ok($api, 'RadioManagerClient::VisualSlideApi');
 #
 # get_visual_slide test
 #
-{
-    my $result = $api->get_visual_slide();
-}
+# uncomment below and update the test
+#my $get_visual_slide_result = $api->get_visual_slide();
 
-
-1;

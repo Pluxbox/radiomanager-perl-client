@@ -17,13 +17,13 @@ Method | HTTP request | Description
 
 
 # **create_campaign**
-> PostSuccess create_campaign(data => $data)
+> InlineResponse2002 create_campaign(campaign_data_input => $campaign_data_input)
 
 Create campaign.
 
 Create campaign.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::CampaignApi;
@@ -35,10 +35,10 @@ my $api_instance = RadioManagerClient::CampaignApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::CampaignDataInput->new(); # CampaignDataInput | Data **(Required)**
+my $campaign_data_input = RadioManagerClient::Object::CampaignDataInput->new(); # CampaignDataInput | Data **(Required)**
 
-eval { 
-    my $result = $api_instance->create_campaign(data => $data);
+eval {
+    my $result = $api_instance->create_campaign(campaign_data_input => $campaign_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -50,11 +50,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**CampaignDataInput**](CampaignDataInput.md)| Data **(Required)** | 
+ **campaign_data_input** | [**CampaignDataInput**](CampaignDataInput.md)| Data **(Required)** | 
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -68,13 +68,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_campaign_by_id**
-> Success delete_campaign_by_id(id => $id)
+> InlineResponse202 delete_campaign_by_id(id => $id)
 
 Delete campaign by id
 
 Delete campaign by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::CampaignApi;
@@ -86,9 +86,9 @@ my $api_instance = RadioManagerClient::CampaignApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Campaign **(Required)**
+my $id = 789; # int | ID of Campaign **(Required)**
 
-eval { 
+eval {
     my $result = $api_instance->delete_campaign_by_id(id => $id);
     print Dumper($result);
 };
@@ -101,11 +101,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Campaign **(Required)** | [default to 0]
+ **id** | **int**| ID of Campaign **(Required)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -119,13 +119,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_by_id**
-> CampaignResult get_campaign_by_id(id => $id, _external_station_id => $_external_station_id)
+> CampaignResult get_campaign_by_id(id => $id)
 
 Get campaign by id
 
 Get campaign by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::CampaignApi;
@@ -137,11 +137,10 @@ my $api_instance = RadioManagerClient::CampaignApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Campaign **(Required)**
-my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
+my $id = 789; # int | ID of Campaign **(Required)**
 
-eval { 
-    my $result = $api_instance->get_campaign_by_id(id => $id, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->get_campaign_by_id(id => $id);
     print Dumper($result);
 };
 if ($@) {
@@ -153,8 +152,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Campaign **(Required)** | [default to 0]
- **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
+ **id** | **int**| ID of Campaign **(Required)** | 
 
 ### Return type
 
@@ -172,13 +170,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_campaigns**
-> CampaignResults list_campaigns(page => $page, item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse2004 list_campaigns(item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all campaigns.
 
 List all campaigns.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::CampaignApi;
@@ -190,18 +188,18 @@ my $api_instance = RadioManagerClient::CampaignApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
-my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Minimum start date *(Optional)*
-my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Maximum start date *(Optional)*
+my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DATE_TIME | Minimum start date *(Optional)*
+my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DATE_TIME | Maximum start date *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_campaigns(page => $page, item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_campaigns(item_id => $item_id, model_type_id => $model_type_id, start_min => $start_min, start_max => $start_max, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -213,11 +211,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] 
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
- **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
+ **start_min** | **DATE_TIME**| Minimum start date *(Optional)* | [optional] 
+ **start_max** | **DATE_TIME**| Maximum start date *(Optional)* | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -225,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CampaignResults**](CampaignResults.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -239,13 +237,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_campaign_by_id**
-> Success update_campaign_by_id(id => $id, data => $data)
+> InlineResponse202 update_campaign_by_id(id => $id, campaign_data_input => $campaign_data_input)
 
 Update campaign by id
 
 Update campaign by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::CampaignApi;
@@ -257,11 +255,11 @@ my $api_instance = RadioManagerClient::CampaignApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Campaign **(Required)**
-my $data = RadioManagerClient::Object::CampaignDataInput->new(); # CampaignDataInput | Data *(Optional)*
+my $id = 789; # int | ID of Campaign **(Required)**
+my $campaign_data_input = RadioManagerClient::Object::CampaignDataInput->new(); # CampaignDataInput | Data **(Optional)**
 
-eval { 
-    my $result = $api_instance->update_campaign_by_id(id => $id, data => $data);
+eval {
+    my $result = $api_instance->update_campaign_by_id(id => $id, campaign_data_input => $campaign_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -273,12 +271,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Campaign **(Required)** | [default to 0]
- **data** | [**CampaignDataInput**](CampaignDataInput.md)| Data *(Optional)* | [optional] 
+ **id** | **int**| ID of Campaign **(Required)** | 
+ **campaign_data_input** | [**CampaignDataInput**](CampaignDataInput.md)| Data **(Optional)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

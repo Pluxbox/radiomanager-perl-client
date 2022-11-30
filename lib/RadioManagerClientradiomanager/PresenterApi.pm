@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::PresenterApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,30 +52,30 @@ sub new {
 # create_presenter
 #
 # Create presenter.
-# 
-# @param PresenterDataInput $data Data **(Required)** (required)
+#
+# @param PresenterDataInput $presenter_data_input Data **(Required)** (required)
 {
     my $params = {
-    'data' => {
+    'presenter_data_input' => {
         data_type => 'PresenterDataInput',
         description => 'Data **(Required)**',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'create_presenter' } = { 
+    __PACKAGE__->method_documentation->{ 'create_presenter' } = {
         summary => 'Create presenter.',
         params => $params,
-        returns => 'PostSuccess',
+        returns => 'InlineResponse2002',
         };
 }
-# @return PostSuccess
+# @return InlineResponse2002
 #
 sub create_presenter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'data' is set
-    unless (exists $args{'data'}) {
-      croak("Missing the required parameter 'data' when calling create_presenter");
+    # verify the required parameter 'presenter_data_input' is set
+    unless (exists $args{'presenter_data_input'}) {
+      croak("Missing the required parameter 'presenter_data_input' when calling create_presenter");
     }
 
     # parse inputs
@@ -95,8 +95,8 @@ sub create_presenter {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'presenter_data_input'}) {
+        $_body_data = $args{'presenter_data_input'};
     }
 
     # authentication setting, if any
@@ -109,7 +109,7 @@ sub create_presenter {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PostSuccess', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2002', $response);
     return $_response_object;
 }
 
@@ -117,7 +117,7 @@ sub create_presenter {
 # delete_presenter_by_id
 #
 # Delete presenter by id
-# 
+#
 # @param int $id id of presenter (required)
 {
     my $params = {
@@ -127,13 +127,13 @@ sub create_presenter {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'delete_presenter_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'delete_presenter_by_id' } = {
         summary => 'Delete presenter by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub delete_presenter_by_id {
     my ($self, %args) = @_;
@@ -176,7 +176,7 @@ sub delete_presenter_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 
@@ -184,9 +184,8 @@ sub delete_presenter_by_id {
 # get_presenter_by_id
 #
 # Get presenter by id
-# 
+#
 # @param int $id id of Presenter (required)
-# @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -194,13 +193,8 @@ sub delete_presenter_by_id {
         description => 'id of Presenter',
         required => '1',
     },
-    '_external_station_id' => {
-        data_type => 'int',
-        description => 'Query on a different (content providing) station *(Optional)*',
-        required => '0',
-    },
     };
-    __PACKAGE__->method_documentation->{ 'get_presenter_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_presenter_by_id' } = {
         summary => 'Get presenter by id',
         params => $params,
         returns => 'PresenterResult',
@@ -231,11 +225,6 @@ sub get_presenter_by_id {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
-    # query params
-    if ( exists $args{'_external_station_id'}) {
-        $query_params->{'_external_station_id'} = $self->{api_client}->to_query_value($args{'_external_station_id'});
-    }
-
     # path params
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
@@ -262,22 +251,17 @@ sub get_presenter_by_id {
 # list_presenters
 #
 # Get all presenters.
-# 
-# @param int $page Current page *(Optional)* (optional)
+#
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $model_type_id Search on ModelType ID (Optional) (optional)
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'program_id' => {
         data_type => 'int',
         description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
@@ -291,6 +275,11 @@ sub get_presenter_by_id {
     'model_type_id' => {
         data_type => 'int',
         description => 'Search on ModelType ID (Optional)',
+        required => '0',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Current page *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -314,13 +303,13 @@ sub get_presenter_by_id {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_presenters' } = { 
+    __PACKAGE__->method_documentation->{ 'list_presenters' } = {
         summary => 'Get all presenters.',
         params => $params,
-        returns => 'PresenterResults',
+        returns => 'InlineResponse20010',
         };
 }
-# @return PresenterResults
+# @return InlineResponse20010
 #
 sub list_presenters {
     my ($self, %args) = @_;
@@ -341,11 +330,6 @@ sub list_presenters {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
-
-    # query params
     if ( exists $args{'program_id'}) {
         $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
@@ -358,6 +342,11 @@ sub list_presenters {
     # query params
     if ( exists $args{'model_type_id'}) {
         $query_params->{'model_type_id'} = $self->{api_client}->to_query_value($args{'model_type_id'});
+    }
+
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
     }
 
     # query params
@@ -391,7 +380,7 @@ sub list_presenters {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PresenterResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20010', $response);
     return $_response_object;
 }
 
@@ -399,9 +388,9 @@ sub list_presenters {
 # update_presenter_by_id
 #
 # Update presenter by id
-# 
+#
 # @param int $id id of Presenter (required)
-# @param PresenterDataInput $data Data *(Optional)* (optional)
+# @param PresenterDataInput $presenter_data_input Data *(Optional)* (required)
 {
     my $params = {
     'id' => {
@@ -409,19 +398,19 @@ sub list_presenters {
         description => 'id of Presenter',
         required => '1',
     },
-    'data' => {
+    'presenter_data_input' => {
         data_type => 'PresenterDataInput',
         description => 'Data *(Optional)*',
-        required => '0',
+        required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'update_presenter_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'update_presenter_by_id' } = {
         summary => 'Update presenter by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub update_presenter_by_id {
     my ($self, %args) = @_;
@@ -429,6 +418,11 @@ sub update_presenter_by_id {
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_presenter_by_id");
+    }
+
+    # verify the required parameter 'presenter_data_input' is set
+    unless (exists $args{'presenter_data_input'}) {
+      croak("Missing the required parameter 'presenter_data_input' when calling update_presenter_by_id");
     }
 
     # parse inputs
@@ -455,8 +449,8 @@ sub update_presenter_by_id {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'presenter_data_input'}) {
+        $_body_data = $args{'presenter_data_input'};
     }
 
     # authentication setting, if any
@@ -469,7 +463,7 @@ sub update_presenter_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 

@@ -19,7 +19,7 @@ Get own station only
 
 Get own station only
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::StationApi;
@@ -32,7 +32,7 @@ my $api_instance = RadioManagerClient::StationApi->new(
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_station();
     print Dumper($result);
 };

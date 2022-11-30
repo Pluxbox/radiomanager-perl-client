@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::BlockApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,7 +52,7 @@ sub new {
 # get_block_by_id
 #
 # Get block by id
-# 
+#
 # @param int $id ID of Block **(Required)** (required)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
@@ -68,7 +68,7 @@ sub new {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_block_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_block_by_id' } = {
         summary => 'Get block by id',
         params => $params,
         returns => 'BlockResult',
@@ -130,11 +130,11 @@ sub get_block_by_id {
 # get_current_block
 #
 # Get current Block
-# 
+#
 {
     my $params = {
     };
-    __PACKAGE__->method_documentation->{ 'get_current_block' } = { 
+    __PACKAGE__->method_documentation->{ 'get_current_block' } = {
         summary => 'Get current Block',
         params => $params,
         returns => 'BlockResult',
@@ -179,11 +179,11 @@ sub get_current_block {
 # get_next_block
 #
 # Get upcoming Block
-# 
+#
 {
     my $params = {
     };
-    __PACKAGE__->method_documentation->{ 'get_next_block' } = { 
+    __PACKAGE__->method_documentation->{ 'get_next_block' } = {
         summary => 'Get upcoming Block',
         params => $params,
         returns => 'BlockResult',
@@ -228,24 +228,19 @@ sub get_next_block {
 # list_blocks
 #
 # Get a list of all blocks currently in your station.
-# 
-# @param int $page Current page *(Optional)* (optional, default to 1)
+#
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param DateTime $start_min Minimum start date *(Optional)* (optional)
-# @param DateTime $start_max Maximum start date *(Optional)* (optional)
+# @param DATE_TIME $start_min Minimum start date *(Optional)* (optional)
+# @param DATE_TIME $start_max Maximum start date *(Optional)* (optional)
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'broadcast_id' => {
         data_type => 'int',
         description => 'Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60;',
@@ -262,13 +257,18 @@ sub get_next_block {
         required => '0',
     },
     'start_min' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Minimum start date *(Optional)*',
         required => '0',
     },
     'start_max' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Maximum start date *(Optional)*',
+        required => '0',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Current page *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -292,13 +292,13 @@ sub get_next_block {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_blocks' } = { 
+    __PACKAGE__->method_documentation->{ 'list_blocks' } = {
         summary => 'Get a list of all blocks currently in your station.',
         params => $params,
-        returns => 'BlockResults',
+        returns => 'InlineResponse200',
         };
 }
-# @return BlockResults
+# @return InlineResponse200
 #
 sub list_blocks {
     my ($self, %args) = @_;
@@ -317,11 +317,6 @@ sub list_blocks {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
 
     # query params
     if ( exists $args{'broadcast_id'}) {
@@ -346,6 +341,11 @@ sub list_blocks {
     # query params
     if ( exists $args{'start_max'}) {
         $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
+    }
+
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
     }
 
     # query params
@@ -379,7 +379,7 @@ sub list_blocks {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('BlockResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
     return $_response_object;
 }
 

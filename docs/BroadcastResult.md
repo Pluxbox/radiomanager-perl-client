@@ -9,17 +9,17 @@ use RadioManagerClient::Object::BroadcastResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**updated_at** | **DateTime** |  | 
-**created_at** | **DateTime** |  | 
-**deleted_at** | **DateTime** |  | 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **program_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | [optional] 
 **station_id** | **int** |  | [optional] 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
-**start** | **DateTime** |  | [optional] 
-**stop** | **DateTime** |  | [optional] 
+**start** | **DATE_TIME** |  | [optional] 
+**stop** | **DATE_TIME** |  | [optional] 
 **genre_id** | **int** |  | [optional] 
 **description** | **string** |  | [optional] 
 **short_name** | **string** |  | [optional] 
@@ -31,10 +31,12 @@ Name | Type | Description | Notes
 **published** | **boolean** |  | [optional] 
 **repetition_uid** | **string** |  | [optional] 
 **repetition_type** | **string** |  | [optional] 
-**repetition_end** | **DateTime** |  | [optional] 
-**repetition_start** | **DateTime** |  | [optional] 
+**repetition_end** | **DATE_TIME** |  | [optional] 
+**repetition_start** | **DATE_TIME** |  | [optional] 
 **repetition_days** | **string** |  | [optional] 
 **pty_code_id** | **int** |  | [optional] 
+**planned_in_epg** | **int** |  | [optional] 
+**group_id** | **int** |  | [optional] 
 **genre** | [**BroadcastRelationsGenre**](BroadcastRelationsGenre.md) |  | [optional] 
 **items** | [**BroadcastRelationsItems**](BroadcastRelationsItems.md) |  | [optional] 
 **blocks** | [**BroadcastRelationsBlocks**](BroadcastRelationsBlocks.md) |  | [optional] 
@@ -42,6 +44,7 @@ Name | Type | Description | Notes
 **tags** | [**BroadcastRelationsTags**](BroadcastRelationsTags.md) |  | [optional] 
 **presenters** | [**BroadcastRelationsPresenters**](BroadcastRelationsPresenters.md) |  | [optional] 
 **model_type** | [**BroadcastRelationsModelType**](BroadcastRelationsModelType.md) |  | [optional] 
+**group** | [**BroadcastRelationsGroup**](BroadcastRelationsGroup.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

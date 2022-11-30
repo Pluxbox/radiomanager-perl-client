@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::StringApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,23 +52,23 @@ sub new {
 # get_strings_by_name
 #
 # Get Strings (formatted)
-# 
-# @param string $name Name of Strings **(Required)** (required)
-# @param boolean $full_model Full model or content only **(Required)** (required)
+#
+# @param string $name Name of String Template **(Required)** (required)
+# @param boolean $full_model Full model or content only **(Optional)** (optional)
 {
     my $params = {
     'name' => {
         data_type => 'string',
-        description => 'Name of Strings **(Required)**',
+        description => 'Name of String Template **(Required)**',
         required => '1',
     },
     'full_model' => {
         data_type => 'boolean',
-        description => 'Full model or content only **(Required)**',
-        required => '1',
+        description => 'Full model or content only **(Optional)**',
+        required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_strings_by_name' } = { 
+    __PACKAGE__->method_documentation->{ 'get_strings_by_name' } = {
         summary => 'Get Strings (formatted)',
         params => $params,
         returns => 'TextString',
@@ -82,11 +82,6 @@ sub get_strings_by_name {
     # verify the required parameter 'name' is set
     unless (exists $args{'name'}) {
       croak("Missing the required parameter 'name' when calling get_strings_by_name");
-    }
-
-    # verify the required parameter 'full_model' is set
-    unless (exists $args{'full_model'}) {
-      croak("Missing the required parameter 'full_model' when calling get_strings_by_name");
     }
 
     # parse inputs

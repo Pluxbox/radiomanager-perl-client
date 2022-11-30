@@ -17,13 +17,13 @@ Method | HTTP request | Description
 
 
 # **create_contact**
-> PostSuccess create_contact(data => $data)
+> InlineResponse2002 create_contact(contact_data_input => $contact_data_input)
 
 Create contact.
 
 Create contact.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ContactApi;
@@ -35,10 +35,10 @@ my $api_instance = RadioManagerClient::ContactApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::ContactDataInput->new(); # ContactDataInput | Data **(Required)**
+my $contact_data_input = RadioManagerClient::Object::ContactDataInput->new(); # ContactDataInput | Data **(Required)**
 
-eval { 
-    my $result = $api_instance->create_contact(data => $data);
+eval {
+    my $result = $api_instance->create_contact(contact_data_input => $contact_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -50,11 +50,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ContactDataInput**](ContactDataInput.md)| Data **(Required)** | 
+ **contact_data_input** | [**ContactDataInput**](ContactDataInput.md)| Data **(Required)** | 
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -68,13 +68,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_contact_by_id**
-> Success delete_contact_by_id(id => $id)
+> InlineResponse202 delete_contact_by_id(id => $id)
 
 Delete contact by id
 
 Delete contact by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ContactApi;
@@ -86,9 +86,9 @@ my $api_instance = RadioManagerClient::ContactApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Contact **(Required)**
+my $id = 789; # int | ID of Contact **(Required)**
 
-eval { 
+eval {
     my $result = $api_instance->delete_contact_by_id(id => $id);
     print Dumper($result);
 };
@@ -101,11 +101,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | [default to 0]
+ **id** | **int**| ID of Contact **(Required)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Get contact by id
 
 Get contact by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ContactApi;
@@ -137,10 +137,10 @@ my $api_instance = RadioManagerClient::ContactApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Contact **(Required)**
+my $id = 789; # int | ID of Contact **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
+eval {
     my $result = $api_instance->get_contact_by_id(id => $id, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
@@ -153,7 +153,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | [default to 0]
+ **id** | **int**| ID of Contact **(Required)** | 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -172,13 +172,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_contacts**
-> ContactResults list_contacts(page => $page, item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse2005 list_contacts(item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get all contacts.
 
 List all contacts.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ContactApi;
@@ -190,17 +190,17 @@ my $api_instance = RadioManagerClient::ContactApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 1; # int | Current page *(Optional)*
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $model_type_id = 789; # int | Search on ModelType ID *(Optional)* `(Relation)`
 my $tag_id = 789; # int | Search on Tag ID *(Optional)* `(Relation)`
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_contacts(page => $page, item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_contacts(item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -212,10 +212,10 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **model_type_id** | **int**| Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **tag_id** | **int**| Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ContactResults**](ContactResults.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -237,13 +237,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_contact_by_id**
-> Success update_contact_by_id(id => $id, data => $data)
+> InlineResponse202 update_contact_by_id(id => $id, contact_data_input => $contact_data_input)
 
 Update contact by id
 
 Update contact by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::ContactApi;
@@ -255,11 +255,11 @@ my $api_instance = RadioManagerClient::ContactApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Contact **(Required)**
-my $data = RadioManagerClient::Object::ContactDataInput->new(); # ContactDataInput | Data *(Optional)*
+my $id = 789; # int | ID of Contact **(Required)**
+my $contact_data_input = RadioManagerClient::Object::ContactDataInput->new(); # ContactDataInput | Data *(Optional)*
 
-eval { 
-    my $result = $api_instance->update_contact_by_id(id => $id, data => $data);
+eval {
+    my $result = $api_instance->update_contact_by_id(id => $id, contact_data_input => $contact_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -271,12 +271,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Contact **(Required)** | [default to 0]
- **data** | [**ContactDataInput**](ContactDataInput.md)| Data *(Optional)* | [optional] 
+ **id** | **int**| ID of Contact **(Required)** | 
+ **contact_data_input** | [**ContactDataInput**](ContactDataInput.md)| Data *(Optional)* | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

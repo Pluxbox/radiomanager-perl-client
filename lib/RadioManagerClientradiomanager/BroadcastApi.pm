@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::BroadcastApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,30 +52,30 @@ sub new {
 # create_broadcast
 #
 # Create broadcast.
-# 
-# @param BroadcastDataInput $data Data **(Required)** (required)
+#
+# @param BroadcastDataInput $broadcast_data_input Data **(Required)** (required)
 {
     my $params = {
-    'data' => {
+    'broadcast_data_input' => {
         data_type => 'BroadcastDataInput',
         description => 'Data **(Required)**',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'create_broadcast' } = { 
+    __PACKAGE__->method_documentation->{ 'create_broadcast' } = {
         summary => 'Create broadcast.',
         params => $params,
-        returns => 'PostSuccess',
+        returns => 'InlineResponse2002',
         };
 }
-# @return PostSuccess
+# @return InlineResponse2002
 #
 sub create_broadcast {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'data' is set
-    unless (exists $args{'data'}) {
-      croak("Missing the required parameter 'data' when calling create_broadcast");
+    # verify the required parameter 'broadcast_data_input' is set
+    unless (exists $args{'broadcast_data_input'}) {
+      croak("Missing the required parameter 'broadcast_data_input' when calling create_broadcast");
     }
 
     # parse inputs
@@ -95,8 +95,8 @@ sub create_broadcast {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'broadcast_data_input'}) {
+        $_body_data = $args{'broadcast_data_input'};
     }
 
     # authentication setting, if any
@@ -109,7 +109,7 @@ sub create_broadcast {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PostSuccess', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2002', $response);
     return $_response_object;
 }
 
@@ -117,7 +117,7 @@ sub create_broadcast {
 # delete_broadcast_by_id
 #
 # Delete broadcast by id
-# 
+#
 # @param int $id ID of Broadcast **(Required)** (required)
 {
     my $params = {
@@ -127,13 +127,13 @@ sub create_broadcast {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'delete_broadcast_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'delete_broadcast_by_id' } = {
         summary => 'Delete broadcast by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub delete_broadcast_by_id {
     my ($self, %args) = @_;
@@ -176,7 +176,7 @@ sub delete_broadcast_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 
@@ -184,7 +184,7 @@ sub delete_broadcast_by_id {
 # get_broadcast_by_id
 #
 # Get broadcast by id
-# 
+#
 # @param int $id ID of Broadcast **(Required)** (required)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
@@ -200,7 +200,7 @@ sub delete_broadcast_by_id {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_broadcast_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_broadcast_by_id' } = {
         summary => 'Get broadcast by id',
         params => $params,
         returns => 'BroadcastResult',
@@ -262,7 +262,7 @@ sub get_broadcast_by_id {
 # get_current_broadcast
 #
 # Get current Broadcast
-# 
+#
 # @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
@@ -272,7 +272,7 @@ sub get_broadcast_by_id {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_current_broadcast' } = { 
+    __PACKAGE__->method_documentation->{ 'get_current_broadcast' } = {
         summary => 'Get current Broadcast',
         params => $params,
         returns => 'BroadcastResult',
@@ -322,13 +322,13 @@ sub get_current_broadcast {
 # get_daily_epg
 #
 # Get daily EPG
-# 
-# @param DateTime $date Date *(Optional)* (optional)
+#
+# @param DATE_TIME $date Date *(Optional)* (optional)
 # @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Date *(Optional)*',
         required => '0',
     },
@@ -338,7 +338,7 @@ sub get_current_broadcast {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_daily_epg' } = { 
+    __PACKAGE__->method_documentation->{ 'get_daily_epg' } = {
         summary => 'Get daily EPG',
         params => $params,
         returns => 'EPGResults',
@@ -390,16 +390,16 @@ sub get_daily_epg {
 }
 
 #
-# get_epg_by_date
+# get_epgby_date
 #
 # Get EPG by date
-# 
-# @param DateTime $date Date *(Optional)* (optional)
+#
+# @param DATE_TIME $date Date *(Optional)* (optional)
 # @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Date *(Optional)*',
         required => '0',
     },
@@ -409,7 +409,7 @@ sub get_daily_epg {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_epg_by_date' } = { 
+    __PACKAGE__->method_documentation->{ 'get_epgby_date' } = {
         summary => 'Get EPG by date',
         params => $params,
         returns => 'EPGResults',
@@ -417,7 +417,7 @@ sub get_daily_epg {
 }
 # @return EPGResults
 #
-sub get_epg_by_date {
+sub get_epgby_date {
     my ($self, %args) = @_;
 
     # parse inputs
@@ -464,7 +464,7 @@ sub get_epg_by_date {
 # get_next_broadcast
 #
 # Get next Broadcast
-# 
+#
 # @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
@@ -474,7 +474,7 @@ sub get_epg_by_date {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_next_broadcast' } = { 
+    __PACKAGE__->method_documentation->{ 'get_next_broadcast' } = {
         summary => 'Get next Broadcast',
         params => $params,
         returns => 'BroadcastResult',
@@ -524,13 +524,13 @@ sub get_next_broadcast {
 # get_weekly_epg
 #
 # Get weekly EPG
-# 
-# @param string $date Date *(Optional)* (optional)
+#
+# @param DATE $date Date *(Optional)* (optional)
 # @param boolean $withunpublished Show Unpublished *(Optional)* (optional)
 {
     my $params = {
     'date' => {
-        data_type => 'string',
+        data_type => 'DATE',
         description => 'Date *(Optional)*',
         required => '0',
     },
@@ -540,7 +540,7 @@ sub get_next_broadcast {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_weekly_epg' } = { 
+    __PACKAGE__->method_documentation->{ 'get_weekly_epg' } = {
         summary => 'Get weekly EPG',
         params => $params,
         returns => 'EPGResults',
@@ -595,28 +595,25 @@ sub get_weekly_epg {
 # list_broadcasts
 #
 # Get all broadcasts.
-# 
-# @param int $page Current page *(Optional)* (optional, default to 1)
+#
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $block_id Search on Block ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $model_type_id Search on ModelType ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $tag_id Search on Tag ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $presenter_id Search on Presenter ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $genre_id Search on Genre ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $group_id Search on Group ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
-# @param DateTime $start_min Minimum start date *(Optional)* (optional)
-# @param DateTime $start_max Maximum start date *(Optional)* (optional)
+# @param int $planned_in_epg Checks if item is in EPG *(Optional)* (optional)
+# @param DATE_TIME $start_min Minimum start date *(Optional)* (optional)
+# @param DATE_TIME $start_max Maximum start date *(Optional)* (optional)
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'program_id' => {
         data_type => 'int',
         description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
@@ -647,19 +644,34 @@ sub get_weekly_epg {
         description => 'Search on Genre ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
+    'group_id' => {
+        data_type => 'int',
+        description => 'Search on Group ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
     'item_id' => {
         data_type => 'int',
         description => 'Search on Item ID *(Optional)* &#x60;(Relation)&#x60;',
         required => '0',
     },
+    'planned_in_epg' => {
+        data_type => 'int',
+        description => 'Checks if item is in EPG *(Optional)*',
+        required => '0',
+    },
     'start_min' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Minimum start date *(Optional)*',
         required => '0',
     },
     'start_max' => {
-        data_type => 'DateTime',
+        data_type => 'DATE_TIME',
         description => 'Maximum start date *(Optional)*',
+        required => '0',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Current page *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -683,13 +695,13 @@ sub get_weekly_epg {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_broadcasts' } = { 
+    __PACKAGE__->method_documentation->{ 'list_broadcasts' } = {
         summary => 'Get all broadcasts.',
         params => $params,
-        returns => 'BroadcastResults',
+        returns => 'InlineResponse2001',
         };
 }
-# @return BroadcastResults
+# @return InlineResponse2001
 #
 sub list_broadcasts {
     my ($self, %args) = @_;
@@ -708,11 +720,6 @@ sub list_broadcasts {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
 
     # query params
     if ( exists $args{'program_id'}) {
@@ -745,8 +752,18 @@ sub list_broadcasts {
     }
 
     # query params
+    if ( exists $args{'group_id'}) {
+        $query_params->{'group_id'} = $self->{api_client}->to_query_value($args{'group_id'});
+    }
+
+    # query params
     if ( exists $args{'item_id'}) {
         $query_params->{'item_id'} = $self->{api_client}->to_query_value($args{'item_id'});
+    }
+
+    # query params
+    if ( exists $args{'planned_in_epg'}) {
+        $query_params->{'planned_in_epg'} = $self->{api_client}->to_query_value($args{'planned_in_epg'});
     }
 
     # query params
@@ -757,6 +774,11 @@ sub list_broadcasts {
     # query params
     if ( exists $args{'start_max'}) {
         $query_params->{'start-max'} = $self->{api_client}->to_query_value($args{'start_max'});
+    }
+
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
     }
 
     # query params
@@ -790,7 +812,7 @@ sub list_broadcasts {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('BroadcastResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2001', $response);
     return $_response_object;
 }
 
@@ -798,9 +820,9 @@ sub list_broadcasts {
 # print_broadcast_by_id
 #
 # Print broadcast by id with template
-# 
+#
 # @param int $id ID of Broadcast **(Required)** (required)
-# @param int $template_id Search on template ID *(Optional)* (optional)
+# @param int $template_id The print template to be used *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -810,17 +832,17 @@ sub list_broadcasts {
     },
     'template_id' => {
         data_type => 'int',
-        description => 'Search on template ID *(Optional)*',
+        description => 'The print template to be used *(Optional)*',
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'print_broadcast_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'print_broadcast_by_id' } = {
         summary => 'Print broadcast by id with template',
         params => $params,
-        returns => 'string',
+        returns => 'InlineResponse2003',
         };
 }
-# @return string
+# @return InlineResponse2003
 #
 sub print_broadcast_by_id {
     my ($self, %args) = @_;
@@ -868,7 +890,7 @@ sub print_broadcast_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2003', $response);
     return $_response_object;
 }
 
@@ -876,9 +898,9 @@ sub print_broadcast_by_id {
 # update_broadcast_by_id
 #
 # Update broadcast by id
-# 
+#
 # @param int $id ID of Broadcast **(Required)** (required)
-# @param BroadcastDataInput $data Data *(Optional)* (optional)
+# @param BroadcastDataInput $broadcast_data_input Data *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -886,19 +908,19 @@ sub print_broadcast_by_id {
         description => 'ID of Broadcast **(Required)**',
         required => '1',
     },
-    'data' => {
+    'broadcast_data_input' => {
         data_type => 'BroadcastDataInput',
         description => 'Data *(Optional)*',
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'update_broadcast_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'update_broadcast_by_id' } = {
         summary => 'Update broadcast by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub update_broadcast_by_id {
     my ($self, %args) = @_;
@@ -932,8 +954,8 @@ sub update_broadcast_by_id {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'broadcast_data_input'}) {
+        $_body_data = $args{'broadcast_data_input'};
     }
 
     # authentication setting, if any
@@ -946,7 +968,7 @@ sub update_broadcast_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 

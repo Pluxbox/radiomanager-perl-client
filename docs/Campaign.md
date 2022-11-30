@@ -9,10 +9,10 @@ use RadioManagerClient::Object::Campaign;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
-**start** | **DateTime** |  | 
-**stop** | **DateTime** |  | 
+**start** | **DATE_TIME** |  | 
+**stop** | **DATE_TIME** |  | 
 **recommended** | **boolean** |  | [optional] 
 **description** | **string** |  | [optional] 
 

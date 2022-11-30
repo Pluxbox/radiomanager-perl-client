@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,56 +32,50 @@ isa_ok($api, 'RadioManagerClient::ProgramApi');
 #
 # create_program test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_program(data => $data);
-}
+# uncomment below and update the test
+#my $create_program_program_data_input = undef; # replace NULL with a proper value
+#my $create_program_result = $api->create_program(program_data_input => $create_program_program_data_input);
 
 #
 # delete_program_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_program_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_program_by_id_id = undef; # replace NULL with a proper value
+#my $delete_program_by_id_result = $api->delete_program_by_id(id => $delete_program_by_id_id);
 
 #
 # get_program_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_program_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_program_by_id_id = undef; # replace NULL with a proper value
+#my $get_program_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_program_by_id_result = $api->get_program_by_id(id => $get_program_by_id_id, _external_station_id => $get_program_by_id__external_station_id);
 
 #
 # list_programs test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $presenter_id = undef; # replace NULL with a proper value
-    my $genre_id = undef; # replace NULL with a proper value
-    my $block_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $disabled = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_programs(page => $page, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, block_id => $block_id, item_id => $item_id, disabled => $disabled, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_programs_broadcast_id = undef; # replace NULL with a proper value
+#my $list_programs_model_type_id = undef; # replace NULL with a proper value
+#my $list_programs_tag_id = undef; # replace NULL with a proper value
+#my $list_programs_presenter_id = undef; # replace NULL with a proper value
+#my $list_programs_genre_id = undef; # replace NULL with a proper value
+#my $list_programs_group_id = undef; # replace NULL with a proper value
+#my $list_programs_block_id = undef; # replace NULL with a proper value
+#my $list_programs_item_id = undef; # replace NULL with a proper value
+#my $list_programs_disabled = undef; # replace NULL with a proper value
+#my $list_programs_page = undef; # replace NULL with a proper value
+#my $list_programs_limit = undef; # replace NULL with a proper value
+#my $list_programs_order_by = undef; # replace NULL with a proper value
+#my $list_programs_order_direction = undef; # replace NULL with a proper value
+#my $list_programs__external_station_id = undef; # replace NULL with a proper value
+#my $list_programs_result = $api->list_programs(broadcast_id => $list_programs_broadcast_id, model_type_id => $list_programs_model_type_id, tag_id => $list_programs_tag_id, presenter_id => $list_programs_presenter_id, genre_id => $list_programs_genre_id, group_id => $list_programs_group_id, block_id => $list_programs_block_id, item_id => $list_programs_item_id, disabled => $list_programs_disabled, page => $list_programs_page, limit => $list_programs_limit, order_by => $list_programs_order_by, order_direction => $list_programs_order_direction, _external_station_id => $list_programs__external_station_id);
 
 #
 # update_program_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_program_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_program_by_id_id = undef; # replace NULL with a proper value
+#my $update_program_by_id_program_data_input = undef; # replace NULL with a proper value
+#my $update_program_by_id_result = $api->update_program_by_id(id => $update_program_by_id_id, program_data_input => $update_program_by_id_program_data_input);
 
-
-1;

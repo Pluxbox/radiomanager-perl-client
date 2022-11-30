@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::UserApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -51,24 +51,24 @@ sub new {
 #
 # delete_user_by_id
 #
-# Remove user from station by Id
-# 
-# @param int $id id of User (required)
+# Remove User from station by Id
+#
+# @param int $id ID of User **(Required)** (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'id of User',
+        description => 'ID of User **(Required)**',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'delete_user_by_id' } = { 
-        summary => 'Remove user from station by Id',
+    __PACKAGE__->method_documentation->{ 'delete_user_by_id' } = {
+        summary => 'Remove User from station by Id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub delete_user_by_id {
     my ($self, %args) = @_;
@@ -111,7 +111,7 @@ sub delete_user_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 
@@ -119,7 +119,7 @@ sub delete_user_by_id {
 # get_user_by_id
 #
 # Get user by id
-# 
+#
 # @param int $id id of User (required)
 {
     my $params = {
@@ -129,7 +129,7 @@ sub delete_user_by_id {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_user_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_user_by_id' } = {
         summary => 'Get user by id',
         params => $params,
         returns => 'UserResult',
@@ -186,30 +186,30 @@ sub get_user_by_id {
 # invite_user_by_mail
 #
 # Invite user by mail
-# 
-# @param InviteUserData $data Data **(Required)** (required)
+#
+# @param InviteUserData $invite_user_data Data *(Required)* (required)
 {
     my $params = {
-    'data' => {
+    'invite_user_data' => {
         data_type => 'InviteUserData',
-        description => 'Data **(Required)**',
+        description => 'Data *(Required)*',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'invite_user_by_mail' } = { 
+    __PACKAGE__->method_documentation->{ 'invite_user_by_mail' } = {
         summary => 'Invite user by mail',
         params => $params,
-        returns => 'object',
+        returns => 'InlineResponse202',
         };
 }
-# @return object
+# @return InlineResponse202
 #
 sub invite_user_by_mail {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'data' is set
-    unless (exists $args{'data'}) {
-      croak("Missing the required parameter 'data' when calling invite_user_by_mail");
+    # verify the required parameter 'invite_user_data' is set
+    unless (exists $args{'invite_user_data'}) {
+      croak("Missing the required parameter 'invite_user_data' when calling invite_user_by_mail");
     }
 
     # parse inputs
@@ -229,8 +229,8 @@ sub invite_user_by_mail {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'invite_user_data'}) {
+        $_body_data = $args{'invite_user_data'};
     }
 
     # authentication setting, if any
@@ -243,7 +243,7 @@ sub invite_user_by_mail {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 
@@ -251,22 +251,28 @@ sub invite_user_by_mail {
 # list_users
 #
 # Get all users.
-# 
-# @param int $page Current page *(Optional)* (optional, default to 1)
+#
 # @param int $role_id Search on Role ID *(Optional)* (optional)
+# @param int $group_id Search on Group ID *(Optional)* (optional)
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'role_id' => {
         data_type => 'int',
         description => 'Search on Role ID *(Optional)*',
+        required => '0',
+    },
+    'group_id' => {
+        data_type => 'int',
+        description => 'Search on Group ID *(Optional)*',
+        required => '0',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Current page *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -285,13 +291,13 @@ sub invite_user_by_mail {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_users' } = { 
+    __PACKAGE__->method_documentation->{ 'list_users' } = {
         summary => 'Get all users.',
         params => $params,
-        returns => 'UserResults',
+        returns => 'InlineResponse20013',
         };
 }
-# @return UserResults
+# @return InlineResponse20013
 #
 sub list_users {
     my ($self, %args) = @_;
@@ -312,13 +318,18 @@ sub list_users {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
+    if ( exists $args{'role_id'}) {
+        $query_params->{'role_id'} = $self->{api_client}->to_query_value($args{'role_id'});
     }
 
     # query params
-    if ( exists $args{'role_id'}) {
-        $query_params->{'role_id'} = $self->{api_client}->to_query_value($args{'role_id'});
+    if ( exists $args{'group_id'}) {
+        $query_params->{'group_id'} = $self->{api_client}->to_query_value($args{'group_id'});
+    }
+
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
     }
 
     # query params
@@ -347,7 +358,7 @@ sub list_users {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('UserResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20013', $response);
     return $_response_object;
 }
 

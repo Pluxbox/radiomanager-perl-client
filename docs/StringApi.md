@@ -17,9 +17,9 @@ Method | HTTP request | Description
 
 Get Strings (formatted)
 
-Get Strings (formatted)
+Get RadioText/DAB String for publication based on String Templates
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::StringApi;
@@ -31,10 +31,10 @@ my $api_instance = RadioManagerClient::StringApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $name = "name_example"; # string | Name of Strings **(Required)**
-my $full_model = true; # boolean | Full model or content only **(Required)**
+my $name = "name_example"; # string | Name of String Template **(Required)**
+my $full_model = null; # boolean | Full model or content only **(Optional)**
 
-eval { 
+eval {
     my $result = $api_instance->get_strings_by_name(name => $name, full_model => $full_model);
     print Dumper($result);
 };
@@ -47,8 +47,8 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of Strings **(Required)** | 
- **full_model** | **boolean**| Full model or content only **(Required)** | [default to true]
+ **name** | **string**| Name of String Template **(Required)** | 
+ **full_model** | **boolean**| Full model or content only **(Optional)** | [optional] 
 
 ### Return type
 

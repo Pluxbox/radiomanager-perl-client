@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,120 +32,106 @@ isa_ok($api, 'RadioManagerClient::ItemApi');
 #
 # create_item test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_item(data => $data);
-}
+# uncomment below and update the test
+#my $create_item_item_data_input = undef; # replace NULL with a proper value
+#my $create_item_result = $api->create_item(item_data_input => $create_item_item_data_input);
 
 #
 # current_item_post_structure test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->current_item_post_structure(data => $data);
-}
+# uncomment below and update the test
+#my $current_item_post_structure_import_item = undef; # replace NULL with a proper value
+#my $current_item_post_structure_result = $api->current_item_post_structure(import_item => $current_item_post_structure_import_item);
 
 #
 # current_item_post_timing test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->current_item_post_timing(data => $data);
-}
+# uncomment below and update the test
+#my $current_item_post_timing_import_item = undef; # replace NULL with a proper value
+#my $current_item_post_timing_result = $api->current_item_post_timing(import_item => $current_item_post_timing_import_item);
 
 #
 # delete_item_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_item_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_item_by_id_id = undef; # replace NULL with a proper value
+#my $delete_item_by_id_result = $api->delete_item_by_id(id => $delete_item_by_id_id);
 
 #
 # get_current_item test
 #
-{
-    my $lastplayed = undef; # replace NULL with a proper value
-    my $result = $api->get_current_item(lastplayed => $lastplayed);
-}
+# uncomment below and update the test
+#my $get_current_item_lastplayed = undef; # replace NULL with a proper value
+#my $get_current_item_result = $api->get_current_item(lastplayed => $get_current_item_lastplayed);
 
 #
 # get_item_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_item_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_item_by_id_id = undef; # replace NULL with a proper value
+#my $get_item_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_item_by_id_result = $api->get_item_by_id(id => $get_item_by_id_id, _external_station_id => $get_item_by_id__external_station_id);
 
 #
 # list_items test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $block_id = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $campaign_id = undef; # replace NULL with a proper value
-    my $contact_id = undef; # replace NULL with a proper value
-    my $program_draft_id = undef; # replace NULL with a proper value
-    my $user_draft_id = undef; # replace NULL with a proper value
-    my $station_draft_id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $external_id = undef; # replace NULL with a proper value
-    my $start_min = undef; # replace NULL with a proper value
-    my $start_max = undef; # replace NULL with a proper value
-    my $duration_min = undef; # replace NULL with a proper value
-    my $duration_max = undef; # replace NULL with a proper value
-    my $status = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_items(page => $page, block_id => $block_id, broadcast_id => $broadcast_id, model_type_id => $model_type_id, tag_id => $tag_id, campaign_id => $campaign_id, contact_id => $contact_id, program_draft_id => $program_draft_id, user_draft_id => $user_draft_id, station_draft_id => $station_draft_id, program_id => $program_id, external_id => $external_id, start_min => $start_min, start_max => $start_max, duration_min => $duration_min, duration_max => $duration_max, status => $status, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_items_block_id = undef; # replace NULL with a proper value
+#my $list_items_broadcast_id = undef; # replace NULL with a proper value
+#my $list_items_model_type_id = undef; # replace NULL with a proper value
+#my $list_items_tag_id = undef; # replace NULL with a proper value
+#my $list_items_campaign_id = undef; # replace NULL with a proper value
+#my $list_items_contact_id = undef; # replace NULL with a proper value
+#my $list_items_program_draft_id = undef; # replace NULL with a proper value
+#my $list_items_user_draft_id = undef; # replace NULL with a proper value
+#my $list_items_station_draft_id = undef; # replace NULL with a proper value
+#my $list_items_program_id = undef; # replace NULL with a proper value
+#my $list_items_external_id = undef; # replace NULL with a proper value
+#my $list_items_duration_min = undef; # replace NULL with a proper value
+#my $list_items_duration_max = undef; # replace NULL with a proper value
+#my $list_items_status = undef; # replace NULL with a proper value
+#my $list_items_start_min = undef; # replace NULL with a proper value
+#my $list_items_start_max = undef; # replace NULL with a proper value
+#my $list_items_page = undef; # replace NULL with a proper value
+#my $list_items_limit = undef; # replace NULL with a proper value
+#my $list_items_order_by = undef; # replace NULL with a proper value
+#my $list_items_order_direction = undef; # replace NULL with a proper value
+#my $list_items__external_station_id = undef; # replace NULL with a proper value
+#my $list_items_result = $api->list_items(block_id => $list_items_block_id, broadcast_id => $list_items_broadcast_id, model_type_id => $list_items_model_type_id, tag_id => $list_items_tag_id, campaign_id => $list_items_campaign_id, contact_id => $list_items_contact_id, program_draft_id => $list_items_program_draft_id, user_draft_id => $list_items_user_draft_id, station_draft_id => $list_items_station_draft_id, program_id => $list_items_program_id, external_id => $list_items_external_id, duration_min => $list_items_duration_min, duration_max => $list_items_duration_max, status => $list_items_status, start_min => $list_items_start_min, start_max => $list_items_start_max, page => $list_items_page, limit => $list_items_limit, order_by => $list_items_order_by, order_direction => $list_items_order_direction, _external_station_id => $list_items__external_station_id);
 
 #
 # playlist_post_merge test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->playlist_post_merge(data => $data);
-}
+# uncomment below and update the test
+#my $playlist_post_merge_playlist_merge_body = undef; # replace NULL with a proper value
+#my $playlist_post_merge_result = $api->playlist_post_merge(playlist_merge_body => $playlist_post_merge_playlist_merge_body);
 
 #
 # playlist_post_structure test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->playlist_post_structure(data => $data);
-}
+# uncomment below and update the test
+#my $playlist_post_structure_playlist_structure_body = undef; # replace NULL with a proper value
+#my $playlist_post_structure_result = $api->playlist_post_structure(playlist_structure_body => $playlist_post_structure_playlist_structure_body);
 
 #
 # playlist_post_timing test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->playlist_post_timing(data => $data);
-}
+# uncomment below and update the test
+#my $playlist_post_timing_playlist_timing_body = undef; # replace NULL with a proper value
+#my $playlist_post_timing_result = $api->playlist_post_timing(playlist_timing_body => $playlist_post_timing_playlist_timing_body);
 
 #
 # stop_current_item test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->stop_current_item(data => $data);
-}
+# uncomment below and update the test
+#my $stop_current_item_items_stopcurrent_body = undef; # replace NULL with a proper value
+#my $stop_current_item_result = $api->stop_current_item(items_stopcurrent_body => $stop_current_item_items_stopcurrent_body);
 
 #
 # update_item_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_item_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_item_by_id_id = undef; # replace NULL with a proper value
+#my $update_item_by_id_item_data_input = undef; # replace NULL with a proper value
+#my $update_item_by_id_result = $api->update_item_by_id(id => $update_item_by_id_id, item_data_input => $update_item_by_id_item_data_input);
 
-
-1;

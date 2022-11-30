@@ -22,7 +22,7 @@ Get block by id
 
 Get block by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::BlockApi;
@@ -34,10 +34,10 @@ my $api_instance = RadioManagerClient::BlockApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Block **(Required)**
+my $id = 789; # int | ID of Block **(Required)**
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
+eval {
     my $result = $api_instance->get_block_by_id(id => $id, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
@@ -50,7 +50,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Block **(Required)** | [default to 0]
+ **id** | **int**| ID of Block **(Required)** | 
  **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 
 Get current Block
 
-Get current Block
+Get currently playing Block
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::BlockApi;
@@ -88,7 +88,7 @@ my $api_instance = RadioManagerClient::BlockApi->new(
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_current_block();
     print Dumper($result);
 };
@@ -120,9 +120,9 @@ This endpoint does not need any parameter.
 
 Get upcoming Block
 
-Get upcoming Block
+Get currently upcoming Block
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::BlockApi;
@@ -135,7 +135,7 @@ my $api_instance = RadioManagerClient::BlockApi->new(
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_next_block();
     print Dumper($result);
 };
@@ -163,13 +163,13 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_blocks**
-> BlockResults list_blocks(page => $page, broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse200 list_blocks(broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get a list of all blocks currently in your station.
 
 Get a list of all blocks currently in your station. This feature supports pagination and will give a maximum of 50 blocks back.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::BlockApi;
@@ -181,19 +181,19 @@ my $api_instance = RadioManagerClient::BlockApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 1; # int | Current page *(Optional)*
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
-my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Minimum start date *(Optional)*
-my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DateTime | Maximum start date *(Optional)*
+my $start_min = DateTime->from_epoch(epoch => str2time('null')); # DATE_TIME | Minimum start date *(Optional)*
+my $start_max = DateTime->from_epoch(epoch => str2time('null')); # DATE_TIME | Maximum start date *(Optional)*
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_blocks(page => $page, broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_blocks(broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -205,12 +205,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **start_min** | **DateTime**| Minimum start date *(Optional)* | [optional] 
- **start_max** | **DateTime**| Maximum start date *(Optional)* | [optional] 
+ **start_min** | **DATE_TIME**| Minimum start date *(Optional)* | [optional] 
+ **start_max** | **DATE_TIME**| Maximum start date *(Optional)* | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockResults**](BlockResults.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

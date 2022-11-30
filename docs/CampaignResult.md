@@ -9,16 +9,16 @@ use RadioManagerClient::Object::CampaignResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**updated_at** | **DateTime** |  | 
-**created_at** | **DateTime** |  | 
-**deleted_at** | **DateTime** |  | 
+**updated_at** | **DATE_TIME** |  | 
+**created_at** | **DATE_TIME** |  | 
+**deleted_at** | **DATE_TIME** |  | 
 **item** | [**CampaignTemplateItem**](CampaignTemplateItem.md) |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
-**start** | **DateTime** |  | 
-**stop** | **DateTime** |  | 
+**start** | **DATE_TIME** |  | 
+**stop** | **DATE_TIME** |  | 
 **recommended** | **boolean** |  | [optional] 
 **description** | **string** |  | [optional] 
 **items** | [**CampaignRelationsItems**](CampaignRelationsItems.md) |  | [optional] 

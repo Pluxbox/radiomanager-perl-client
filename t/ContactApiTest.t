@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,51 +32,44 @@ isa_ok($api, 'RadioManagerClient::ContactApi');
 #
 # create_contact test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_contact(data => $data);
-}
+# uncomment below and update the test
+#my $create_contact_contact_data_input = undef; # replace NULL with a proper value
+#my $create_contact_result = $api->create_contact(contact_data_input => $create_contact_contact_data_input);
 
 #
 # delete_contact_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_contact_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_contact_by_id_id = undef; # replace NULL with a proper value
+#my $delete_contact_by_id_result = $api->delete_contact_by_id(id => $delete_contact_by_id_id);
 
 #
 # get_contact_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_contact_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_contact_by_id_id = undef; # replace NULL with a proper value
+#my $get_contact_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_contact_by_id_result = $api->get_contact_by_id(id => $get_contact_by_id_id, _external_station_id => $get_contact_by_id__external_station_id);
 
 #
 # list_contacts test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_contacts(page => $page, item_id => $item_id, model_type_id => $model_type_id, tag_id => $tag_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_contacts_item_id = undef; # replace NULL with a proper value
+#my $list_contacts_model_type_id = undef; # replace NULL with a proper value
+#my $list_contacts_tag_id = undef; # replace NULL with a proper value
+#my $list_contacts_page = undef; # replace NULL with a proper value
+#my $list_contacts_limit = undef; # replace NULL with a proper value
+#my $list_contacts_order_by = undef; # replace NULL with a proper value
+#my $list_contacts_order_direction = undef; # replace NULL with a proper value
+#my $list_contacts__external_station_id = undef; # replace NULL with a proper value
+#my $list_contacts_result = $api->list_contacts(item_id => $list_contacts_item_id, model_type_id => $list_contacts_model_type_id, tag_id => $list_contacts_tag_id, page => $list_contacts_page, limit => $list_contacts_limit, order_by => $list_contacts_order_by, order_direction => $list_contacts_order_direction, _external_station_id => $list_contacts__external_station_id);
 
 #
 # update_contact_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_contact_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_contact_by_id_id = undef; # replace NULL with a proper value
+#my $update_contact_by_id_contact_data_input = undef; # replace NULL with a proper value
+#my $update_contact_by_id_result = $api->update_contact_by_id(id => $update_contact_by_id_id, contact_data_input => $update_contact_by_id_contact_data_input);
 
-
-1;

@@ -9,9 +9,9 @@ use RadioManagerClient::Object::ItemResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
-**created_at** | **DateTime** |  | [optional] 
-**deleted_at** | **DateTime** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **data_modified** | **int** |  | [optional] 
 **order** | **int** |  | [optional] 
 **templateblock_id** | **int** |  | [optional] 
@@ -20,10 +20,10 @@ Name | Type | Description | Notes
 **model_type_id** | **int** |  | 
 **block_id** | **int** |  | [optional] 
 **external_id** | **string** |  | [optional] 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 
-**start** | **DateTime** |  | [optional] 
+**start** | **DATE_TIME** |  | [optional] 
 **status** | **string** |  | [optional] 
 **import** | **int** |  | [optional] 
 **campaign_id** | **int** |  | [optional] 

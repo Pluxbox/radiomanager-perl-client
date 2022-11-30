@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,109 +32,98 @@ isa_ok($api, 'RadioManagerClient::BroadcastApi');
 #
 # create_broadcast test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_broadcast(data => $data);
-}
+# uncomment below and update the test
+#my $create_broadcast_broadcast_data_input = undef; # replace NULL with a proper value
+#my $create_broadcast_result = $api->create_broadcast(broadcast_data_input => $create_broadcast_broadcast_data_input);
 
 #
 # delete_broadcast_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_broadcast_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_broadcast_by_id_id = undef; # replace NULL with a proper value
+#my $delete_broadcast_by_id_result = $api->delete_broadcast_by_id(id => $delete_broadcast_by_id_id);
 
 #
 # get_broadcast_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_broadcast_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_broadcast_by_id_id = undef; # replace NULL with a proper value
+#my $get_broadcast_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_broadcast_by_id_result = $api->get_broadcast_by_id(id => $get_broadcast_by_id_id, _external_station_id => $get_broadcast_by_id__external_station_id);
 
 #
 # get_current_broadcast test
 #
-{
-    my $withunpublished = undef; # replace NULL with a proper value
-    my $result = $api->get_current_broadcast(withunpublished => $withunpublished);
-}
+# uncomment below and update the test
+#my $get_current_broadcast_withunpublished = undef; # replace NULL with a proper value
+#my $get_current_broadcast_result = $api->get_current_broadcast(withunpublished => $get_current_broadcast_withunpublished);
 
 #
 # get_daily_epg test
 #
-{
-    my $date = undef; # replace NULL with a proper value
-    my $withunpublished = undef; # replace NULL with a proper value
-    my $result = $api->get_daily_epg(date => $date, withunpublished => $withunpublished);
-}
+# uncomment below and update the test
+#my $get_daily_epg_date = undef; # replace NULL with a proper value
+#my $get_daily_epg_withunpublished = undef; # replace NULL with a proper value
+#my $get_daily_epg_result = $api->get_daily_epg(date => $get_daily_epg_date, withunpublished => $get_daily_epg_withunpublished);
 
 #
-# get_epg_by_date test
+# get_epgby_date test
 #
-{
-    my $date = undef; # replace NULL with a proper value
-    my $withunpublished = undef; # replace NULL with a proper value
-    my $result = $api->get_epg_by_date(date => $date, withunpublished => $withunpublished);
-}
+# uncomment below and update the test
+#my $get_epgby_date_date = undef; # replace NULL with a proper value
+#my $get_epgby_date_withunpublished = undef; # replace NULL with a proper value
+#my $get_epgby_date_result = $api->get_epgby_date(date => $get_epgby_date_date, withunpublished => $get_epgby_date_withunpublished);
 
 #
 # get_next_broadcast test
 #
-{
-    my $withunpublished = undef; # replace NULL with a proper value
-    my $result = $api->get_next_broadcast(withunpublished => $withunpublished);
-}
+# uncomment below and update the test
+#my $get_next_broadcast_withunpublished = undef; # replace NULL with a proper value
+#my $get_next_broadcast_result = $api->get_next_broadcast(withunpublished => $get_next_broadcast_withunpublished);
 
 #
 # get_weekly_epg test
 #
-{
-    my $date = undef; # replace NULL with a proper value
-    my $withunpublished = undef; # replace NULL with a proper value
-    my $result = $api->get_weekly_epg(date => $date, withunpublished => $withunpublished);
-}
+# uncomment below and update the test
+#my $get_weekly_epg_date = undef; # replace NULL with a proper value
+#my $get_weekly_epg_withunpublished = undef; # replace NULL with a proper value
+#my $get_weekly_epg_result = $api->get_weekly_epg(date => $get_weekly_epg_date, withunpublished => $get_weekly_epg_withunpublished);
 
 #
 # list_broadcasts test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $block_id = undef; # replace NULL with a proper value
-    my $model_type_id = undef; # replace NULL with a proper value
-    my $tag_id = undef; # replace NULL with a proper value
-    my $presenter_id = undef; # replace NULL with a proper value
-    my $genre_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $start_min = undef; # replace NULL with a proper value
-    my $start_max = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_broadcasts(page => $page, program_id => $program_id, block_id => $block_id, model_type_id => $model_type_id, tag_id => $tag_id, presenter_id => $presenter_id, genre_id => $genre_id, item_id => $item_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_broadcasts_program_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_block_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_model_type_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_tag_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_presenter_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_genre_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_group_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_item_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_planned_in_epg = undef; # replace NULL with a proper value
+#my $list_broadcasts_start_min = undef; # replace NULL with a proper value
+#my $list_broadcasts_start_max = undef; # replace NULL with a proper value
+#my $list_broadcasts_page = undef; # replace NULL with a proper value
+#my $list_broadcasts_limit = undef; # replace NULL with a proper value
+#my $list_broadcasts_order_by = undef; # replace NULL with a proper value
+#my $list_broadcasts_order_direction = undef; # replace NULL with a proper value
+#my $list_broadcasts__external_station_id = undef; # replace NULL with a proper value
+#my $list_broadcasts_result = $api->list_broadcasts(program_id => $list_broadcasts_program_id, block_id => $list_broadcasts_block_id, model_type_id => $list_broadcasts_model_type_id, tag_id => $list_broadcasts_tag_id, presenter_id => $list_broadcasts_presenter_id, genre_id => $list_broadcasts_genre_id, group_id => $list_broadcasts_group_id, item_id => $list_broadcasts_item_id, planned_in_epg => $list_broadcasts_planned_in_epg, start_min => $list_broadcasts_start_min, start_max => $list_broadcasts_start_max, page => $list_broadcasts_page, limit => $list_broadcasts_limit, order_by => $list_broadcasts_order_by, order_direction => $list_broadcasts_order_direction, _external_station_id => $list_broadcasts__external_station_id);
 
 #
 # print_broadcast_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $template_id = undef; # replace NULL with a proper value
-    my $result = $api->print_broadcast_by_id(id => $id, template_id => $template_id);
-}
+# uncomment below and update the test
+#my $print_broadcast_by_id_id = undef; # replace NULL with a proper value
+#my $print_broadcast_by_id_template_id = undef; # replace NULL with a proper value
+#my $print_broadcast_by_id_result = $api->print_broadcast_by_id(id => $print_broadcast_by_id_id, template_id => $print_broadcast_by_id_template_id);
 
 #
 # update_broadcast_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_broadcast_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_broadcast_by_id_id = undef; # replace NULL with a proper value
+#my $update_broadcast_by_id_broadcast_data_input = undef; # replace NULL with a proper value
+#my $update_broadcast_by_id_result = $api->update_broadcast_by_id(id => $update_broadcast_by_id_id, broadcast_data_input => $update_broadcast_by_id_broadcast_data_input);
 
-
-1;

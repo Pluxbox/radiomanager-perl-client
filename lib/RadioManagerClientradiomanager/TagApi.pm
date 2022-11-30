@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::TagApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,30 +52,30 @@ sub new {
 # create_tag
 #
 # Create tag.
-# 
-# @param TagDataInput $data Data **(Required)** (required)
+#
+# @param TagDataInput $tag_data_input Data **(Required)** (required)
 {
     my $params = {
-    'data' => {
+    'tag_data_input' => {
         data_type => 'TagDataInput',
         description => 'Data **(Required)**',
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'create_tag' } = { 
+    __PACKAGE__->method_documentation->{ 'create_tag' } = {
         summary => 'Create tag.',
         params => $params,
-        returns => 'PostSuccess',
+        returns => 'InlineResponse2002',
         };
 }
-# @return PostSuccess
+# @return InlineResponse2002
 #
 sub create_tag {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'data' is set
-    unless (exists $args{'data'}) {
-      croak("Missing the required parameter 'data' when calling create_tag");
+    # verify the required parameter 'tag_data_input' is set
+    unless (exists $args{'tag_data_input'}) {
+      croak("Missing the required parameter 'tag_data_input' when calling create_tag");
     }
 
     # parse inputs
@@ -95,8 +95,8 @@ sub create_tag {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'tag_data_input'}) {
+        $_body_data = $args{'tag_data_input'};
     }
 
     # authentication setting, if any
@@ -109,7 +109,7 @@ sub create_tag {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PostSuccess', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2002', $response);
     return $_response_object;
 }
 
@@ -117,7 +117,7 @@ sub create_tag {
 # delete_tag_by_id
 #
 # Delete tag by id
-# 
+#
 # @param int $id ID of Tag **(Required)** (required)
 {
     my $params = {
@@ -127,13 +127,13 @@ sub create_tag {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'delete_tag_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'delete_tag_by_id' } = {
         summary => 'Delete tag by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub delete_tag_by_id {
     my ($self, %args) = @_;
@@ -176,7 +176,7 @@ sub delete_tag_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 
@@ -184,9 +184,8 @@ sub delete_tag_by_id {
 # get_tag_by_id
 #
 # Get tags by id
-# 
+#
 # @param int $id ID of Tag **(Required)** (required)
-# @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
     'id' => {
@@ -194,13 +193,8 @@ sub delete_tag_by_id {
         description => 'ID of Tag **(Required)**',
         required => '1',
     },
-    '_external_station_id' => {
-        data_type => 'int',
-        description => 'Query on a different (content providing) station *(Optional)*',
-        required => '0',
-    },
     };
-    __PACKAGE__->method_documentation->{ 'get_tag_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_tag_by_id' } = {
         summary => 'Get tags by id',
         params => $params,
         returns => 'TagResult',
@@ -231,11 +225,6 @@ sub get_tag_by_id {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
-    # query params
-    if ( exists $args{'_external_station_id'}) {
-        $query_params->{'_external_station_id'} = $self->{api_client}->to_query_value($args{'_external_station_id'});
-    }
-
     # path params
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
@@ -262,23 +251,18 @@ sub get_tag_by_id {
 # list_tags
 #
 # Get a list of all the tags currently in your station.
-# 
-# @param int $page Current page *(Optional)* (optional)
+#
 # @param int $program_id Search on Program ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $item_id Search on Item ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; (optional)
 # @param int $contact_id Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; (optional)
+# @param int $page Current page *(Optional)* (optional, default to 1)
 # @param int $limit Results per page *(Optional)* (optional)
 # @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'program_id' => {
         data_type => 'int',
         description => 'Search on Program ID *(Optional)* &#x60;(Relation)&#x60;',
@@ -297,6 +281,11 @@ sub get_tag_by_id {
     'contact_id' => {
         data_type => 'int',
         description => 'Search on Contact ID *(Optional)* &#x60;(Relation)&#x60;',
+        required => '0',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Current page *(Optional)*',
         required => '0',
     },
     'limit' => {
@@ -320,13 +309,13 @@ sub get_tag_by_id {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_tags' } = { 
+    __PACKAGE__->method_documentation->{ 'list_tags' } = {
         summary => 'Get a list of all the tags currently in your station.',
         params => $params,
-        returns => 'TagResults',
+        returns => 'InlineResponse20012',
         };
 }
-# @return TagResults
+# @return InlineResponse20012
 #
 sub list_tags {
     my ($self, %args) = @_;
@@ -347,11 +336,6 @@ sub list_tags {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
-
-    # query params
     if ( exists $args{'program_id'}) {
         $query_params->{'program_id'} = $self->{api_client}->to_query_value($args{'program_id'});
     }
@@ -369,6 +353,11 @@ sub list_tags {
     # query params
     if ( exists $args{'contact_id'}) {
         $query_params->{'contact_id'} = $self->{api_client}->to_query_value($args{'contact_id'});
+    }
+
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
     }
 
     # query params
@@ -402,7 +391,7 @@ sub list_tags {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('TagResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse20012', $response);
     return $_response_object;
 }
 
@@ -410,9 +399,9 @@ sub list_tags {
 # update_tag_by_id
 #
 # Update tag by id
-# 
+#
 # @param int $id ID of Tag **(Required)** (required)
-# @param TagDataInput $data Data *(Optional)* (optional)
+# @param TagDataInput $tag_data_input Data *(Optional)* (required)
 {
     my $params = {
     'id' => {
@@ -420,19 +409,19 @@ sub list_tags {
         description => 'ID of Tag **(Required)**',
         required => '1',
     },
-    'data' => {
+    'tag_data_input' => {
         data_type => 'TagDataInput',
         description => 'Data *(Optional)*',
-        required => '0',
+        required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'update_tag_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'update_tag_by_id' } = {
         summary => 'Update tag by id',
         params => $params,
-        returns => 'Success',
+        returns => 'InlineResponse202',
         };
 }
-# @return Success
+# @return InlineResponse202
 #
 sub update_tag_by_id {
     my ($self, %args) = @_;
@@ -440,6 +429,11 @@ sub update_tag_by_id {
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_tag_by_id");
+    }
+
+    # verify the required parameter 'tag_data_input' is set
+    unless (exists $args{'tag_data_input'}) {
+      croak("Missing the required parameter 'tag_data_input' when calling update_tag_by_id");
     }
 
     # parse inputs
@@ -466,8 +460,8 @@ sub update_tag_by_id {
 
     my $_body_data;
     # body params
-    if ( exists $args{'data'}) {
-        $_body_data = $args{'data'};
+    if ( exists $args{'tag_data_input'}) {
+        $_body_data = $args{'tag_data_input'};
     }
 
     # authentication setting, if any
@@ -480,7 +474,7 @@ sub update_tag_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Success', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse202', $response);
     return $_response_object;
 }
 

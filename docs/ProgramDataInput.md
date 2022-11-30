@@ -9,10 +9,11 @@ use RadioManagerClient::Object::ProgramDataInput;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | 
 **disabled** | **boolean** |  | [optional] 
 **genre_id** | **int** |  | [optional] 
+**group_id** | **int** |  | [optional] 
 **description** | **string** |  | [optional] 
 **short_name** | **string** |  | [optional] 
 **medium_name** | **string** |  | [optional] 

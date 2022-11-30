@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
-**created_at** | **DateTime** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
 **system_name** | **string** |  | [optional] 
 **short_name** | **string** |  | [optional] 
 **medium_name** | **string** |  | [optional] 

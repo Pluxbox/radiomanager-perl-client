@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,52 +32,44 @@ isa_ok($api, 'RadioManagerClient::TagApi');
 #
 # create_tag test
 #
-{
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->create_tag(data => $data);
-}
+# uncomment below and update the test
+#my $create_tag_tag_data_input = undef; # replace NULL with a proper value
+#my $create_tag_result = $api->create_tag(tag_data_input => $create_tag_tag_data_input);
 
 #
 # delete_tag_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $result = $api->delete_tag_by_id(id => $id);
-}
+# uncomment below and update the test
+#my $delete_tag_by_id_id = undef; # replace NULL with a proper value
+#my $delete_tag_by_id_result = $api->delete_tag_by_id(id => $delete_tag_by_id_id);
 
 #
 # get_tag_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_tag_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_tag_by_id_id = undef; # replace NULL with a proper value
+#my $get_tag_by_id_result = $api->get_tag_by_id(id => $get_tag_by_id_id);
 
 #
 # list_tags test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $contact_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_tags_program_id = undef; # replace NULL with a proper value
+#my $list_tags_item_id = undef; # replace NULL with a proper value
+#my $list_tags_broadcast_id = undef; # replace NULL with a proper value
+#my $list_tags_contact_id = undef; # replace NULL with a proper value
+#my $list_tags_page = undef; # replace NULL with a proper value
+#my $list_tags_limit = undef; # replace NULL with a proper value
+#my $list_tags_order_by = undef; # replace NULL with a proper value
+#my $list_tags_order_direction = undef; # replace NULL with a proper value
+#my $list_tags__external_station_id = undef; # replace NULL with a proper value
+#my $list_tags_result = $api->list_tags(program_id => $list_tags_program_id, item_id => $list_tags_item_id, broadcast_id => $list_tags_broadcast_id, contact_id => $list_tags_contact_id, page => $list_tags_page, limit => $list_tags_limit, order_by => $list_tags_order_by, order_direction => $list_tags_order_direction, _external_station_id => $list_tags__external_station_id);
 
 #
 # update_tag_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $data = undef; # replace NULL with a proper value
-    my $result = $api->update_tag_by_id(id => $id, data => $data);
-}
+# uncomment below and update the test
+#my $update_tag_by_id_id = undef; # replace NULL with a proper value
+#my $update_tag_by_id_tag_data_input = undef; # replace NULL with a proper value
+#my $update_tag_by_id_result = $api->update_tag_by_id(id => $update_tag_by_id_id, tag_data_input => $update_tag_by_id_tag_data_input);
 
-
-1;

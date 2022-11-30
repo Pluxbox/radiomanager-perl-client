@@ -14,13 +14,13 @@ Method | HTTP request | Description
 
 
 # **get_genre_by_id**
-> GenreResult get_genre_by_id(id => $id, _external_station_id => $_external_station_id)
+> GenreResult get_genre_by_id(id => $id)
 
 Get genre by id
 
 Get genre by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::GenreApi;
@@ -32,11 +32,10 @@ my $api_instance = RadioManagerClient::GenreApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Genre **(Required)**
-my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
+my $id = 789; # int | 
 
-eval { 
-    my $result = $api_instance->get_genre_by_id(id => $id, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->get_genre_by_id(id => $id);
     print Dumper($result);
 };
 if ($@) {
@@ -48,8 +47,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Genre **(Required)** | [default to 0]
- **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -67,13 +65,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_genres**
-> GenreResults list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse2006 list_genres(page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction)
 
 List all genres.
 
 List all genres.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::GenreApi;
@@ -85,17 +83,13 @@ my $api_instance = RadioManagerClient::GenreApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
-my $parent_id = 789; # int | Search on Parent ID of Genre *(Optional)*
-my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
-my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
-my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_genres(page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction);
     print Dumper($result);
 };
 if ($@) {
@@ -107,18 +101,14 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] 
- **parent_id** | **int**| Search on Parent ID of Genre *(Optional)* | [optional] 
- **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
- **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
- **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
 
 ### Return type
 
-[**GenreResults**](GenreResults.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 

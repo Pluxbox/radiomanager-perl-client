@@ -9,9 +9,9 @@ use RadioManagerClient::Object::ItemOutputOnly;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
-**created_at** | **DateTime** |  | [optional] 
-**deleted_at** | **DateTime** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **data_modified** | **int** |  | [optional] 
 **order** | **int** |  | [optional] 
 **templateblock_id** | **int** |  | [optional] 

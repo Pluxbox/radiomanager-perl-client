@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,42 +32,36 @@ isa_ok($api, 'RadioManagerClient::BlockApi');
 #
 # get_block_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_block_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_block_by_id_id = undef; # replace NULL with a proper value
+#my $get_block_by_id__external_station_id = undef; # replace NULL with a proper value
+#my $get_block_by_id_result = $api->get_block_by_id(id => $get_block_by_id_id, _external_station_id => $get_block_by_id__external_station_id);
 
 #
 # get_current_block test
 #
-{
-    my $result = $api->get_current_block();
-}
+# uncomment below and update the test
+#my $get_current_block_result = $api->get_current_block();
 
 #
 # get_next_block test
 #
-{
-    my $result = $api->get_next_block();
-}
+# uncomment below and update the test
+#my $get_next_block_result = $api->get_next_block();
 
 #
 # list_blocks test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $item_id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $start_min = undef; # replace NULL with a proper value
-    my $start_max = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_blocks(page => $page, broadcast_id => $broadcast_id, item_id => $item_id, program_id => $program_id, start_min => $start_min, start_max => $start_max, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_blocks_broadcast_id = undef; # replace NULL with a proper value
+#my $list_blocks_item_id = undef; # replace NULL with a proper value
+#my $list_blocks_program_id = undef; # replace NULL with a proper value
+#my $list_blocks_start_min = undef; # replace NULL with a proper value
+#my $list_blocks_start_max = undef; # replace NULL with a proper value
+#my $list_blocks_page = undef; # replace NULL with a proper value
+#my $list_blocks_limit = undef; # replace NULL with a proper value
+#my $list_blocks_order_by = undef; # replace NULL with a proper value
+#my $list_blocks_order_direction = undef; # replace NULL with a proper value
+#my $list_blocks__external_station_id = undef; # replace NULL with a proper value
+#my $list_blocks_result = $api->list_blocks(broadcast_id => $list_blocks_broadcast_id, item_id => $list_blocks_item_id, program_id => $list_blocks_program_id, start_min => $list_blocks_start_min, start_max => $list_blocks_start_max, page => $list_blocks_page, limit => $list_blocks_limit, order_by => $list_blocks_order_by, order_direction => $list_blocks_order_direction, _external_station_id => $list_blocks__external_station_id);
 
-
-1;

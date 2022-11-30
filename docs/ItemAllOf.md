@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **model_type_id** | **int** |  | 
 **block_id** | **int** |  | [optional] 
 **external_id** | **string** |  | [optional] 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **title** | **string** |  | [optional] 
 **duration** | **int** |  | [optional] 
-**start** | **DateTime** |  | [optional] 
+**start** | **DATE_TIME** |  | [optional] 
 **status** | **string** |  | [optional] 
 **import** | **int** |  | [optional] 
 **campaign_id** | **int** |  | [optional] 

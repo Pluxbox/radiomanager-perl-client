@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,11 +32,8 @@ isa_ok($api, 'RadioManagerClient::StringApi');
 #
 # get_strings_by_name test
 #
-{
-    my $name = undef; # replace NULL with a proper value
-    my $full_model = undef; # replace NULL with a proper value
-    my $result = $api->get_strings_by_name(name => $name, full_model => $full_model);
-}
+# uncomment below and update the test
+#my $get_strings_by_name_name = undef; # replace NULL with a proper value
+#my $get_strings_by_name_full_model = undef; # replace NULL with a proper value
+#my $get_strings_by_name_result = $api->get_strings_by_name(name => $get_strings_by_name_name, full_model => $get_strings_by_name_full_model);
 
-
-1;

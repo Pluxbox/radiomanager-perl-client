@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -27,7 +27,8 @@ use warnings;
 
 use_ok('RadioManagerClient::Object::ContactRelationsItems');
 
-my $instance = RadioManagerClient::Object::ContactRelationsItems->new();
-
-isa_ok($instance, 'RadioManagerClient::Object::ContactRelationsItems');
+# uncomment below and update the test
+#my $instance = RadioManagerClient::Object::ContactRelationsItems->new();
+#
+#isa_ok($instance, 'RadioManagerClient::Object::ContactRelationsItems');
 

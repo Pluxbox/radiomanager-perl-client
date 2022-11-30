@@ -17,13 +17,13 @@ Method | HTTP request | Description
 
 
 # **create_tag**
-> PostSuccess create_tag(data => $data)
+> InlineResponse2002 create_tag(tag_data_input => $tag_data_input)
 
 Create tag.
 
 Create tag.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::TagApi;
@@ -35,10 +35,10 @@ my $api_instance = RadioManagerClient::TagApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $data = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data **(Required)**
+my $tag_data_input = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data **(Required)**
 
-eval { 
-    my $result = $api_instance->create_tag(data => $data);
+eval {
+    my $result = $api_instance->create_tag(tag_data_input => $tag_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -50,11 +50,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**TagDataInput**](TagDataInput.md)| Data **(Required)** | 
+ **tag_data_input** | [**TagDataInput**](TagDataInput.md)| Data **(Required)** | 
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -68,13 +68,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tag_by_id**
-> Success delete_tag_by_id(id => $id)
+> InlineResponse202 delete_tag_by_id(id => $id)
 
 Delete tag by id
 
 Delete tag by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::TagApi;
@@ -86,9 +86,9 @@ my $api_instance = RadioManagerClient::TagApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Tag **(Required)**
+my $id = 789; # int | ID of Tag **(Required)**
 
-eval { 
+eval {
     my $result = $api_instance->delete_tag_by_id(id => $id);
     print Dumper($result);
 };
@@ -101,11 +101,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Tag **(Required)** | [default to 0]
+ **id** | **int**| ID of Tag **(Required)** | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -119,13 +119,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tag_by_id**
-> TagResult get_tag_by_id(id => $id, _external_station_id => $_external_station_id)
+> TagResult get_tag_by_id(id => $id)
 
 Get tags by id
 
 Get tags by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::TagApi;
@@ -137,11 +137,10 @@ my $api_instance = RadioManagerClient::TagApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Tag **(Required)**
-my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
+my $id = 789; # int | ID of Tag **(Required)**
 
-eval { 
-    my $result = $api_instance->get_tag_by_id(id => $id, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->get_tag_by_id(id => $id);
     print Dumper($result);
 };
 if ($@) {
@@ -153,8 +152,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Tag **(Required)** | [default to 0]
- **_external_station_id** | **int**| Query on a different (content providing) station *(Optional)* | [optional] 
+ **id** | **int**| ID of Tag **(Required)** | 
 
 ### Return type
 
@@ -172,13 +170,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tags**
-> TagResults list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
+> InlineResponse20012 list_tags(program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id)
 
 Get a list of all the tags currently in your station.
 
 Get a list of all the tags currently in your station. This feature supports pagination and will give a maximum results of 50 tags back.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::TagApi;
@@ -190,18 +188,18 @@ my $api_instance = RadioManagerClient::TagApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $page = 789; # int | Current page *(Optional)*
 my $program_id = 789; # int | Search on Program ID *(Optional)* `(Relation)`
 my $item_id = 789; # int | Search on Item ID *(Optional)* `(Relation)`
 my $broadcast_id = 789; # int | Search on Broadcast ID *(Optional)* `(Relation)`
 my $contact_id = 789; # int | Search on Contact ID *(Optional)* `(Relation)`
+my $page = 1; # int | Current page *(Optional)*
 my $limit = 789; # int | Results per page *(Optional)*
 my $order_by = "order_by_example"; # string | Field to order the results *(Optional)*
 my $order_direction = "order_direction_example"; # string | Direction of ordering *(Optional)*
 my $_external_station_id = 789; # int | Query on a different (content providing) station *(Optional)*
 
-eval { 
-    my $result = $api_instance->list_tags(page => $page, program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
+eval {
+    my $result = $api_instance->list_tags(program_id => $program_id, item_id => $item_id, broadcast_id => $broadcast_id, contact_id => $contact_id, page => $page, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
     print Dumper($result);
 };
 if ($@) {
@@ -213,11 +211,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Current page *(Optional)* | [optional] 
  **program_id** | **int**| Search on Program ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **item_id** | **int**| Search on Item ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **broadcast_id** | **int**| Search on Broadcast ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
  **contact_id** | **int**| Search on Contact ID *(Optional)* &#x60;(Relation)&#x60; | [optional] 
+ **page** | **int**| Current page *(Optional)* | [optional] [default to 1]
  **limit** | **int**| Results per page *(Optional)* | [optional] 
  **order_by** | **string**| Field to order the results *(Optional)* | [optional] 
  **order_direction** | **string**| Direction of ordering *(Optional)* | [optional] 
@@ -225,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagResults**](TagResults.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -239,13 +237,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tag_by_id**
-> Success update_tag_by_id(id => $id, data => $data)
+> InlineResponse202 update_tag_by_id(id => $id, tag_data_input => $tag_data_input)
 
 Update tag by id
 
 Update tag by id
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::TagApi;
@@ -257,11 +255,11 @@ my $api_instance = RadioManagerClient::TagApi->new(
     #api_key_prefix => {'api-key' => 'Bearer'},
 );
 
-my $id = 0; # int | ID of Tag **(Required)**
-my $data = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data *(Optional)*
+my $id = 789; # int | ID of Tag **(Required)**
+my $tag_data_input = RadioManagerClient::Object::TagDataInput->new(); # TagDataInput | Data *(Optional)*
 
-eval { 
-    my $result = $api_instance->update_tag_by_id(id => $id, data => $data);
+eval {
+    my $result = $api_instance->update_tag_by_id(id => $id, tag_data_input => $tag_data_input);
     print Dumper($result);
 };
 if ($@) {
@@ -273,12 +271,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of Tag **(Required)** | [default to 0]
- **data** | [**TagDataInput**](TagDataInput.md)| Data *(Optional)* | [optional] 
+ **id** | **int**| ID of Tag **(Required)** | 
+ **tag_data_input** | [**TagDataInput**](TagDataInput.md)| Data *(Optional)* | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

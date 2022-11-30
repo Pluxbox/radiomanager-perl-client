@@ -9,7 +9,7 @@ use RadioManagerClient::Object::ContactDataInput;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **email** | **string** |  | [optional] 
 **firstname** | **string** |  | 
 **lastname** | **string** |  | 

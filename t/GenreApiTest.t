@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -32,26 +32,17 @@ isa_ok($api, 'RadioManagerClient::GenreApi');
 #
 # get_genre_by_id test
 #
-{
-    my $id = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->get_genre_by_id(id => $id, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $get_genre_by_id_id = undef; # replace NULL with a proper value
+#my $get_genre_by_id_result = $api->get_genre_by_id(id => $get_genre_by_id_id);
 
 #
 # list_genres test
 #
-{
-    my $page = undef; # replace NULL with a proper value
-    my $parent_id = undef; # replace NULL with a proper value
-    my $program_id = undef; # replace NULL with a proper value
-    my $broadcast_id = undef; # replace NULL with a proper value
-    my $limit = undef; # replace NULL with a proper value
-    my $order_by = undef; # replace NULL with a proper value
-    my $order_direction = undef; # replace NULL with a proper value
-    my $_external_station_id = undef; # replace NULL with a proper value
-    my $result = $api->list_genres(page => $page, parent_id => $parent_id, program_id => $program_id, broadcast_id => $broadcast_id, limit => $limit, order_by => $order_by, order_direction => $order_direction, _external_station_id => $_external_station_id);
-}
+# uncomment below and update the test
+#my $list_genres_page = undef; # replace NULL with a proper value
+#my $list_genres_limit = undef; # replace NULL with a proper value
+#my $list_genres_order_by = undef; # replace NULL with a proper value
+#my $list_genres_order_direction = undef; # replace NULL with a proper value
+#my $list_genres_result = $api->list_genres(page => $list_genres_page, limit => $list_genres_limit, order_by => $list_genres_order_by, order_direction => $list_genres_order_direction);
 
-
-1;

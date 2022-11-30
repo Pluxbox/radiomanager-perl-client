@@ -9,12 +9,12 @@ use RadioManagerClient::Object::ContactResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**created_at** | **DateTime** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
-**deleted_at** | **DateTime** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 **model_type_id** | **int** |  | 
-**field_values** | [**object**](.md) |  | [optional] 
+**field_values** | **object** |  | [optional] 
 **email** | **string** |  | [optional] 
 **firstname** | **string** |  | 
 **lastname** | **string** |  | 

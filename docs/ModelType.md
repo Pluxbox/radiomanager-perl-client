@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **name** | **string** |  | [optional] 
 **model** | **string** |  | [optional] 
-**created_at** | **DateTime** |  | [optional] 
-**updated_at** | **DateTime** |  | [optional] 
+**created_at** | **DATE_TIME** |  | [optional] 
+**updated_at** | **DATE_TIME** |  | [optional] 
 **options** | [**ModelTypeOptions**](ModelTypeOptions.md) |  | [optional] 
 **order** | **int** |  | [optional] 
-**deleted_at** | **DateTime** |  | [optional] 
+**deleted_at** | **DATE_TIME** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

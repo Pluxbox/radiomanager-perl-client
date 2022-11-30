@@ -2,7 +2,7 @@
 
 RadioManager
 
-RadioManager
+This OpenAPI 3 Document describes the functionality of the API v2 of RadioManager. Note that no rights can be derived from this Document and the true functionality of the API might differ.
 
 The version of the OpenAPI document: 2.0
 Contact: support@pluxbox.com
@@ -22,7 +22,7 @@ package RadioManagerClient::ModelTypeApi;
 require 5.6.0;
 use strict;
 use warnings;
-use utf8; 
+use utf8;
 use Exporter;
 use Carp qw( croak );
 use Log::Any qw($log);
@@ -52,8 +52,9 @@ sub new {
 # get_model_type_by_id
 #
 # Get modelType by id
-# 
+#
 # @param int $id ID of ModelType **(Required)** (required)
+# @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
@@ -62,13 +63,18 @@ sub new {
         description => 'ID of ModelType **(Required)**',
         required => '1',
     },
+    'order_direction' => {
+        data_type => 'string',
+        description => 'Direction of ordering *(Optional)*',
+        required => '0',
+    },
     '_external_station_id' => {
         data_type => 'int',
         description => 'Query on a different (content providing) station *(Optional)*',
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'get_model_type_by_id' } = { 
+    __PACKAGE__->method_documentation->{ 'get_model_type_by_id' } = {
         summary => 'Get modelType by id',
         params => $params,
         returns => 'ModelTypeResult',
@@ -98,6 +104,11 @@ sub get_model_type_by_id {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'order_direction'}) {
+        $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
+    }
 
     # query params
     if ( exists $args{'_external_station_id'}) {
@@ -130,8 +141,7 @@ sub get_model_type_by_id {
 # list_model_types
 #
 # Get all modelTypes.
-# 
-# @param int $page Current page *(Optional)* (optional)
+#
 # @param int $program_id Search on Program ID *(Optional)* (optional)
 # @param int $broadcast_id Search on Broadcast ID *(Optional)* (optional)
 # @param int $item_id Search on Item ID *(Optional)* (optional)
@@ -139,17 +149,10 @@ sub get_model_type_by_id {
 # @param int $presenter_id Search on Presenter ID *(Optional)* (optional)
 # @param int $contact_id Search on Contact ID *(Optional)* (optional)
 # @param string $model Search Modeltypes for certain Model *(Optional)* (optional)
-# @param int $limit Results per page *(Optional)* (optional)
-# @param string $order_by Field to order the results *(Optional)* (optional)
 # @param string $order_direction Direction of ordering *(Optional)* (optional)
 # @param int $_external_station_id Query on a different (content providing) station *(Optional)* (optional)
 {
     my $params = {
-    'page' => {
-        data_type => 'int',
-        description => 'Current page *(Optional)*',
-        required => '0',
-    },
     'program_id' => {
         data_type => 'int',
         description => 'Search on Program ID *(Optional)*',
@@ -185,16 +188,6 @@ sub get_model_type_by_id {
         description => 'Search Modeltypes for certain Model *(Optional)*',
         required => '0',
     },
-    'limit' => {
-        data_type => 'int',
-        description => 'Results per page *(Optional)*',
-        required => '0',
-    },
-    'order_by' => {
-        data_type => 'string',
-        description => 'Field to order the results *(Optional)*',
-        required => '0',
-    },
     'order_direction' => {
         data_type => 'string',
         description => 'Direction of ordering *(Optional)*',
@@ -206,13 +199,13 @@ sub get_model_type_by_id {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'list_model_types' } = { 
+    __PACKAGE__->method_documentation->{ 'list_model_types' } = {
         summary => 'Get all modelTypes.',
         params => $params,
-        returns => 'ModelTypeResults',
+        returns => 'InlineResponse2009',
         };
 }
-# @return ModelTypeResults
+# @return InlineResponse2009
 #
 sub list_model_types {
     my ($self, %args) = @_;
@@ -231,11 +224,6 @@ sub list_model_types {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
 
     # query params
     if ( exists $args{'program_id'}) {
@@ -273,16 +261,6 @@ sub list_model_types {
     }
 
     # query params
-    if ( exists $args{'limit'}) {
-        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # query params
-    if ( exists $args{'order_by'}) {
-        $query_params->{'order-by'} = $self->{api_client}->to_query_value($args{'order_by'});
-    }
-
-    # query params
     if ( exists $args{'order_direction'}) {
         $query_params->{'order-direction'} = $self->{api_client}->to_query_value($args{'order_direction'});
     }
@@ -303,7 +281,7 @@ sub list_model_types {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ModelTypeResults', $response);
+    my $_response_object = $self->{api_client}->deserialize('InlineResponse2009', $response);
     return $_response_object;
 }
 

@@ -9,9 +9,9 @@ use RadioManagerClient::Object::CampaignOutputOnly;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**updated_at** | **DateTime** |  | 
-**created_at** | **DateTime** |  | 
-**deleted_at** | **DateTime** |  | 
+**updated_at** | **DATE_TIME** |  | 
+**created_at** | **DATE_TIME** |  | 
+**deleted_at** | **DATE_TIME** |  | 
 **item** | [**CampaignTemplateItem**](CampaignTemplateItem.md) |  | [optional] 
 **_external_station_id** | **int** |  | [optional] 
 

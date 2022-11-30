@@ -9,17 +9,17 @@ All URIs are relative to *https://radiomanager.io/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_visual_slide**](VisualSlideApi.md#get_visual_slide) | **GET** /visual | Get Visual Slide Image as Base64
+[**get_visual_slide**](VisualSlideApi.md#get_visual_slide) | **GET** /visual | Get Visual Slide Image
 
 
 # **get_visual_slide**
 > VisualResult get_visual_slide()
 
-Get Visual Slide Image as Base64
+Get Visual Slide Image
 
-Get Visual Slide Image as Base64
+Get VisualRadio Image as PNG for publication Base64 encoded inside a JSON object
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use RadioManagerClient::VisualSlideApi;
@@ -32,7 +32,7 @@ my $api_instance = RadioManagerClient::VisualSlideApi->new(
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_visual_slide();
     print Dumper($result);
 };

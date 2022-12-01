@@ -84,7 +84,7 @@ String. The OAuth access token.
 
 String. The base URL of the API
 
-default: https://radiomanager.io/api/v2
+default: https://staging.radiomanager.io/api/v2
 
 =back
 
@@ -110,7 +110,7 @@ sub new {
     $p{access_token} //= '';
 
     # base_url
-    $p{base_url} //= 'https://radiomanager.io/api/v2';
+    $p{base_url} //= 'https://staging.radiomanager.io/api/v2';
 
     return bless \%p => $self;
 }
